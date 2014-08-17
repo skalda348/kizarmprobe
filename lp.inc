@@ -1,5 +1,5 @@
 CROSS_COMPILE = arm-none-eabi-
-LD_PATH   = $(ROOT_PATH)lib/lpc11u
+LD_PATH   = $(ROOT_PATH)lib
 LD_SCRIPT = -L $(LD_PATH) -T lpc11u24.ld
 CPU_TYPE  = cortex-m0
 MFLAGS    = -mthumb -mcpu=$(CPU_TYPE)
@@ -9,7 +9,7 @@ LDFLAGS += -nostartfiles -nostdlib
 #LDFLAGS+= -specs=nano.specs
 
 LDLIBS += $(LD_SCRIPT)
-LDLIBS += -L $(ROOT_PATH)lib
+#LDLIBS += -L $(ROOT_PATH)lib
 LDLIBS += -laeabi-cortexm0
 #LDLIBS += -lc -lnosys -lstdc++
 

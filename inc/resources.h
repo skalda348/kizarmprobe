@@ -15,6 +15,7 @@
   extern const uint32_t   stm32f1_flash_write_stub [];
   extern const uint32_t   stm32f1_flash_write_stub_size;
 
+  extern const char       stm32f4_xml_memory_map [];
   extern const uint32_t   stm32f4_flash_write_stub [];
   extern const uint32_t   stm32f4_flash_write_stub_size;
 

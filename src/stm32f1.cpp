@@ -53,10 +53,10 @@ STM32F1::STM32F1 (GdbServer *s, const char *name) : CortexMx (s, name),
   addCmd (cErase);
   addCmd (cOption);
 
+  pagesize = 0x400;
 }
 
 STM32F1::~STM32F1() {
-  pagesize = 0x400;
 }
 
 void STM32F1::flash_unlock (void) {

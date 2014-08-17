@@ -38,6 +38,8 @@ OBJS+= swdp.o
 OBJS+= adiv5apdp.o
 OBJS+= cortexmx.o
 OBJS+= stm32f1.o
+OBJS+= stm32f4.o
+OBJS+= lpc11xx.o
 
 OBJS+= command.o
 OBJS+= commandset.o
