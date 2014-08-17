@@ -16,8 +16,9 @@ static Swdp      l4;
 
 /// Tohle vyjmeme ze třídy - jen to by se mohlo měnit po přidání dalšího targetu.
 void GdbServer::Scan (void) {
+  if (target) { target->remove(); delete target; target = 0; }; // jedeme nanovo
+//  if (probe (new STM32F4  (this, "STM32F4X")))      return;   // nechodi
   if (probe (new STM32F1  (this, "STM32FXX")))      return;
-  if (probe (new STM32F4  (this, "STM32F4X")))      return;
   if (probe (new LPC11XX  (this, "LPC11Xxx")))      return;
   if (probe (new CortexMx (this, "ARM Cortex-Mx"))) return;
 }
@@ -25,7 +26,7 @@ void GdbServer::Scan (void) {
 //extern void cmprint (void);
 int main (void) {
   //cmprint();
-  debug ("STM size=%d\n", sizeof (STM32F1));
+  debug ("STM size=%ld\n", sizeof (STM32F1));
   
   l4 += l3 += l2 += l1;
   l1.Init();

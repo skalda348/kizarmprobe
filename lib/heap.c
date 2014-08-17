@@ -15,7 +15,7 @@
  * */
 
 
-#define HEAPLEN 0x0C00
+#define HEAPLEN 0x0800
 
 #ifdef __thumb__
   #define HEAPSECT __attribute__((section(".heap"),aligned(4)))

@@ -2,7 +2,7 @@
 #define FIFO_H
 #include "core_cm0.h"
 
-#define FIFODEPTH (1<<8)
+#define FIFODEPTH (1<<10)
 #define FIFOMASK  (FIFODEPTH-1)
 /** @file
  * @brief Fifo čili fronta.

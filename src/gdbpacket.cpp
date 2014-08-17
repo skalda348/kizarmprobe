@@ -98,7 +98,7 @@ uint32_t GdbPacket::Up (char *data, uint32_t len) {
   }
   return n;
 }
-/* ARM po 1
+/* ARM po 1  je blbost
 uint32_t GdbPacket::Down (char *data, uint32_t len) {
   if (!len) return 0;
   uint32_t n;

@@ -271,9 +271,9 @@ bool STM32F1::probe (void) {
   bool res = CortexMx::probe ();
   if (!res) return res;
   // ...
-  idcode = apdp.ap.ap_mem_read (DBGMCU_IDCODE) & 0xfff;
-  //idcode = 0x418; // debug
-  switch (idcode) {
+  idcode = apdp.ap.ap_mem_read (DBGMCU_IDCODE);
+  debug ("F1 idcode=0x%04X\n", idcode);
+  switch (idcode & 0xfff) {
     case 0x410:  /* Medium density */
     case 0x412:  /* Low denisty */
     case 0x420:  /* Value Line, Low-/Medium density */

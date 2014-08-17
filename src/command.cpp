@@ -33,11 +33,11 @@ Command* Command::getNext (void) {
 
 int Command::reply (const char* fmt, ...) {
   va_list ap;
-  char *buf;
+  char* buf;
 
   va_start (ap, fmt);
   int i = vasprintf (&buf, fmt, ap);
-  gdb->gdb_out (buf);
+  if (gdb) gdb->gdb_out (buf);
   free (buf);
   va_end (ap);
   return i;

@@ -1,3 +1,5 @@
+#include <stddef.h>
+#include <stdio.h>
 #include "lpc11xx.h"
 
 
@@ -58,7 +60,7 @@ bool LPC11XX::probe (void) {
   /* read the device ID register */
   idcode = apdp.ap.ap_mem_read (0x400483F4);
 
-  debug ("IDCODE: %08X\n", idcode);
+  debug ("LPC11XX id: 0x%08X\n", idcode);
   switch (idcode) {
 
   case 0x041E502B:
@@ -106,11 +108,13 @@ void LPC11XX::iap_call (unsigned int param_len) {
   /* set up for the call to the IAP ROM */
   regs_read (regs);
   // offsetof nefunguje, tak to zkusime jinak
+/*
   const flash_param * temp = (flash_param * ) IAP_RAM_BASE;
   regs[0] = (uint32_t) & temp->command;
   regs[2] = (uint32_t) & temp->result;
-//  regs[0] = IAP_RAM_BASE + offsetof (struct flash_param, command);
-//  regs[1] = IAP_RAM_BASE + offsetof (struct flash_param, result);
+*/
+  regs[0] = IAP_RAM_BASE + offsetof (struct flash_param, command);
+  regs[1] = IAP_RAM_BASE + offsetof (struct flash_param, result);
   // stack pointer - top of the smallest ram less 32 for IAP usage
   regs[MSP] = IAP_RAM_BASE + MIN_RAM_SIZE_FOR_LPC1xxx - RAM_USAGE_FOR_IAP_ROUTINES;
   regs[14]  = IAP_RAM_BASE | 1;
@@ -227,9 +231,11 @@ int LPC11XX::flash_write (uint32_t dest, const uint8_t* src, int len) {
     /* set the destination address and program */
     flash_pgm.p.command[0] = IAP_CMD_PROGRAM;
     flash_pgm.p.command[1] = chunk * IAP_PGM_CHUNKSIZE;
+/*
     const flash_program * temp = (flash_program * ) IAP_RAM_BASE;
     flash_pgm.p.command[2] = (uint32_t) & temp->data;
-//    flash_pgm.p.command[2] = IAP_RAM_BASE + offsetof (struct flash_program, data);
+*/
+    flash_pgm.p.command[2] = IAP_RAM_BASE + offsetof (struct flash_program, data);
     flash_pgm.p.command[3] = IAP_PGM_CHUNKSIZE;
     flash_pgm.p.command[4] = 12000; /* XXX safe to presume this? */
     iap_call (sizeof(flash_pgm));
