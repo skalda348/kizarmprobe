@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<memory-map>
+<memory type="flash" start="0x08000000" length="0x20000">
+ <property name="blocksize">0x400</property>
+</memory>
+<memory type="ram"   start="0x20000000" length="0x5000"/>
+</memory-map>
