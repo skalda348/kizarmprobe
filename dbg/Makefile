@@ -10,7 +10,7 @@ MFLAGS  = -mthumb -mcpu=cortex-m0
 LDFLAGS = $(MFLAGS)
 LDFLAGS+= -L ../lib -T lpc11u24.ld
 LDFLAGS+= -nostartfiles -nostdlib
-LDLIBS  = -laeabi-cortexm0
+LDLIBS  = -lprobe
 CFLAGS  =
 
 VPATH = . ../lpc11
