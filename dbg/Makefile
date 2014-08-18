@@ -2,54 +2,40 @@
 # User configuration and firmware specific object files	
 ##########################################################################
 ROOT_PATH = ./
-INCLUDE_PATHS  = -I. -I./inc
-LDFLAGS =
-LDLIBS  =
+INCLUDE_PATHS  = -I. -I../lpc11
+INCLUDE_PATHS += -I ../lpc11/api
+INCLUDE_PATHS += -I ../cmsis/inc
+
+MFLAGS  = -mthumb -mcpu=cortex-m0
+LDFLAGS = $(MFLAGS)
+LDFLAGS+= -L ../lib -T lpc11u24.ld
+LDFLAGS+= -nostartfiles -nostdlib
+LDLIBS  = -laeabi-cortexm0
 CFLAGS  =
 
-VPATH = .
+VPATH = . ../lpc11
 OBJS  = 
 
-include pc.inc
-#include lp.inc
-
-LDFLAGS+= $(MFLAGS)
-CFLAGS += $(MFLAGS)
+CFLAGS  = $(MFLAGS)
 CFLAGS += $(DEFINES)
 
-VPATH += ./src
-#VPATH += $(ROOT_PATH)src
-#VPATH += $(ROOT_PATH)lib/lpc11u/src
 # C files
-OBJS+= resources.o
-
-# ASiles
-OBJS+= utils.o
+OBJS+= debug.o
 
 # C++ files
-OBJS+= main.o
 OBJS+= socket.o
-OBJS+= gdbpacket.o
-OBJS+= gdbserver.o
-OBJS+= target.o
-OBJS+= monitor.o
-
 OBJS+= swdp.o
-OBJS+= adiv5apdp.o
-OBJS+= cortexmx.o
-OBJS+= stm32f1.o
-#OBJS+= stm32f4.o
-OBJS+= lpc11xx.o
-
-OBJS+= command.o
-OBJS+= commandset.o
-
-#OBJS  += gpio.o
-
+OBJS+= packet.o
+OBJS+= usbclass.o
+# C files
+OBJS  += system.o
+OBJS  += startup.o
+OBJS  += usb_desc.o
 
 ##########################################################################
 # GNU GCC compiler prefix and location
 ##########################################################################
+CROSS_COMPILE = arm-none-eabi-
 
 AS  = $(CROSS_COMPILE)as
 CC  = $(CROSS_COMPILE)gcc
@@ -75,10 +61,7 @@ OCFLAGS = --strip-unneeded
 CPFLAGS = $(CFLAGS) -g
 CPFLAGS+= -fno-rtti -fno-exceptions
 
-all: $(OUTFILE).elf ./dbg/$(OUTFILE).elf
-
-./dbg/$(OUTFILE).elf:
-	cd ./dbg && make all
+all: $(OUTFILE).elf
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ $<
@@ -86,8 +69,6 @@ all: $(OUTFILE).elf ./dbg/$(OUTFILE).elf
 %.o : %.cpp
 	$(CCP) $(CPFLAGS) -o $@ $<
 
-%.o : %.s
-	$(AS) --defsym $(ADEFINES) -o $@ $<
 
 $(OUTFILE).elf: $(OBJS)
 	$(LD) $(LDFLAGS) -o $(OUTFILE).elf $(OBJS) $(LDLIBS)
@@ -100,8 +81,6 @@ $(OUTFILE).elf: $(OBJS)
 	-@echo ""
 
 clean:
-	rm -f $(OBJS) $(LD_TEMP) $(OUTFILE).elf #$(OUTFILE).bin $(OUTFILE).hex
+	rm -f $(OBJS) $(OUTFILE).elf $(OUTFILE).bin $(OUTFILE).hex
 	rm -f $(OUTFILE).map *~ *.lst
 	$(foreach XPATH, $(VPATH), rm -f $(XPATH)/*~ )
-	rm -f  ./inc/*~
-	cd ./dbg && make clean
