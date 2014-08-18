@@ -1,6 +1,15 @@
 #ifndef FIFO_H
 #define FIFO_H
-#include "core_cm0.h"
+//#include "core_cm0.h"
+
+/// V tomto konkrétním případě není lock / unlock potřeba.
+static inline void fifo_lock (void) {
+  //asm volatile ("cpsid i");
+}
+/// V tomto konkrétním případě není lock / unlock potřeba.
+static inline void fifo_unlock (void) {
+  //asm volatile ("cpsie i");
+}
 
 #define FIFODEPTH (1<<10)
 #define FIFOMASK  (FIFODEPTH-1)
@@ -10,7 +19,7 @@
  * @class Fifo
  * @brief Fifo čili fronta.
  * 
- * Fifo použité v obsluze sériového portu zkusíme napsat jako šablonu. Fakt je, že v tomto případě kód neroste.
+ * Fifo použité v obsluze USB zkusíme napsat jako šablonu. Fakt je, že v tomto případě kód neroste.
  * Zřejmě je překladač docela inteligentní. A jde tak ukládat do fifo různá data, včetně složitých objektů.
  * Fifo je tak jednoduché, že může mít všechny metody v hlavičce, tedy default inline.
  * Je však třeba zajistit atomičnost inkrementace a dekrementace délky dat. Použita je metoda se zákazem
@@ -27,6 +36,9 @@
     800036a:       6544            str     r4, [r0, #84]   ; 0x54
     8000328:       b662            cpsie   i
   @endcode
+  
+  Zde to nakonec není potřeba - do fronty se zapisuje a čte v přerušení a jediný případ, kdy se zapisuje
+  v main() je stejně ošetřen uzamčením, aby se zapsal do fifo celý paket naráz.
 */
 //! [Fifo class example]
 template <class T> class Fifo {
@@ -55,9 +67,9 @@ template <class T> class Fifo {
       // if (index < FIFODEPTH) return; index = 0; // FIFODEPTH obecně int, nezkoušeno
     };
     /// Atomická inkrementace délky dat
-    void safeInc (void) { __disable_irq(); len++; __enable_irq(); };
+    void safeInc (void) { fifo_lock(); len++; fifo_unlock(); };
     /// Atomická dekrementace délky dat
-    void safeDec (void) { __disable_irq(); len--; __enable_irq(); };
+    void safeDec (void) { fifo_lock(); len--; fifo_unlock(); };
   private:    // privátní data
     T            buf[FIFODEPTH];  //!< buffer na data
     volatile int rdi, wri, len;   //!< pomocné proměnné
