@@ -30,7 +30,7 @@
  * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
  * No a protože SWD, tak není ani multitarget. Není potřeba.
  * 
- * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kudy kódu byly v čistém C docela dost
+ * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
  * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
  * ale když píšeme objekty v C a dělá na tom více  lidí, vznikne dost velký guláš. C++ je na tom o poznání lépe
  * a velikost kódu neroste nijak dramaticky.
@@ -39,10 +39,11 @@
  * setrvá v přerušení dokud nejsou data zpracována, což korektně pozastaví endpoint. Původní metoda zpracovávala
  * data v hlavní smyčce a případné pozastavení si uměla vynutit. To se mi na NXP nepovedlo. Takže zůstáváme
  * v přerušení, kde se generuje i odpověď na gdb paket. V main() je jediná metoda, která zjišťuje, zda
- * procesor běží. Ono to zase tak moc nevadí, jen je nutné mít dost dlouhou výstupní frontu, aby se do ní
- * vše vešlo. Samotné gdb je inteligentní - na začátku se zeptá jak dlouhé paketu umí připojený adaptér
+ * target procesor běží. Ono to zase tak moc nevadí, jen je nutné mít dost dlouhou výstupní frontu, aby se do ní
+ * vše vešlo. Samotné gdb je inteligentní - na začátku se zeptá jak dlouhé pakety umí připojený adaptér
  * zpracovat a pak používá maximálně tuto délku. Problémem jsou pakety, kterými odpovídá uživatelský
  * monitor (např. příkaz monitor help). Takže kvůli této blbosti musí být výstupní fronta dlouhá.
+ * Zde jsou samotné gdb pakety zkráceny na 256 bytů, což zdá se stačí.
  * 
  * @section sectC Paměť.
  * Takže se dostáváme k rozložení RAM. Lze to celé natěsnat do 8kB. Samotné statické třídy, ze kterých
@@ -56,22 +57,22 @@
  * velká pole dat.
  * 
  * @section sectD Struktura adresářů, firmware a ladění.
- * -# kořen, kde je i makefile obsahuje jen jednoduchý main.
+ * -# kořen, kde je i Makefile, obsahuje jen jednoduchý main.cpp a main.h.
  * -# ./src Společné třídy pro firmware i ladění.
  * -# ./inc Společné hlavičky pro firmware i ladění.
- * -# ./lpc11 obsahuje třídy a hlavičky jen pro firmware.
- * -# ./i386 obsahuje třídy a hlavičky pro ladění na PC.
- * -# ./lib obsahuje pomocné utility pro firmware, včetně ld skriptu.
+ * -# ./lpc11 Obsahuje třídy a hlavičky jen pro firmware.
+ * -# ./i386 Obsahuje třídy a hlavičky pro ladění na PC.
+ * -# ./lib Obsahuje pomocné utility pro firmware, včetně zdrojáků a ld skriptu.
  * -# ./dbg Zde je pomocný firmware pro ladění na PC.
  * -# ./cmsis je CMSIS.
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
  * Swdp - GdbServer - GdbPacket - Socket.
- * -# Swdp zajišťuje fyzický přístup na SWD piny.
+ * -# Swdp zajišťuje fyzický přístup na SWD piny. Je to jeden konec řetězu.
  * -# GdbServer je jádrem celého problému.
  * -# GdbPacket je mezivrstva obsluhující jednotlivé pakety gdb. 
- * -# Socket je poněkud nešťastně nazvaný konec řetězce, protože v PC je to opravdu síťový socket,
+ * -# Socket je poněkud nešťastně nazvaný druhý konec řetězce, protože v PC je to opravdu síťový socket,
  * ve vlastním firmware by se to mělo spíš jmenovat CDC_class, protože to opravdu dělá virtuální
  * sériový port.
  * 

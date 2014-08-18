@@ -77,8 +77,10 @@ CPFLAGS+= -fno-rtti -fno-exceptions
 
 all: $(OUTFILE).elf ./dbg/$(OUTFILE).elf
 
-./dbg/$(OUTFILE).elf:
+./dbg/$(OUTFILE).elf: ./lib/libprobe.a
 	cd ./dbg && make all
+./lib/libprobe.a:
+	cd ./lib/src && make all
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ $<
@@ -89,7 +91,7 @@ all: $(OUTFILE).elf ./dbg/$(OUTFILE).elf
 %.o : %.s
 	$(AS) --defsym $(ADEFINES) -o $@ $<
 
-$(OUTFILE).elf: $(OBJS)
+$(OUTFILE).elf: ./lib/libprobe.a $(OBJS)
 	$(LD) $(LDFLAGS) -o $(OUTFILE).elf $(OBJS) $(LDLIBS)
 	-@echo ""
 	$(SIZE) -B $(OUTFILE).elf
