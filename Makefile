@@ -75,7 +75,7 @@ OCFLAGS = --strip-unneeded
 CPFLAGS = $(CFLAGS) -g
 CPFLAGS+= -fno-rtti -fno-exceptions
 
-all: $(OUTFILE).elf ./dbg/$(OUTFILE).elf
+all: $(OUTFILE).elf #./dbg/$(OUTFILE).elf
 
 ./dbg/$(OUTFILE).elf: ./lib/libprobe.a
 	cd ./dbg && make all
