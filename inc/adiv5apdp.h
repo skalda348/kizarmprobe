@@ -88,11 +88,6 @@ class ADIv5DP {
 
     void dp_init                (void);
     /*
-    void setServer              (GdbServer * s) {
-      gdb = s;
-    }
-    */
-    /*
      * Původně tyhle reference asi sloužily pro více targetů.
      * Protože zde bude ADIv5APDP součástí targetu, je to asi zbytečné.
      * */

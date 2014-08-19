@@ -9,7 +9,9 @@
 /**
  * @mainpage Kizarm Probe.
  * Tento projekt je inspirován Blackmagic Probe pro STM32Fxx. Pro procesory NXP něco takového trochu
- * chybí, tak se to pokusíme napravit.
+ * chybí, tak se to pokusíme napravit. Měl by tak vzniknout jednoduchý a levný prostředek pro ladění
+ * pomocí SWD založený na čipu LPC11U24 pro řadu LPC11Xxx ale nejen pro ni. Další targety bude možné
+ * podle libosti přidávat, zdroj je zcela otevřen pro pokusy.
  * 
  * @section sectA Jak to vlastně funguje.
  * Hojně používaným prostředkem pro ladění jednočipů je OpenOCD. Je to proto, že podporuje velkou
@@ -61,13 +63,14 @@
  * -# ./src Společné třídy pro firmware i ladění.
  * -# ./inc Společné hlavičky pro firmware i ladění.
  * -# ./lpc11 Obsahuje třídy a hlavičky jen pro firmware.
- * -# ./i386 Obsahuje třídy a hlavičky pro ladění na PC.
+ * -# ./i386 Obsahuje třídy a hlavičky pro ladění na PC pod OS Linux.
  * -# ./lib Obsahuje pomocné utility pro firmware, včetně zdrojáků a ld skriptu.
  * -# ./dbg Zde je pomocný firmware pro ladění na PC.
  * -# ./cmsis je CMSIS.
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
+ * 
  * Swdp - GdbServer - GdbPacket - Socket.
  * -# Swdp zajišťuje fyzický přístup na SWD piny. Je to jeden konec řetězu.
  * -# GdbServer je jádrem celého problému.
@@ -86,8 +89,27 @@
  * na USB ten připravený procesor jako /dev/ttyACM0. Takže pokud máme i připojené piny (viz ./lpc11/swdp.h)
  * na laděný target, funguje to podobně jako OpenOCD. Takto lze ladit vše, co je v ./src (a ./inc).
  * Když máme odladěno, změníme zpět komentáře v Makefile a vytvoříme výsledný firmware.bin, který už
- * má v sobě gdb server.
+ * má v sobě gdb server. Z postupu je vidět, že C++ umožňuje dost dobře využívat jednou napsaný kód
+ * v různých aplikacích prakticky bez zásahu do zdrojáků. Vhodnou strukturou adresářů se lze vyhnout
+ * používání těch ifdef, které kód zbytečně znepřehledňují.
+ * 
  * Kontrolní sumy vektorů, pro LPC11... dost důležité by měly sedět, takže stačí binárky opravdu jen
  * prostě zkopírovat.
+ * 
+ * @section sectD Dosažené výsledky.
+ * Targety STM32F051 a LPC11U24, 34 jsem mohl otestovat, jiné nemám k dispozizi. Dá se říct, že chodí debug
+ * pod gdb dost dobře, lze natáhnout program do ram i flash pomocí "load", gdb si samo určí, kam ho umístí.
+ * Krokování delších smyček je problematické, gdb to provádí po jednotlivých instrukcích a po každé instrukci
+ * vymění se serverem spoustu dat, takže to trvá dlouho. Protože se to dá pomocí CTRL-C zastavit, zase
+ * tak moc to nevadí. Testy by chtěly provést opravdu důkladně, gdb je složité a popravdě všechny příkazy
+ * neznám. Běžně vystačím s "run", "continue", "step", "next", "breakpoint", příp. výpisem kusu paměti
+ * pomocí "x". Vypisovat registry periférií (na rozdíl od základních registrů procesoru) nejde, xml
+ * mapa paměti tuto část neobsahuje. Snad je to tak lépe, ono totiž i pouhé přečtení nějakého registru
+ * může změnit chování periferie.
+ * 
+ * @section sectE Zbývá dodělat.
+ * U STM32F051 jsem nezkoušel měnit option byty, snad to funguje. Target STM32F4xx zatím nefunguje,
+ * mám možnost ho otestovat a snad to někdy dotáhnu do konce, i když zas tak moc mě to netrápí.
+ * Asi by bylo dobře dodělat i target řady LPC8xx, ale zatím to nepotřebuji.
  * 
   */
