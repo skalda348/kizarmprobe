@@ -2,6 +2,10 @@
 #define ADIV5DP_H
 #include <stdint.h>
 
+/**
+ * @file
+ * @brief Třídy pro přístup na SWD AP a DP.
+ * */
 /* ADIv5 DP Register addresses */
 #define ADIV5_DP_IDCODE   0x0
 #define ADIV5_DP_ABORT    0x0
@@ -81,11 +85,18 @@
 class ADIv5AP;
 class GdbServer;
 
+/**
+ * @brief Data Point
+ * Tohle je celé poněkud divně strukturované. Moc nechápu, jak by to mělo být správně,
+ * celkově to dělá dojem zbytečné složitosti. Možná je to pozůstatek z JTAG přístupu.
+ * Prostě pokud to šlo, převzal jsem to z Black Magic a nesnažil se být chytřejší.
+ **/
 class ADIv5DP {
 
   public:
+    /// Konstruktor
     ADIv5DP ();
-
+    /// Základní inicializace
     void dp_init                (void);
     /*
      * Původně tyhle reference asi sloužily pro více targetů.
@@ -94,61 +105,92 @@ class ADIv5DP {
     //void adiv5_dp_ref           (void);
     //void adiv5_dp_unref         (void);
     
+    /**
+     * @brief Zápis do Data Pointu
+     *
+     * @param addr adresa
+     * @param value hodnota
+     **/
     void        dp_write        (uint8_t addr, uint32_t value);
+    /// Stejně tak čtení
     uint32_t    dp_read         (uint8_t addr);
+    /// Zjištění chybového stavu
     uint32_t    error           (void);
+    /**
+     * @brief Obal na nízkoúrovňový přístup pro Swdp
+     *
+     * @param APnDP Access nebo Data Point
+     * @param RnW Read nebo Write
+     * @param addr adresa
+     * @param value hodnota
+     * @return uint32_t načtená hodnota, poku RnW je Read
+     **/
     uint32_t    low_access      (uint8_t APnDP, uint8_t RnW,
                                  uint8_t addr, uint32_t value);
+    /// Čerti vědí
     void        dp_write_ap     (uint8_t addr, uint32_t value);
+    /// Čerti vědí
     uint32_t    dp_read_ap      (uint8_t addr);
     
-  private:
+  private:      // data necháme veřejná, není to čisté, ale jednodušší.
   public:
+    /// GdbServer potřebujeme pro přístup k některým funkcím
     GdbServer * gdb;
+    /// Zároveň je potřeba i Access Point
     ADIv5AP   * ap;
     //int         refcnt;
+    /// Core ID
     uint32_t    idcode;
+    /// Zřejmě k ničemu
     uint32_t    allow_timeout;
-    // Asi by slo i uint32_t fault, puvodne takto, mozna kvuli typove kontrole.
+    /// Asi by slo i uint32_t fault, puvodne takto, mozna kvuli typove kontrole.
     union {
       void  *   unused;
       uint8_t   fault;
     };
     
 };
+/// @brief Access Point
 class ADIv5AP {
   public:
+    /// Konstruktor
     ADIv5AP ();
-
+    /// čtení AP paměti
     uint32_t    ap_mem_read             (uint32_t addr);
+    /// zápis AP paměti
     void        ap_mem_write            (uint32_t addr, uint32_t value);
+    /// čtení AP paměti (16 bit)
     uint16_t    ap_mem_read_halfword    (uint32_t addr);
+    /// zápis AP paměti (16 bit)
     void        ap_mem_write_halfword   (uint32_t addr, uint16_t value);
-
+    /// Zápis AP
     void        ap_write        (uint8_t  addr, uint32_t value);
+    /// Čtení AP
     uint32_t    ap_read         (uint8_t  addr);
 
-  private:
+  private:      // data necháme veřejná, není to čisté, ale jednodušší.
   public:
-
+    /// Zase je zde potřeba přístup na DP
     ADIv5DP *dp;
-    uint32_t apsel;
+    uint32_t apsel;     //!< ??? 
 
-    uint32_t idr;
-    uint32_t cfg;
-    uint32_t base;
-    uint32_t csw;
+    uint32_t idr;       //!< ???
+    uint32_t cfg;       //!< ???
+    uint32_t base;      //!< ???
+    uint32_t csw;       //!< ???
 };
 /**
+ * @brief APDP zapouzdření
  * Asi to mělo být trochu jinak, ale takhle jednoduše to bude také dobře.
  * Tato struktura bude součástí targetu.
  * */
 class ADIv5APDP {
   public:
+    /// Konstruktor
     ADIv5APDP ();
 
-    ADIv5AP ap;
-    ADIv5DP dp;
+    ADIv5AP ap;      //!< Access point
+    ADIv5DP dp;      //!< Data Point
 };
 
 #endif // ADIV5APDP_H

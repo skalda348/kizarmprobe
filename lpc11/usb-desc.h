@@ -29,7 +29,7 @@ struct UsbConfig {
   uint8_t ep2[USB_ENDPOINT_DESC_SIZE];
   /// Endpoint 3
   uint8_t ep3[USB_ENDPOINT_DESC_SIZE];
-  
+  /// Ukončení
   uint8_t term;
 };
 /// Deskriptory USB systému

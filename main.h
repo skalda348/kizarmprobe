@@ -84,7 +84,7 @@
  * 
  * Takže pokud chceme ladit firmware na PC, což je daleko příjemnější, spustíme Makefile v ./dbg a vytvořený
  * firmware.bin nalejeme do LPC11U24 (nebo 34 podle libosti - konečný cíl by měl mít 32kB flash a 8kB ram).
- * V kořenovém Makefile odkomentujeme include pc.inc, zakomentujeme #include lp.inc a spustíme.
+ * V kořenovém Makefile odkomentujeme include pc.inc, zakomentujeme include lp.inc a spustíme.
  * Výsledný firmware.elf jde pod Linuxem spustit jako gdb server na portu 3333. Tedy pokud máme připojen
  * na USB ten připravený procesor jako /dev/ttyACM0. Takže pokud máme i připojené piny (viz ./lpc11/swdp.h)
  * na laděný target, funguje to podobně jako OpenOCD. Takto lze ladit vše, co je v ./src (a ./inc).
