@@ -16,11 +16,11 @@ static Swdp      l4;
 
 /// Tohle vyjmeme ze třídy - jen to by se mohlo měnit po přidání dalšího targetu.
 void GdbServer::Scan (void) {
-  if (target) { target->remove(); delete target; target = 0; }; // jedeme nanovo
-//  if (probe (new STM32F4  (this, "STM32F4X")))      return;   // nechodi
+  OldTargetDestroy();                                         // jedeme nanovo
   if (probe (new STM32F1  (this, "STM32FXX")))      return;
+  if (probe (new STM32F4  (this, "STM32F4X")))      return;
   if (probe (new LPC11XX  (this, "LPC11Xxx")))      return;
-  if (probe (new CortexMx (this, "ARM Cortex-Mx"))) return;
+  if (probe (new CortexMx (this, "ARM Cortex-Mx"))) return;   // to je asi blbost
 }
 
 //extern void cmprint (void);

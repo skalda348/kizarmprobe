@@ -178,9 +178,6 @@ int STM32F4::flash_write (uint32_t dest, const uint8_t* src, int len) {
 
 bool STM32F4::cmd_erase_mass (void) {
 
-  const char spinner[] = "|/-\\";
-  int        spinindex = 0;
-
   cErase.reply ("Erasing flash... This may take a few seconds.  ");
   flash_unlock ();
 
@@ -190,13 +187,12 @@ bool STM32F4::cmd_erase_mass (void) {
 
   /* Read FLASH_SR to poll for BSY bit */
   while (apdp.ap.ap_mem_read (FLASH_SR) & FLASH_SR_BSY) {
-    cErase.reply ("\b%c", spinner[spinindex++ % 4]);
     if (check_error ()) {
-      cErase.reply ("\n");
+      cErase.reply ("Error\n");
       return false;
     }
   }
-  cErase.reply ("\n");
+  cErase.reply ("End\n");
 
   /* Check for error */
   uint16_t sr = apdp.ap.ap_mem_read (FLASH_SR);

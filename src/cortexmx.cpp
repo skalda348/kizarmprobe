@@ -182,7 +182,7 @@ bool CortexMx::probe (void) {
   cpacr |= 0x00F00000; /* CP10 = 0b11, CP11 = 0b11 */
   apdp.ap.ap_mem_write (CORTEXM_CPACR, cpacr);
   if (apdp.ap.ap_mem_read (CORTEXM_CPACR) == cpacr) {
-    debug ("CM V7MF\n");
+    debug ("!!! CM V7MF\n");
     target_options |= TOPT_FLAVOUR_V7MF;
     regs_size += sizeof (regnum_cortex_mf);
     tdesc = tdesc_cortex_mf;
@@ -552,11 +552,14 @@ int CortexMx::regs_read (void *data) {
     apdp.dp.low_access (1, 0, ADIV5_AP_DB (1), regnum_cortex_m[i]);
     *regs++ = apdp.dp.dp_read_ap (ADIV5_AP_DB (2));
   }
-  if (target_options & TOPT_FLAVOUR_V7MF)
+  if (target_options & TOPT_FLAVOUR_V7MF) {
+    debug ("REGS MF READ\n");
     for (i = 0; i < sizeof (regnum_cortex_mf) / 4; i++) {
       apdp.dp.low_access (1, 0, ADIV5_AP_DB (1), regnum_cortex_mf[i]);
       *regs++ = apdp.dp.dp_read_ap (ADIV5_AP_DB (2));
     }
+    debug ("REGS MF READ END\n");
+  }
 
   return 0;
 }

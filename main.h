@@ -103,13 +103,18 @@
  * vymění se serverem spoustu dat, takže to trvá dlouho. Protože se to dá pomocí CTRL-C zastavit, zase
  * tak moc to nevadí. Testy by chtěly provést opravdu důkladně, gdb je složité a popravdě všechny příkazy
  * neznám. Běžně vystačím s "run", "continue", "step", "next", "breakpoint", příp. výpisem kusu paměti
- * pomocí "x". Vypisovat registry periférií (na rozdíl od základních registrů procesoru) nejde, xml
+ * pomocí "x", "print". Vypisovat registry periférií (na rozdíl od základních registrů procesoru) nejde, xml
  * mapa paměti tuto část neobsahuje. Snad je to tak lépe, ono totiž i pouhé přečtení nějakého registru
  * může změnit chování periferie.
  * 
+ * Celé to gdb používám pouze v příkazovém řádku. Těch pár potřebných příkazů se dá snadno naučit a pak
+ * je alespoň vidět, co se tam děje, případně kde to zamrzlo. Integrovat to celé do IDE je sice pěkné,
+ * ale musíme počítat s tím, že je to rozsáhlý software a mohou v něm být chyby. V IDE pak zjistíme
+ * jen to, že to nefunguje. A pak zbývá jen nadávat autorům.
+ * 
  * @section sectE Zbývá dodělat.
- * U STM32F051 jsem nezkoušel měnit option byty, snad to funguje. Target STM32F4xx zatím nefunguje,
- * mám možnost ho otestovat a snad to někdy dotáhnu do konce, i když zas tak moc mě to netrápí.
+ * U STM32F051 jsem nezkoušel měnit option byty, snad to funguje. Target STM32F407 funguje také,
+ * ale také není úplně otestován (option, flash).
  * Asi by bylo dobře dodělat i target řady LPC8xx, ale zatím to nepotřebuji.
  * 
   */

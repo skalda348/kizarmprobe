@@ -60,6 +60,8 @@ class GdbServer : public BaseLayer {
     bool target_check    (void);
     /// Probe for @param n new target. If failed, n is delete, else n used as target.
     bool probe           (Target* n);
+    /// pomocná funkce
+    void OldTargetDestroy(void);
   public:
     /// Target je zapouzdřen sem. Vytváří se dynamicky v metodě Scan().
     Target  * target;

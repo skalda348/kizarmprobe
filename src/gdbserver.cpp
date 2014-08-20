@@ -21,6 +21,13 @@ void GdbServer::Fini (void) {
   if (target) delete target;
   lock.Fini ();
 }
+void GdbServer::OldTargetDestroy (void) {
+  if (!target) return;
+  if ( target->attached) target->detach();
+  target->remove();
+  delete target;
+  target = 0;
+}
 /*
 GdbServer::~GdbServer() {
   if (target) delete target;
@@ -95,9 +102,20 @@ continue_activity:
     case 'g': { /* 'g': Read general registers */
       if (!target_check ()) break;
       int rsize = target->get_regs_size();
+      debug ("RSIZE = %d\n", rsize);
       uint8_t arm_regs [rsize];
       target->regs_read (arm_regs);
-      gdb_putpacket ((char*) hexify (pbuf, (const unsigned char*) arm_regs, rsize), rsize * 2);
+      const int  chunk = 120;
+      int block, start = 0;
+      for (;;) {
+        if (rsize > chunk) block = chunk; 
+        else               block = rsize;
+        char* tptr =  (char*) hexify (pbuf, (const unsigned char*) arm_regs + start, block);
+        gdb_putpacket (tptr , block * 2);
+        start += block;
+        rsize -= block;
+        if (!rsize) break;
+      }
       break;
     }
     case 'm': { /* 'm addr,len': Read len bytes from addr */
