@@ -7,7 +7,7 @@ extern "C" void *memcpy (void *dest, const void *src, size_t n);
 #define debug(...)
 
 Swdp::Swdp () : BaseLayer(),
-  swdio (GpioPortA, SWDIO_BIT, GPIO_Mode_IN), swclk (GpioPortA, SWCLK_BIT) {
+  swdio (GpioPortA, SWDIO_BIT), swclk (GpioPortA, SWCLK_BIT) {
   olddir = false;
 }
 void Swdp::Fini (void) {
@@ -97,8 +97,8 @@ uint32_t Swdp::seq_in (int ticks) {
 
 bool Swdp::seq_in_parity (uint32_t* ret, int ticks) {
 
-  uint32_t index = 1;
-  bool    parity = false;
+  uint32_t index  = 1;
+  uint32_t parity = 0;
   
   *ret = 0;
 
@@ -113,7 +113,7 @@ bool Swdp::seq_in_parity (uint32_t* ret, int ticks) {
   }
   if (bit_in()) parity ^= 1;
 
-  return parity;
+  return (bool) parity;
 }
 
 void Swdp::seq_out (uint32_t MS, int ticks) {
@@ -128,7 +128,7 @@ void Swdp::seq_out (uint32_t MS, int ticks) {
 
 void Swdp::seq_out_parity (uint32_t MS, int ticks) {
 
-  bool parity = false;
+  uint32_t parity = 0;
 
   turnaround (false);
 
