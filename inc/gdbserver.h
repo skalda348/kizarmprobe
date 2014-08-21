@@ -4,6 +4,7 @@
 #include "baselayer.h"
 #include "monitor.h"
 #include "locker.h"
+#include "gpio.h"
 /**
  * @file
  * @brief Vlastní obsluha gdb paketů.
@@ -73,7 +74,8 @@ class GdbServer : public BaseLayer {
     bool single_step;           //!< po instrukcích
     volatile bool active;       //!< target běží
     char last_activity;         //!< a jeho poslední aktivita
-    Locker  lock;               //!< zamykání při Polling()
+    Locker    lock;             //!< zamykání při Polling()
+    GpioClass led;              //!< indikace stavu.
 };
 
 #endif // GDBSERVER_H

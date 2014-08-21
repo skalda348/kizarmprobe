@@ -10,7 +10,8 @@
 #include "monitor.h"
 #include "stm32f1.h"
 
-GdbServer::GdbServer() : BaseLayer(), mon ("Basic"), lock() {
+GdbServer::GdbServer() : BaseLayer(), mon ("Basic"), lock(),
+  led (GpioPortA, 17) {
   single_step   = false;
   last_activity = 0;
   target        = 0;
@@ -43,7 +44,7 @@ bool GdbServer::probe (Target *n) {
   delete n;
   return false;
 }
-/*
+/* Presunuto do main.cpp - muze se menit.
 void GdbServer::Scan (void) {
   if (probe (new STM32F1  (this, "STM32FXX")))      return;
   if (probe (new CortexMx (this, "ARM Cortex-Mx"))) return;
@@ -61,6 +62,7 @@ void GdbServer::Polling (void) {
   if (!active) return;
   lock.lock ();
   signal = target->halt_wait ();
+  led.change ();
 #ifdef DEBUG
   static int count = 0;
   debug ("%d Wait for signal=%d\r", count++, signal);
@@ -75,6 +77,7 @@ void GdbServer::Polling (void) {
       lock.unlock();
       return;
     }
+    led.set ();
     /* Report reason for halt */
     if (target->check_hw_wp (&watch_addr)) {
       /* Watchpoint hit */
@@ -105,6 +108,9 @@ continue_activity:
       debug ("RSIZE = %d\n", rsize);
       uint8_t arm_regs [rsize];
       target->regs_read (arm_regs);
+      /* Výstup po blocích délky max. 240 bytů byl vynucen větší déklou dat registrů
+       * CortexM4F. Zdá se, že to funguje.
+       */
       const int  chunk = 120;
       int block, start = 0;
       for (;;) {

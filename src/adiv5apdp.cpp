@@ -30,8 +30,16 @@ void ADIv5DP::dp_init (void) {
             (ADIV5_DP_CTRLSTAT_CSYSPWRUPACK | ADIV5_DP_CTRLSTAT_CDBGPWRUPACK)) !=
           (ADIV5_DP_CTRLSTAT_CSYSPWRUPACK | ADIV5_DP_CTRLSTAT_CDBGPWRUPACK));
 
-  // TODO: zatim nevim, ale z nasledujiciho muze zbyt asi toto:
-  // Ta puvodni smycka byla asi pro vice jader na cipu, IDR se objevuje jen jednou.
+#if 0  
+  // Ta původní smyčka byla asi pro vice jader na cipu, IDR se objevuje jen jednou.
+  /* Probe for APs on this DP */
+  for (int i = 0; i < 256; i++) {
+    /* Tady se původně načítalo IDR a pokud bylo nenulové,
+     * vytvářel se asi nový target.
+     */
+  }
+#endif
+  // Z předchozího if 0 můze zbýt asi toto (na jednojádrech chodí):
   ap->idr = ap->ap_read (ADIV5_AP_IDR);
   if (!ap->idr) return;
   debug ("   IDR = %08X\n", ap->idr);
@@ -41,59 +49,6 @@ void ADIv5DP::dp_init (void) {
   ap->csw  = ap->ap_read (ADIV5_AP_CSW) &
             ~ (ADIV5_AP_CSW_SIZE_MASK | ADIV5_AP_CSW_ADDRINC_MASK);
   debug ("ap->cfg=%08X, ap->base=%08X, ap->csw=%08X\n", ap->cfg, ap->base, ap->csw);
-#if 0  
-  /* Probe for APs on this DP */
-  for (int i = 0; i < 256; i++) {
-    ADIv5AP *tap, tmpap;
-    //Target *t;
-
-    /* Assume valid and try to read IDR */
-    memset (&tmpap, 0, sizeof (tmpap));
-    tmpap.dp    = this;
-    tmpap.apsel = i;
-    tmpap.idr   = tmpap.ap_read (ADIV5_AP_IDR);
-    
-    debug ("   IDR = %08X\n", tmpap.idr);
-    if (!tmpap.idr) /* IDR Invalid - Should we not continue here? */
-      break;
-
-    ap->idr = tmpap.idr;
-    /* It's valid to so create a heap copy */
-    tap = new ADIv5AP();
-    memcpy (tap, &tmpap, sizeof (*tap));
-    //adiv5_dp_ref (dp);
-
-    tap->cfg  = tap->ap_read (ADIV5_AP_CFG);
-    tap->base = tap->ap_read (ADIV5_AP_BASE);
-    tap->csw  = tap->ap_read (ADIV5_AP_CSW) &
-              ~ (ADIV5_AP_CSW_SIZE_MASK | ADIV5_AP_CSW_ADDRINC_MASK);
-    debug ("tap->cfg=%08X, tap->base=%08X, tap->csw=%08X\n", tap->cfg, tap->base, tap->csw);
-    ap->cfg  = tap->cfg;
-    ap->base = tap->base;
-    ap->csw  = tap->csw;
-    delete tap;
-    /* Should probe further here to make sure it's a valid target.
-     * AP should be unref'd if not valid.
-     */
-
-    /* Prepend to target list... */
-    //t = new  Target();
-    //adiv5_ap_ref (ap);
-    //t->priv = ap;
-    //t->priv_free = (void ( *) (void *)) adiv5_ap_unref;
-
-    //t->driver = adiv5_driver_str;
-    //t->check_error = ap_check_error;
-
-    //t->mem_read_words = ap_mem_read_words;
-    //t->mem_write_words = ap_mem_write_words;
-    //t->mem_read_bytes = ap_mem_read_bytes;
-    //t->mem_write_bytes = ap_mem_write_bytes;
-
-    /* The rest sould only be added after checking ROM table */
-    //cortexm_probe (t);
-  }
-#endif
 }
 #define SWDP_ACK_OK    0x01
 #define SWDP_ACK_WAIT  0x02

@@ -98,34 +98,7 @@ uint32_t GdbPacket::Up (char *data, uint32_t len) {
   }
   return n;
 }
-/* ARM po 1  je blbost
-uint32_t GdbPacket::Down (char *data, uint32_t len) {
-  if (!len) return 0;
-  uint32_t n;
-  unsigned char tchar;
-  unsigned char ket = '}';
-  tsum = 0;
-  tchar = '$';
-  BaseLayer::Down ((char*)&tchar, 1);
-  for (n=0; n<len; n++) {
-    tchar = data [n];
-    if((tchar == '$') || (tchar == '#') || (tchar == ket)) {
-      BaseLayer::Down ((char*)&ket,   1);
-      tsum  += ket;
-      tchar ^= 0x20;
-    }
-    BaseLayer::Down ((char*)&tchar, 1);
-    tsum  += tchar;
-  }
-  tchar = '#';
-  BaseLayer::Down ((char*)&tchar, 1);
-  tchar = toHex (tsum >>   4);
-  BaseLayer::Down ((char*)&tchar, 1);
-  tchar = toHex (tsum & 0x0F);
-  BaseLayer::Down ((char*)&tchar, 1);
-  return n;
-}
-*/
+
 uint32_t GdbPacket::Down (char *data, uint32_t len) {
   // if (!len) return 0; // musi ven i prazdny paket !!!
   uint32_t n, i=0;
@@ -152,6 +125,5 @@ uint32_t GdbPacket::Down (char *data, uint32_t len) {
   tchar = toHex (tsum & 0x0F);
   tbuf [i++] = tchar;
   // Wait for ack ??? Zatim zahazuji.
-  // if (i > maxsize) maxsize = i;
   return BaseLayer::Down (tbuf, i);
 }
