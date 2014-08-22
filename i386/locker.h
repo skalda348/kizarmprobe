@@ -17,6 +17,11 @@ class Locker {
     void        unlock  (void) {
       pthread_mutex_unlock (& mutex);
     }
+    void       Reset    (void) {
+    };
+    bool       NotDone  (void) {
+      return false;
+    };
   private:
     pthread_mutex_t mutex;
 };

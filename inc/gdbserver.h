@@ -63,6 +63,8 @@ class GdbServer : public BaseLayer {
     bool probe           (Target* n);
     /// pomocná funkce
     void OldTargetDestroy(void);
+    /// pomocná funkce
+    void SetActive       (void);
   public:
     /// Target je zapouzdřen sem. Vytváří se dynamicky v metodě Scan().
     Target  * target;

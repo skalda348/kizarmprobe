@@ -14,12 +14,13 @@
  * v kódu ifdef. Je to sice dvojí práce, ale přehlednější.
  * Stačí, aby veřejné metody byly stejné.
  **/
-
+static const unsigned LockerChunk = 0x80;
+static const unsigned LockerLimit = 0x8000;
 class Locker {
 
   public:
     /// Konstruktor
-    Locker () {};
+    Locker () { cnt = 0; max = LockerChunk; };
     /// Místo destruktoru
     void        Fini    (void) {};
     /// Uzamčení
@@ -30,7 +31,21 @@ class Locker {
     void        unlock  (void) {
       asm volatile ("cpsie i");
     };
+    void       Reset    (void) {
+      max = LockerChunk;
+    };
+    /// prodlouzeni smycky
+    bool       NotDone  (void) {
+      if (cnt++ < max)       return true;
+      cnt  = 0;
+      // Saturate max
+      if (max > LockerLimit) return false;
+      max += LockerChunk;
+      return false;
+    };
   private:      // ve fw nic
+    unsigned cnt;
+    unsigned max;
 };
 
 #endif // LOCKER_H

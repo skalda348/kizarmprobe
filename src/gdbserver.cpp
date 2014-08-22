@@ -30,6 +30,10 @@ void GdbServer::OldTargetDestroy (void) {
   delete target;
   target = 0;
 }
+void GdbServer::SetActive (void) {
+  active = true;
+  lock.Reset ();
+}
 /*
 GdbServer::~GdbServer() {
   if (target) delete target;
@@ -60,7 +64,8 @@ bool GdbServer::target_check (void) {
 }
 
 void GdbServer::Polling (void) {
-  if (!active) return;
+  if (!active)        return;
+  if (lock.NotDone()) return;
   lock.lock ();
   signal = target->halt_wait ();
   led.change ();
@@ -198,7 +203,7 @@ continue_activity:
       last_activity = pbuf[0];
       /* Wait for target halt */
       debug("? WAIT HALT\n");
-      active = true;            // timto se prepne do mainloop, kde ceka na zastaveni
+      SetActive ();            // timto se prepne do mainloop, kde ceka na zastaveni
       break;
     }
     case 'F': { /* Semihosting call finished */
@@ -256,7 +261,7 @@ continue_activity:
     case 'R': /* Restart the target program */
       if (target && target->attach()) {
         target->reset ();
-        active = true;
+        SetActive ();
       }
       break;
 
@@ -396,7 +401,7 @@ void GdbServer::handle_v_packet (char *packet, int plen) {
     /* Run target program. For us (embedded) this means reset. */
     if (target && target->attach()) {
         target->reset ();
-        active = true;
+        SetActive ();
         gdb_putpacketz ("T05");
       }
       else
