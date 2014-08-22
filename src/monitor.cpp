@@ -5,12 +5,12 @@
 #include "target.h"
 #include "gdbserver.h"
 
-Monitor::Monitor (const char* name) : CommandSet (name),
+Monitor::Monitor (const char *name) : CommandSet (name),
   cHelp ("help", "Display help for monitor commands"),
   cScan ("scan", "Scan SW-DP for devices") {
   gdb  = 0;
   base = 0;
-  
+
   addCmd (cHelp);
   addCmd (cScan);
   addSet (this);
@@ -22,7 +22,7 @@ void Monitor::setServer (GdbServer *g) {
 }
 
 void Monitor::addSet (CommandSet *s) {
-  CommandSet * cs, * ls;
+  CommandSet *cs, * ls;
   if (!base) base = s;
   else {
     for (ls = cs = base; cs; cs = cs->getNext()) ls = cs;
@@ -30,41 +30,47 @@ void Monitor::addSet (CommandSet *s) {
   }
 }
 
-
 int Monitor::command (char *line) {
   debug ("%s: %s\n", __func__, line);
 
-  int l, argc = 0;
-  char * s;
+  int l, argc = 1;      // min. 1 argument
+  char *s;
   // Initial estimate for argc
   for (s = line; *s; s++)
     if ( (*s == ' ') || (*s == '\t')) argc++;
 
   l = sizeof (const char *) * argc;
   const char *argv [l];
+  //debug ("Pocet argumentu: %d, delka pole: %d\n", argc, l);
+
 
   // Tokenize line to find argv
   for (argc = 0,   argv[  argc] = strtok (line, " \t");
        argv[argc]; argv[++argc] = strtok (NULL, " \t"));
   /*
-  debug ("argv len=%d bytes\n", l);
+  debug ("Passed argc = %d\n", argc);
   for (l=0; l<argc; l++) debug ("argv[%2d]=\"%s\"\n", l, argv[l]);
   */
   if (base) {
-    CommandSet * cst;
+    CommandSet *cst;
     for (cst = base; cst; cst = cst->getNext())
       if (cst->Handler (argc, argv)) break;
-      
+
   }
   return 0;
 }
 /////////////////////////////////////////////////////////////////////////////////
-int Monitor::Handler (int argc, const char* argv[]) {
+int Monitor::Handler (int argc, const char *argv[]) {
   int res = CommandSet::Handler (argc, argv);
   switch (res) {
-    case 1:  print ();      break;
-    case 2:  gdb->Scan  (); break;
-    default: break;
+    case 1:
+      print ();
+      break;
+    case 2:
+      gdb->Scan ();
+      break;
+    default:
+      break;
   }
   return res;
 }

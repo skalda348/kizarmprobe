@@ -807,16 +807,20 @@ bool CortexMx::vector_catch (int argc, const char *argv[]) {
                                  };
   uint32_t tmp = 0;
   unsigned i, j;
-
+  
   if ( (argc < 3) || ( (argv[1][0] != 'e') && (argv[1][0] != 'd'))) {
     cCatch.reply ("usage: monitor vector_catch (enable|disable) "
                   "(hard|int|bus|stat|chk|nocp|mm|reset)\n");
   } else {
-    for (j = 0; j < (unsigned) argc; j++)
+    for (j = 2; j < (unsigned) argc; j++) {
       for (i = 0; i < sizeof (vectors) / sizeof (char *); i++) {
-        if (vectors[i] && !strcmp (vectors[i], argv[j]))
+        if (vectors[i] && !strcmp (vectors[i], argv[j])) {
           tmp |= 1 << i;
+          debug ("Setting vect to catch %d: [%s]\n", i, vectors[i]);
+        }
       }
+      debug ("Catch: %08X\n", tmp);
+    }
 
     if (argv[1][0] == 'e')
       priv.demcr |= tmp;

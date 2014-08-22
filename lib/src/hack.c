@@ -60,13 +60,15 @@ void *memset (void *s, int c, size_t n) {
   for (i=0; i<n; i++) p[i] = c;
   return s;
 }
+
 char *strtok (char *s, const char *delim) {
+  static   char *lasts[1];
   register char *spanp;
   register int c, sc;
   char *tok;
 
-  //printf ("strtok\n");
-  if (s == NULL)
+
+  if (s == NULL && (s = *lasts) == NULL)
     return (NULL);
 
   /*
@@ -76,11 +78,18 @@ cont:
   c = *s++;
   for (spanp = (char *) delim; (sc = *spanp++) != 0;) {
     if (c == sc) {
-      goto cont;
+      if (/*skip_leading_delim*/ 1) {
+        goto cont;
+      } else {
+        *lasts = s;
+        s[-1] = 0;
+        return (s - 1);
+      }
     }
   }
 
   if (c == 0) {           /* no non-delimiter characters */
+    *lasts = NULL;
     return (NULL);
   }
   tok = s - 1;
@@ -98,10 +107,12 @@ cont:
           s = NULL;
         else
           s[-1] = 0;
+        *lasts = s;
         return (tok);
       }
     } while (sc != 0);
   }
+  /* NOTREACHED */
 }
 
 /* *************************************************************/

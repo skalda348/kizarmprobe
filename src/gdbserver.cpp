@@ -17,6 +17,7 @@ GdbServer::GdbServer() : BaseLayer(), mon ("Basic"), lock(),
   target        = 0;
   active        = false;
   mon.setServer (this);
+  led.set       ();
 }
 void GdbServer::Fini (void) {
   if (target) delete target;
