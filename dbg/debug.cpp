@@ -1,4 +1,4 @@
-#include "socket.h"
+#include "cdclass.h"
 #include "packet.h"
 #include "swdp.h"
 
@@ -8,9 +8,9 @@
  * přidáme mezivrstvu Packet a máme hotovo. Princip je popsán v main.h
  */
 
-static Socket l1;
-static Packet l2;
-static Swdp   l3;
+static CDClass l1 (& iAssoc0);
+static Packet  l2;
+static Swdp    l3;
 
 int main (void) {
   l3 += l2 += l1;

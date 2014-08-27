@@ -5,7 +5,7 @@
  *  vrstva (l1, l4). GdbPacket a GdbServer zůstávají, GdbServer je nejsložitější,
  *  zapouzdřuje v sobě jednotlivé targety. 
  */
-static Socket    l1;
+static CDClass   l1 (& iAssoc0);
 static GdbPacket l2;
 static GdbServer l3;
 /** Tenhle poslední díl skládačky může být realizován také jako BaseLayer.
@@ -23,10 +23,7 @@ void GdbServer::Scan (void) {
   if (probe (new CortexMx (this, "ARM Cortex-Mx"))) return;   // to je asi blbost
 }
 
-//extern void cmprint (void);
 int main (void) {
-  //cmprint();
-  debug ("STM size=%ld\n", sizeof (STM32F1));
   
   l4 += l3 += l2 += l1;
   l1.Init();
@@ -36,7 +33,6 @@ int main (void) {
     if (!l1.Fini()) break;
   }
   // pro ARM celkem zbytecne
-  l1.Fini ();
   l3.Fini ();
   l4.Fini ();
   return 0;

@@ -28,7 +28,7 @@ OBJS+= utils.o
 
 # C++ files
 OBJS+= main.o
-OBJS+= socket.o
+OBJS+= cdclass.o
 OBJS+= gdbpacket.o
 OBJS+= gdbserver.o
 OBJS+= target.o

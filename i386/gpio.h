@@ -6,15 +6,6 @@ typedef enum {
   GPIO_Mode_OUT  = 0x01, /*!< GPIO Output Mode             */
 } GPIODir_TypeDef;
 
-/// Enum pro PortNumber
-typedef enum {
-  GpioPortA = 0,
-  GpioPortB,
-  GpioPortC,
-  GpioPortD,
-  GpioPortF
-} GpioPortNum;
-
 /**
   * @class GpioClass
   * @brief Obecný GPIO pin.
@@ -30,8 +21,8 @@ class GpioClass {
     @param no   číslo pinu na portu
     @param type IN, OUT, AF, AN default OUT 
     */
-    GpioClass (GpioPortNum const port, const uint32_t no, const GPIODir_TypeDef type = GPIO_Mode_OUT) :
-      io(port), pos(1UL << no) {
+    GpioClass (const uint32_t no, const GPIODir_TypeDef type = GPIO_Mode_OUT) :
+      pos(1UL << no) {
       setDir  (type);
     };
     /// Nastav pin @param b na tuto hodnotu
@@ -53,8 +44,6 @@ class GpioClass {
     void setDir (GPIODir_TypeDef p) {
     }
   private:
-    /// Port.
-    GpioPortNum const    io;
     /// A pozice pinu na něm
     const uint32_t       pos;
   

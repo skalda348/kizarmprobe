@@ -1,12 +1,13 @@
 #include "usb-desc.h"
 #include "usbclass.h"
 
-extern "C" void memset (void* dst, int v, int len);
-       USBD_API_T* pUsbApi = 0;
+extern "C" void *memset(void *s, int c, unsigned n);
+
+         USBD_API_T* pUsbApi = 0;
 // static elements
 UsbMem        UsbClass::mem;
 USBD_HANDLE_T UsbClass::hUsb = 0;
-       
+
 extern "C" void USB_IRQHandler (void);
 
 void USB_IRQHandler (void) {
@@ -47,9 +48,9 @@ UsbClass::UsbClass () {
   memset (&usb_param, 0, sizeof (USBD_API_INIT_PARAM_T));
   usb_param.usb_reg_base = LPC_USB_BASE;
   // musi byt zarovnano na 2048 bytu
-  usb_param.mem_base = mem.base();
-  usb_param.mem_size = mem.size();
-  usb_param.max_num_ep = 3;
+  usb_param.mem_base = mem.membase;
+  usb_param.mem_size = mem.memsize;
+  usb_param.max_num_ep = 3;             /// TODO: zmenit po pridani if na 6
 
 
   /* Initialize Descriptor pointers */
@@ -62,9 +63,13 @@ UsbClass::UsbClass () {
   /* USB Initialization */
   ret = pUsbApi->hw->Init (&hUsb, &desc, &usb_param);
   if (ret != LPC_OK) return;
-  // resize USB ROM memory
-  mem.resize(usb_param.mem_size);
+  // resize memory (static member)
+  mem.membase = usb_param.mem_base;
+  mem.memsize = usb_param.mem_size;
+  
+  //asm volatile ("bkpt 0"); // debug - skoncilo OK ?
 }
+// Volat jen u jednoho elementu, dediciho usbclass (slo by osetrit, ale nema to smysl)
 void UsbClass::connect (void) {
   /* enable IRQ */
   NVIC_EnableIRQ (USB_IRQn); //  enable USB0 interrrupts

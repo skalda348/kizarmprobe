@@ -46,6 +46,22 @@ extern const struct UsbDescriptors CdcUsbDescriptors;
 /// Jsou definovány v usb-desc.c
 extern const struct UsbConfig      CdcConfig;
 
+
+/** ************************************************************************/
+struct CDCIndividual {
+  const uint32_t depth;
+  const uint32_t ep;
+  const uint8_t* if0;
+  const uint8_t* if1;
+
+  ErrorCode_t (*SetLineCode)      (USBD_HANDLE_T hCDC, CDC_LINE_CODING* line_coding);
+  ErrorCode_t (*SetCtrlLineState) (USBD_HANDLE_T hCDC, uint16_t state);
+  
+};
+
+extern const struct CDCIndividual iAssoc0;
+extern const struct CDCIndividual iAssoc1;
+
 #ifdef __cplusplus
 }
 #endif //__cplusplus

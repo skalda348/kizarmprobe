@@ -7,11 +7,18 @@
 
 #define SOCKBUFLEN 64
 
-class Socket : public BaseLayer {
+struct CDCIndividual {
+  const uint32_t port;  
+};
+
+extern const struct CDCIndividual iAssoc0;
+
+
+class CDClass : public BaseLayer {
 
   public:
-    Socket();
-    // ~Socket();
+    CDClass (const CDCIndividual * ip);
+    // ~CDClass();
     void  Init     (void);
     bool  Fini     (void);
     void* Receiver (void);

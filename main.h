@@ -1,5 +1,5 @@
 #include "swdp.h"
-#include "socket.h"
+#include "cdclass.h"
 #include "gdbpacket.h"
 #include "gdbserver.h"
 #include "stm32f1.h"
@@ -30,7 +30,7 @@
  * se dají ladit po SWD, takže potřebujeme jen 2 dráty a zem. To je sice trochu omezující (chtělo by to
  * ještě reset), ale dá se s tím žít. Větší škoda bylo vyhodit virtuální sériový port, ten je pro ladění
  * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
- * No a protože SWD, tak není ani multitarget. Není potřeba.
+ * No a protože SWD, tak není ani multitarget. Není potřeba. Dále není potřeba DFU.
  * 
  * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
  * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
@@ -51,10 +51,11 @@
  * Takže se dostáváme k rozložení RAM. Lze to celé natěsnat do 8kB. Samotné statické třídy, ze kterých
  * je to postaveno moc místa nezabírají. Ta výstupní fronta má 1kB, což je pro gdb pakety dostatečná
  * rezerva a když přeteče zase tak moc se neděje - hláška se nevypíše celá, server však běží dál.
- * Dále je v .bss heap o velikosti 2kB, kde je celý target a některá data různých těch sprintf, u kterých
- * je těžké předem určit délku. Od 4kB je oblast USB driverů o níž toho víme dost málo, ale nebude
- * zabírat víc jak 2kB - to je délka USB oblasti některých procesorů. Předpokládá se, že tato oblast
- * k dispozizi není - pokud by byla, je možné přesunout drivery tam (./lpc11/usbclass.h, metoda init()).
+ * Dále je v .bss heap o velikosti 3kB, kde je celý target a některá data různých těch sprintf, u kterých
+ * je těžké předem určit délku. A i ta výstupní fronta. Od 4kB je oblast USB driverů o níž toho víme
+ * dost málo, ale nebude zabírat víc jak 2kB - to je délka USB oblasti některých procesorů. Předpokládá se,
+ * že tato oblast k dispozizi není - pokud by byla, je možné přesunout drivery tam
+ * (./lpc11/usbclass.h, metoda init()).
  * Poslední 2kB zabírá stack, měl by být dost velký, protože některé metody mají na stacku dost
  * velká pole dat.
  * 
@@ -75,9 +76,8 @@
  * -# Swdp zajišťuje fyzický přístup na SWD piny. Je to jeden konec řetězu.
  * -# GdbServer je jádrem celého problému.
  * -# GdbPacket je mezivrstva obsluhující jednotlivé pakety gdb. 
- * -# Socket je poněkud nešťastně nazvaný druhý konec řetězce, protože v PC je to opravdu síťový socket,
- * ve vlastním firmware by se to mělo spíš jmenovat CDC_class, protože to opravdu dělá virtuální
- * sériový port.
+ * -# CDClass je druhý konec řetězce (v PC je to síťový socket),
+ * ve vlastním firmware je to opravdu virtuální sériový port.
  * 
  * Jádrem je jak bylo uvedeno GdbServer, bude proto popsán samostatně. Obsahuje především vlastní
  * Target, který je zde vytvářen dynamicky metodou Scan() - gdb příkaz "monitor scan".

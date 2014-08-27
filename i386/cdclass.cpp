@@ -4,19 +4,23 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "socket.h"
+#include "cdclass.h"
+// v software nepouzito
+const struct CDCIndividual iAssoc0 = {
+  3333
+};
 
-Socket::Socket() : BaseLayer() {
+CDClass::CDClass (const CDCIndividual * ip) : BaseLayer() {
   conFd  = 0;
   sockFd = 0;
   loop   = false;
 }
 /*
-Socket::~Socket() {
+CDClass::~CDClass() {
 
 }
 */
-void* Socket::Receiver (void) {
+void* CDClass::Receiver (void) {
   int  n;
   socklen_t clilen;
   
@@ -41,11 +45,11 @@ void* Socket::Receiver (void) {
 }
 
 static void* ReceiveHandler (void* t) {
-  Socket * tsock = (Socket*) t;
+  CDClass * tsock = (CDClass*) t;
   return tsock->Receiver();
 }
 
-void Socket::Init (void) {
+void CDClass::Init (void) {
   struct sockaddr_in servaddr;
 
   sockFd = socket (AF_INET, SOCK_STREAM, 0);
@@ -63,7 +67,7 @@ void Socket::Init (void) {
   pthread_create  (&rec, NULL, ReceiveHandler, this);
   debug ("Thread\n");
 }
-bool Socket::Fini (void) {
+bool CDClass::Fini (void) {
   usleep (100000);
   if (loop) return loop;
   pthread_cancel (rec);
@@ -71,7 +75,7 @@ bool Socket::Fini (void) {
   return false;
 }
 
-uint32_t Socket::Down (char *data, uint32_t len) {
+uint32_t CDClass::Down (char *data, uint32_t len) {
   if (!conFd) return 0;
   data[len] = 0;
   debug ("%s::%d:%s\n", __func__, len, data);

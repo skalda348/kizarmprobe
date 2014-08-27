@@ -23,7 +23,7 @@ CFLAGS += $(DEFINES)
 OBJS+= debug.o
 
 # C++ files
-OBJS+= socket.o
+OBJS+= cdclass.o
 OBJS+= swdp.o
 OBJS+= packet.o
 OBJS+= usbclass.o

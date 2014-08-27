@@ -1,6 +1,6 @@
 #include "packet.h"
 
-Packet::Packet() : BaseLayer(), rx() {
+Packet::Packet() : BaseLayer(), rx(64) {
   index = 0;
 }
 
