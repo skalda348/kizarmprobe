@@ -1,3 +1,5 @@
+VCOM = SERIAL
+
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
 LD_SCRIPT = -L $(LD_PATH) -T lpc11u24.ld
@@ -21,4 +23,12 @@ OBJS += usbclass.o
 # C files
 OBJS  += system.o
 OBJS  += startup.o
+
+#conditional - dual USB interface
+ifdef VCOM
+DEFINES=-D$(VCOM)=1
+OBJS  += comp_desc.o
+OBJS  += usart1.o
+else
 OBJS  += usb_desc.o
+endif

@@ -1,5 +1,9 @@
-#include "usb-desc.h"
 #include "usbclass.h"
+#ifdef SERIAL
+  #include "comp_desc.h"
+#else
+  #include "usb-desc.h"
+#endif
 
 extern "C" void *memset(void *s, int c, unsigned n);
 
@@ -50,8 +54,12 @@ UsbClass::UsbClass () {
   // musi byt zarovnano na 2048 bytu
   usb_param.mem_base = mem.membase;
   usb_param.mem_size = mem.memsize;
-  usb_param.max_num_ep = 3;             /// TODO: zmenit po pridani if na 6
 
+#ifdef SERIAL
+  usb_param.max_num_ep = 6;             /// dual interface
+#else
+  usb_param.max_num_ep = 3;             /// puvodne
+#endif
 
   /* Initialize Descriptor pointers */
   memset (&desc, 0, sizeof (USB_CORE_DESCS_T));

@@ -5,7 +5,7 @@
  *  vrstva (l1, l4). GdbPacket a GdbServer zůstávají, GdbServer je nejsložitější,
  *  zapouzdřuje v sobě jednotlivé targety. 
  */
-static CDClass   l1 (& iAssoc0);
+static CDClass   l1  (& iAssoc0);
 static GdbPacket l2;
 static GdbServer l3;
 /** Tenhle poslední díl skládačky může být realizován také jako BaseLayer.
@@ -14,6 +14,11 @@ static GdbServer l3;
  */
 static Swdp      l4;
 
+#ifdef SERIAL
+static Mirror    top;
+static CDClass   vcom (& iAssoc1);
+static Usart1    serial (9600);
+#endif
 /// Tohle vyjmeme ze třídy - jen to by se mohlo měnit po přidání dalšího targetu.
 void GdbServer::Scan (void) {
   OldTargetDestroy();                                         // jedeme nanovo
@@ -27,6 +32,11 @@ int main (void) {
   
   l4 += l3 += l2 += l1;
   l1.Init();
+
+#ifdef SERIAL
+  top += vcom;
+  top += serial;
+#endif
 
   for (;;) {
     l3.Polling ();

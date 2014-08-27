@@ -1,7 +1,12 @@
 #ifndef CDCLASS_H
 #define CDCLASS_H
 
-#include "usb-desc.h"
+#ifdef SERIAL
+  #include "comp_desc.h"
+#else
+  #include "usb-desc.h"
+#endif
+
 #include "usbclass.h"
 #include "baselayer.h"
 #include "fifo.h"

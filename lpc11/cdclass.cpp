@@ -1,5 +1,4 @@
 #include "cdclass.h"
-#include "usb-desc.h"
 
 extern "C" {
   extern void memset (void* dst, int v, int len);

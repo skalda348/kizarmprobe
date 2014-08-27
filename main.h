@@ -6,6 +6,10 @@
 #include "stm32f4.h"
 #include "lpc11xx.h"
 
+#ifdef SERIAL
+#include "usart1.h"
+#include "mirror.h"
+#endif
 /**
  * @mainpage Kizarm Probe.
  * Tento projekt je inspirován Blackmagic Probe pro STM32Fxx. Pro procesory NXP něco takového trochu
@@ -31,6 +35,13 @@
  * ještě reset), ale dá se s tím žít. Větší škoda bylo vyhodit virtuální sériový port, ten je pro ladění
  * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
  * No a protože SWD, tak není ani multitarget. Není potřeba. Dále není potřeba DFU.
+ * 
+ * Nakonec jsem tam ten sériový port přidal jako druhé rozhraní kompozitního zařízení USB. Pro jistotu
+ * lze tuto vlastnost vypnout (zakomentujeme 1. řádek lp.inc), protože ten virtuální sériový port se
+ * chová dost podivně. Nelze přepnout parametry linky (např. baudrate) za chodu. To sice není moc potřeba,
+ * ale chodit by to mělo. Takže tady je slabina. Ostatně původní black magic má ten sériový port také
+ * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
+ * zařízení.
  * 
  * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
  * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
