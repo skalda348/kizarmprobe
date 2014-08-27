@@ -448,4 +448,7 @@ void SystemInit (void) {
   most of the I/O related peripherals won't work. */
   LPC_SYSCON->SYSAHBCLKCTRL |= (1<<16);
 
+  LPC_IOCON->TDI_PIO0_11 |= 1;
+  LPC_IOCON->TMS_PIO0_12 |= 1;
+
 }

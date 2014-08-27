@@ -11,7 +11,7 @@
 #include "stm32f1.h"
 
 GdbServer::GdbServer() : BaseLayer(), mon ("Basic"), lock(),
-  led (GpioPortA, 17) {
+  led (17) {
   single_step   = false;
   last_activity = 0;
   target        = 0;

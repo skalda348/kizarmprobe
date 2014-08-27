@@ -7,7 +7,7 @@ extern "C" void *memcpy (void *dest, const void *src, size_t n);
 #define debug(...)
 
 Swdp::Swdp () : BaseLayer(),
-  swdio (GpioPortA, SWDIO_BIT), swclk (GpioPortA, SWCLK_BIT) {
+  swdio (SWDIO_BIT), swclk (SWCLK_BIT) {
   olddir = false;
 }
 void Swdp::Fini (void) {
