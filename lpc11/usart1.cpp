@@ -123,7 +123,11 @@ ErrorCode_t Usart1::setLine (USBD_HANDLE_T hCDC, CDC_LINE_CODING* line_coding) {
   Init (baud, lcr);
   return LPC_OK;
 }
+#ifdef SERIAL
 // Set callback address to struct CDCIndividual iAssoc1
 extern "C" ErrorCode_t iA1LineCode  (USBD_HANDLE_T hCDC,
            CDC_LINE_CODING* line_coding)__attribute__((alias("_ZN6Usart17setLineEPvP16_CDC_LINE_CODING")));
-
+#else
+extern "C" ErrorCode_t iA0LineCode  (USBD_HANDLE_T hCDC,
+           CDC_LINE_CODING* line_coding)__attribute__((alias("_ZN6Usart17setLineEPvP16_CDC_LINE_CODING")));
+#endif

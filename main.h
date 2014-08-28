@@ -36,18 +36,6 @@
  * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
  * No a protože SWD, tak není ani multitarget. Není potřeba. Dále není potřeba DFU.
  * 
- * Nakonec jsem tam ten sériový port přidal jako druhé rozhraní kompozitního zařízení USB. Pro jistotu
- * lze tuto vlastnost vypnout (zakomentujeme 1. řádek lp.inc), protože ten virtuální sériový port se
- * chová dost podivně. Nelze přepnout parametry linky (např. baudrate) za chodu. To sice není moc potřeba,
- * ale chodit by to mělo. Takže tady je slabina. Ostatně původní black magic má ten sériový port také
- * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
- * zařízení.
- * 
- * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
- * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
- * ale když píšeme objekty v C a dělá na tom více  lidí, vznikne dost velký guláš. C++ je na tom o poznání lépe
- * a velikost kódu neroste nijak dramaticky.
- * 
  * Dále bylo potřeba trochu pozměnit přístup k handshakingu na USB. NXP driver to dělá tak, že při příjmu
  * setrvá v přerušení dokud nejsou data zpracována, což korektně pozastaví endpoint. Původní metoda zpracovávala
  * data v hlavní smyčce a případné pozastavení si uměla vynutit. To se mi na NXP nepovedlo. Takže zůstáváme
@@ -78,6 +66,7 @@
  * -# ./i386 Obsahuje třídy a hlavičky pro ladění na PC pod OS Linux.
  * -# ./lib Obsahuje pomocné utility pro firmware, včetně zdrojáků a ld skriptu.
  * -# ./dbg Zde je pomocný firmware pro ladění na PC.
+ * -# ./com Zde je samostatný převodník USB <-> USART
  * -# ./cmsis je CMSIS.
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
@@ -127,5 +116,22 @@
  * U STM32F051 jsem nezkoušel měnit option byty, snad to funguje. Target STM32F407 funguje také,
  * ale také není úplně otestován (option, flash).
  * Asi by bylo dobře dodělat i target řady LPC8xx, ale zatím to nepotřebuji.
+ * 
+ * Ten sériový port jsem pokusně přidal jako druhé rozhraní kompozitního zařízení USB. Je to default
+ * vypnuto  (1. řádek lp.inc), protože ten virtuální sériový port se zatím
+ * chová dost podivně. Nelze přepnout parametry linky (např. baudrate). To sice není moc potřeba,
+ * ale chodit by to mělo. Takže tady je slabina. Ostatně původní black magic má ten sériový port také
+ * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
+ * zařízení. Další dost velký problém je, že ROM drivery patrně nepočítají s tím, že by od jedné
+ * třídy USB zařízení někdo vytvářel více instancí. Takže zprávy po endpointu 0 asi chodí zmateně.
+ * Zřejmě by bylo lépe ROM drivery nepoužívat, použít open-source stack, který existuje, ale zkoumat
+ * ho je práce na dlouhé zimní večery. Takže to prozatím odložím, virtuální sériový port pokud je
+ * potřeba lze udělat jako samostatný firmware - viz. adresář ./com. Stejně bych neuměl přiohnout
+ * příslušný inf soubor pro Windows. Takhle lze použít původní NXP.
+ * 
+ * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
+ * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
+ * ale když píšeme objekty v C a dělá na tom více  lidí, vznikne dost velký guláš. C++ je na tom o poznání lépe
+ * a velikost kódu neroste nijak dramaticky.
  * 
   */

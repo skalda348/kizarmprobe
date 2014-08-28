@@ -1,4 +1,6 @@
-VCOM = SERIAL
+# VCOM = SERIAL
+# VCOM je zatím velmí problematický virtuální sériový port.
+# Takže odstanit komentář z 1.řádku lze jen na experimenty.
 
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
