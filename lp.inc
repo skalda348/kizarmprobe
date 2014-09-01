@@ -1,7 +1,8 @@
-# VCOM = SERIAL
+VCOM = SERIAL
 # VCOM je zatím velmí problematický virtuální sériový port.
 # Takže odstanit komentář z 1.řádku lze jen na experimenty.
-API = rom
+#API = rom
+API = usb
 
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
@@ -28,6 +29,12 @@ OBJS += usbclass.o
 # C files
 OBJS  += system.o
 OBJS  += startup.o
+
+ifeq ($(API),usb)
+OBJS  += usbcore.o
+OBJS  += usbuser.o
+OBJS  += usbhw.o
+endif
 
 #conditional - dual USB interface
 ifdef VCOM
