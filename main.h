@@ -34,7 +34,13 @@
  * se dají ladit po SWD, takže potřebujeme jen 2 dráty a zem. To je sice trochu omezující (chtělo by to
  * ještě reset), ale dá se s tím žít. Větší škoda bylo vyhodit virtuální sériový port, ten je pro ladění
  * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
- * No a protože SWD, tak není ani multitarget. Není potřeba. Dále není potřeba DFU.
+ * No a protože SWD, tak není ani multitarget. Není potřeba. Není potřeba ani DFU, NXP to řeší pomocí MSC (disk),
+ * což je sice efektnější, ale má svá úskalí (zde snad vyřešena).
+ * 
+ * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
+ * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
+ * ale když píšeme objekty v C a dělá na tom více  lidí, vznikne dost velký guláš. C++ je na tom o poznání lépe
+ * a velikost kódu neroste nijak dramaticky.
  * 
  * Dále bylo potřeba trochu pozměnit přístup k handshakingu na USB. NXP driver to dělá tak, že při příjmu
  * setrvá v přerušení dokud nejsou data zpracována, což korektně pozastaví endpoint. Původní metoda zpracovávala
@@ -72,7 +78,7 @@
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
  * 
- * Swdp - GdbServer - GdbPacket - Socket.
+ * Swdp - GdbServer - GdbPacket - CDClass.
  * -# Swdp zajišťuje fyzický přístup na SWD piny. Je to jeden konec řetězu.
  * -# GdbServer je jádrem celého problému.
  * -# GdbPacket je mezivrstva obsluhující jednotlivé pakety gdb. 
@@ -128,10 +134,5 @@
  * ho je práce na dlouhé zimní večery. Takže to prozatím odložím, virtuální sériový port pokud je
  * potřeba lze udělat jako samostatný firmware - viz. adresář ./com. Stejně bych neuměl přiohnout
  * příslušný inf soubor pro Windows. Takhle lze použít původní NXP.
- * 
- * Nakonec to celé dopadlo tak, že jsem to přepsal do C++. Některé kusy kódu byly v čistém C docela dost
- * zamotané a tak jsem je ani já úplně nepochopil. Ona je to docela jednoduchá skládačka z objektů,
- * ale když píšeme objekty v C a dělá na tom více  lidí, vznikne dost velký guláš. C++ je na tom o poznání lépe
- * a velikost kódu neroste nijak dramaticky.
  * 
   */

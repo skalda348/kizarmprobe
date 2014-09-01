@@ -1,6 +1,7 @@
 # VCOM = SERIAL
 # VCOM je zatím velmí problematický virtuální sériový port.
 # Takže odstanit komentář z 1.řádku lze jen na experimenty.
+API = rom
 
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
@@ -15,9 +16,11 @@ LDLIBS += $(LD_SCRIPT)
 LDLIBS += -lprobe
 
 VPATH += ./lpc11
+VPATH += ./lpc11/$(API)
 VPATH += ./lib
 INCLUDE_PATHS += -I ./lpc11
-INCLUDE_PATHS += -I ./lpc11/api
+INCLUDE_PATHS += -I ./lpc11/$(API)
+INCLUDE_PATHS += -I ./lpc11/$(API)/api
 INCLUDE_PATHS += -I ./cmsis/inc
 
 # C++ files
