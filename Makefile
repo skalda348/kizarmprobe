@@ -10,8 +10,8 @@ CFLAGS  =
 VPATH = .
 OBJS  = 
 
-#include pc.inc
-include lp.inc
+include pc.inc
+#include lp.inc
 
 LDFLAGS+= $(MFLAGS)
 CFLAGS += $(MFLAGS)

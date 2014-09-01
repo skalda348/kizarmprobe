@@ -3,7 +3,8 @@
 ##########################################################################
 ROOT_PATH = ./
 INCLUDE_PATHS  = -I. -I../dbg -I../lpc11
-INCLUDE_PATHS += -I ../lpc11/api
+INCLUDE_PATHS += -I ../lpc11/rom
+INCLUDE_PATHS += -I ../lpc11/rom/api
 INCLUDE_PATHS += -I ../cmsis/inc
 
 MFLAGS  = -mthumb -mcpu=cortex-m0
@@ -13,7 +14,7 @@ LDFLAGS+= -nostartfiles -nostdlib
 LDLIBS  = -lprobe
 CFLAGS  =
 
-VPATH = . ../lpc11
+VPATH = . ../lpc11 ../lpc11/rom
 OBJS  = 
 
 CFLAGS  = $(MFLAGS)

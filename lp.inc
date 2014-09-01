@@ -1,8 +1,8 @@
-VCOM = SERIAL
+# VCOM = SERIAL
 # VCOM je zatím velmí problematický virtuální sériový port.
 # Takže odstanit komentář z 1.řádku lze jen na experimenty.
-#API = rom
-API = usb
+API = rom
+#API = usb
 
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
