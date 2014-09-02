@@ -36,8 +36,12 @@ typedef struct _EP_LIST {
  * oblasti dat, asi lépe trochu zarovnat. Linker to však nevidí, žere to vlastně
  * kus stacku. A nevíme kolik.
  * */
-//#define USB_EPLIST_ADDR		0x20004000	/* 2KB USB RAM */
-#define USB_EPLIST_ADDR         0x10001100      /* 2KB USB RAM */
+#if 0
+  #define USB_EPLIST_ADDR		0x20004000	/* 2KB USB RAM */
+#else
+  #define USB_EPLIST_ADDR         0x10001100          /* 2KB NORMAL RAM */
+#endif
+
 #define USB_EPDATA_ADDR		(USB_EPLIST_ADDR + 0x100)
 #define USB_EPDATA_PAGE		(USB_EPDATA_ADDR&0xFFC00000)	/* Bit 22~31 is the page */
 #define USB_RAM_LIMIT		0x800		/* maximum USB RAM size is 2K */

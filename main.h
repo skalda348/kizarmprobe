@@ -17,11 +17,34 @@
  * pomocí SWD založený na čipu LPC11U24 pro řadu LPC11Xxx ale nejen pro ni. Další targety bude možné
  * podle libosti přidávat, zdroj je zcela otevřen pro pokusy.
  * 
+ * @author
+ * -# Copyright (C) 2009 Keil - An ARM Company.
+ *    \n USB stack pro NXP procesory
+ * -# Copyright (C) 2011  Black Sphere Technologies Ltd.
+ *    \n Gareth McMullin <gareth@blacksphere.co.nz>, gdb server a ARM utility.
+ * -# Copyright (C) 2014 Miroslav Mráz <mrazik@volny.cz>
+ *    \n Postaveno do tříd C++, upraveno pro GNU toolchain a slepeno dohromady.
+ * 
+ * @section sectLic Licence.
+ * <a href="http://www.gnugpl.cz/">Obecná veřejná licence GNU (GNU GPL), 3. verze</a> \n
+ * Tento program je svobodný software: můžete jej šířit a upravovat podle ustanovení Obecné veřejné licence GNU
+ * (GNU General Public Licence), vydávané Free Software Foundation a to podle 3. verze této Licence.
+ * 
+ * <b>Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉKOLIV ZÁRUKY.
+ * Neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL.
+ * Další podrobnosti hledejte v Obecné veřejné licenci GNU.</b>
+ * 
+ * @section sectHw Hardware.
+ * Bylo již publikováno <a href="http://mcu.cz/comment.php?comment.news.3515">zde</a>.
+ * Pinout je trochu podivný (viz. ./lpc11/swdp.h), takže SWCLK je zde AD0 a SWDIO je AD1.
+ * Sériový port, pokud je použit používá normálně piny RXD a TXD.
+ * 
  * @section sectA Jak to vlastně funguje.
  * Hojně používaným prostředkem pro ladění jednočipů je OpenOCD. Je to proto, že podporuje velkou
  * spoustu debug adaptérů (jako je např. ST-Link) a umožňuje ladit širokou škálu cílových, target procesorů.
  * Je to však poněkud nešikovné - musíme to pustit jako server a k němu se z jedné strany připojí laděný
- * procesor a z druhé gdb. Blackmagic to řeší úsporněji - ten server běží přímo v hardware debug adaptéru.
+ * procesor a z druhé gdb. <a href="http://www.blacksphere.co.nz/main/blackmagic">Blackmagic</a>
+ * to řeší úsporněji - ten server běží přímo v hardware debug adaptéru.
  * Což poněkud omezuje šířku záběru, běží to s velmi omezenými prostředky, takže nelze chtít zázraky.
  * Nicméně je to velmi povedený kousek firmware. Je sice zaměřen především na procesory STM32, na němž je
  * postaven, ladit se však dají i jiné. Předmětem mého zájmu bylo, zda by nešlo tento firmware trochu
@@ -33,7 +56,7 @@
  * především na ladění Cortex-M0 (a možná i vyšších, ale stále ARM), takže jsem vyhodil JTAG. Cortexy
  * se dají ladit po SWD, takže potřebujeme jen 2 dráty a zem. To je sice trochu omezující (chtělo by to
  * ještě reset), ale dá se s tím žít. Větší škoda bylo vyhodit virtuální sériový port, ten je pro ladění
- * o něco potřebnější. Ale ten by se asi dal do tohoto projektu přidat. Nejsou lidi.
+ * o něco potřebnější. Ten sice jde do projektu přidat, ale je s tím víc problémů než užitku.
  * No a protože SWD, tak není ani multitarget. Není potřeba. Není potřeba ani DFU, NXP to řeší pomocí MSC (disk),
  * což je sice efektnější, ale má svá úskalí (zde snad vyřešena).
  * 
@@ -65,15 +88,25 @@
  * velká pole dat.
  * 
  * @section sectD Struktura adresářů, firmware a ladění.
- * -# kořen, kde je i Makefile, obsahuje jen jednoduchý main.cpp a main.h.
+ * -# kořen, kde je i Makefile, obsahuje jen komentář v main.h.
  * -# ./src Společné třídy pro firmware i ladění.
  * -# ./inc Společné hlavičky pro firmware i ladění.
  * -# ./lpc11 Obsahuje třídy a hlavičky jen pro firmware.
+ *      -# rom Soubory pro použití ROM driverů USB.
+ *      -# usb Soubory pro vlastní driver USB. NXP má na webu zdrojáky, ale je to psáno pro Keil
+ *              překladač a bylo nutno to trochu upravit. Podle toho, jak to bylo původně napsáno
+ *              bych tomu moc nevěřil. Nicméně to celkem chodí.
  * -# ./i386 Obsahuje třídy a hlavičky pro ladění na PC pod OS Linux.
  * -# ./lib Obsahuje pomocné utility pro firmware, včetně zdrojáků a ld skriptu.
  * -# ./dbg Zde je pomocný firmware pro ladění na PC.
  * -# ./com Zde je samostatný převodník USB <-> USART
  * -# ./cmsis je CMSIS.
+ * -# ./product obsahuje 2 binární soubory pro LPC11U24,34 nejméně 32KB flash / 8KB ram.
+ *      -# serial.bin - kompletní probe se sériovým portem, používá ty Keil drivery. Je vcelku
+ *         použitelné (tedy pod Linuxem), ale sériový port má své mouchy. Prostě je to moc věcí
+ *         najednou.
+ *      -# probe.bin používá ROM drivery, nemá sériový port a tedy je to spolehlivější.
+ *         Pro většinu věcí úplně postačí.
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
@@ -129,10 +162,31 @@
  * ale chodit by to mělo. Takže tady je slabina. Ostatně původní black magic má ten sériový port také
  * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
  * zařízení. Další dost velký problém je, že ROM drivery patrně nepočítají s tím, že by od jedné
- * třídy USB zařízení někdo vytvářel více instancí. Takže zprávy po endpointu 0 asi chodí zmateně.
+ * třídy USB zařízení někdo vytvářel více instancí. Takže zprávy po endpointu 0 chodí zmateně.
  * Zřejmě by bylo lépe ROM drivery nepoužívat, použít open-source stack, který existuje, ale zkoumat
  * ho je práce na dlouhé zimní večery. Takže to prozatím odložím, virtuální sériový port pokud je
  * potřeba lze udělat jako samostatný firmware - viz. adresář ./com. Stejně bych neuměl přiohnout
  * příslušný inf soubor pro Windows. Takhle lze použít původní NXP.
+ * 
+ * NXP - Keil drivery jsem vyzkoušel a konstatuji, že to bylo dost práce s poměrně hubeným výsledkem.
+ * Alokace paměti pro endpointy ani zde není průhledná, takže i tady jsou kusy RAM, kde se asi něco
+ * děje, ale netušíme co. Alespoň funguje ten endpoint 0. Takže krátce o ladění těchto detailů.
+ * Před časem jsem se tím zabýval <a href="http://mujweb.cz/mrazik/usb/index.html">zde</a>.
+ * Mezitím se hodně změnilo v Linuxovém jádře, takže celý ten systém funguje asi už úplně jinak.
+ * Soubor usbem.c jsem zde ale zachoval, šlo to odladit na starším počítači. Je fakt, že bez toho
+ * by to byla práce pro vraha.
+ * 
+ * @section sectF Zdrojáky.
+ * Jsou dostupné na sourceforge jen pomocí subversion :
+ * @code
+ * svn checkout svn://svn.code.sf.net/p/kizarmprobe/code/ kizarmprobe
+ * @endcode
+ * 
+ * 
+ * @section sectG Závěr.
+ * Tenhle kus kódu dokumentuje, že lze nacpat do poměrně malého a tedy i levného kontroleru dost
+ * složité zařízení. Psát to v C++ je zdá možná zbytečné, ale je to dost užitečné - získá to
+ * poněkud na přehlednosti a tedy i rozšířitelnosti. Doufám, že se bude líbit a někomu to pomůže
+ * v jeho vlastní činnosti.
  * 
   */

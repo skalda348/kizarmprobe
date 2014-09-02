@@ -1,8 +1,15 @@
-VCOM = SERIAL
+#VCOM = SERIAL
 # VCOM je zatím velmí problematický virtuální sériový port.
 # Takže odstanit komentář z 1.řádku lze jen na experimenty.
-#API = rom
-API = usb
+# Pro driver rom nefungují SETUP pakety pro nastavení parametrů
+# linky. Pro driver usb by to už mělo chodit.
+
+API = rom
+#API = usb
+# API určuje použitý driver USB stacku. Volby jsou
+# rom nebo usb - rom je driver v čipu, usb je ze zdrojáků
+# které byly na webu NXP. Dost bez záruky.
+
 
 CROSS_COMPILE = arm-none-eabi-
 LD_PATH   = $(ROOT_PATH)lib
@@ -36,7 +43,8 @@ OBJS  += usbuser.o
 OBJS  += usbhw.o
 endif
 
-#conditional - dual USB interface
+#conditional - for dual USB interface
+
 ifdef VCOM
 DEFINES=-D$(VCOM)=1
 OBJS  += comp_desc.o

@@ -45,7 +45,7 @@
 */
 
 #define USB_POWER             0
-#define USB_IF_NUM            3
+#define USB_IF_NUM            4
 #define USB_EP_NUM            10
 #define USB_SETUP_PACKET_SIZE 8
 #define USB_MAX_PACKET0       64
