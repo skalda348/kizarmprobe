@@ -4,11 +4,11 @@
 
 /// V tomto konkrétním případě není lock / unlock potřeba.
 static inline void fifo_lock (void) {
-  //asm volatile ("cpsid i");
+  asm volatile ("cpsid i");
 }
 /// V tomto konkrétním případě není lock / unlock potřeba.
 static inline void fifo_unlock (void) {
-  //asm volatile ("cpsie i");
+  asm volatile ("cpsie i");
 }
 
 //#define FIFODEPTH (1<<10)
