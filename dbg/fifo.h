@@ -24,7 +24,7 @@ static inline void fifo_unlock (void) {
 template <class T> class Fifo {
   public:   // veřejné metody
     /// Parametr konstruktoru by měla být hloubka FIFO, ale pak by musela být dynamická alokace paměti.
-    Fifo (unsigned x) { rdi = 0; wri = 0; len = 0; };
+    Fifo (const bool b, const unsigned x) { rdi = 0; wri = 0; len = 0; };
     /// Zápis do FIFO
     /// @param  c odkaz na jeden prvek co bude zapsán
     /// @return true, pokud není plný

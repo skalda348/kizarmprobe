@@ -28,7 +28,7 @@ class CDCIndividual;
 class CDClass : public UsbClass, public BaseLayer {
   public:
     /// Konstruktor
-    CDClass (const CDCIndividual * ip);
+    CDClass (const bool bl, const CDCIndividual * ip);
     /// přetížení BaseLayer::Down()
     uint32_t Down (char* buf, uint32_t len);
     /// Pomocná metoda

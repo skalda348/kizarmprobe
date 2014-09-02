@@ -5,7 +5,7 @@
  *  vrstva (l1, l4). GdbPacket a GdbServer zůstávají, GdbServer je nejsložitější,
  *  zapouzdřuje v sobě jednotlivé targety. 
  */
-static CDClass   l1  (& iAssoc0);
+static CDClass   l1  (false, & iAssoc0);
 static GdbPacket l2;
 static GdbServer l3;
 /** Tenhle poslední díl skládačky může být realizován také jako BaseLayer.
@@ -16,7 +16,7 @@ static Swdp      l4;
 
 #ifdef SERIAL
 static Mirror    top;
-static CDClass   vcom (& iAssoc1);
+static CDClass   vcom (true, & iAssoc1);
 static Usart1    serial (9600);
 #endif
 /// Tohle vyjmeme ze třídy - jen to by se mohlo měnit po přidání dalšího targetu.

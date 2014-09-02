@@ -8,7 +8,7 @@
  * přidáme mezivrstvu Packet a máme hotovo. Princip je popsán v main.h
  */
 
-static CDClass l1 (& iAssoc0);
+static CDClass l1 (true, & iAssoc0);
 static Packet  l2;
 static Swdp    l3;
 

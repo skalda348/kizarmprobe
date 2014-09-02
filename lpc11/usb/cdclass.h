@@ -18,7 +18,7 @@ class CDCIndividual;
 
 class CDClass : public UsbClass, public BaseLayer {
   public:
-    CDClass       (const CDCIndividual * ip);
+    CDClass       (const bool bl, const CDCIndividual * ip);
     uint32_t Down (char* buf, uint32_t len);
     /// Pomocná metoda pro kompatibilitu se PC
     void     Init (void) {
