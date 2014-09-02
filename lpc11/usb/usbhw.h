@@ -30,8 +30,14 @@ typedef struct _EP_LIST {
   uint32_t  buf_ptr;
   uint32_t  buf_length;
 } EP_LIST;
-
-#define USB_EPLIST_ADDR		0x20004000	/* 2KB USB RAM */
+/**
+ * Tato položka je poměrně problematická. Lépe je použít procesor s oblastí USB RAM
+ * a nastavit to jako to bylo původně (0x20004000). Lze nastavit i ručně na konec
+ * oblasti dat, asi lépe trochu zarovnat. Linker to však nevidí, žere to vlastně
+ * kus stacku. A nevíme kolik.
+ * */
+//#define USB_EPLIST_ADDR		0x20004000	/* 2KB USB RAM */
+#define USB_EPLIST_ADDR         0x10001100      /* 2KB USB RAM */
 #define USB_EPDATA_ADDR		(USB_EPLIST_ADDR + 0x100)
 #define USB_EPDATA_PAGE		(USB_EPDATA_ADDR&0xFFC00000)	/* Bit 22~31 is the page */
 #define USB_RAM_LIMIT		0x800		/* maximum USB RAM size is 2K */

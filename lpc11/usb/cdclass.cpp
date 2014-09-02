@@ -51,7 +51,7 @@ CDClass::CDClass (const CDCIndividual * ip) :
   usbtx_rdy = 1;
 }
 uint32_t CDClass::Down (char* buf, uint32_t len) {
-  if (!isConfigured()) return len;
+  // if (!isConfigured()) return len;   // stejně to čeká na spojení
   uint32_t n;
   for (n=0; n<len; n++) {
     if (!tx.Write(buf[n])) break;

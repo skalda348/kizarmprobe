@@ -86,8 +86,10 @@ Usart1::Usart1 (uint32_t baud) : BaseLayer(), tx(64) {
   LPC_IOCON->PIO0_19 &= ~0x07;
   LPC_IOCON->PIO0_19 |= 0x01;     /* UART TXD */
   Init (baud, 0x03);              /* 8 bits, no Parity, 1 Stop bit */
+  // Zkusime snizit prioritu USARTu.
+  NVIC_SetPriority (UART_IRQn, 3);
   /* enable IRQ */
-  NVIC_EnableIRQ (UART_IRQn);
+  NVIC_EnableIRQ   (UART_IRQn);
 }
 void Usart1::Init (uint32_t baud, uint8_t lcr) {
   uint32_t Fdiv = ( (SystemCoreClock / LPC_SYSCON->UARTCLKDIV) / 16) / baud ; /*baud rate */
@@ -123,11 +125,29 @@ uint32_t Usart1::setLine (CDC_LINE_CODING* line_coding) {
   Init (baud, lcr);
   return 1;
 }
+/**
+ * Trik - v Linuxu pokud pustíme picocom, nastaví linky pro flow control.
+ * Tím zároveň povolíme USART. Pokud bude jinak zakázán, nebude do toho
+ * kecat a bude od něj pokoj.
+ * */
+uint32_t Usart1::lineState (uint16_t state) {
+  if (state & 1) {
+    // Povolit USART
+    LPC_USART->IER = IER_RBR | IER_THRE | IER_RLS;
+  }
+  else {
+    // zakazat USART
+    LPC_USART->IER = 0;
+  }
+  return 1;
+}
 #ifdef SERIAL
-// Set callback address to struct CDCIndividual iAssoc1
+// Set callback address to struct CDCIndividual iAssoc 0/1
 extern "C" uint32_t iA1LineCode  (
            CDC_LINE_CODING* line_coding)__attribute__((alias("_ZN6Usart17setLineEP16_CDC_LINE_CODING")));
+extern "C" uint32_t iA1LineState (uint16_t state)__attribute__((alias("_ZN6Usart19lineStateEt")));
 #else
 extern "C" uint32_t iA0LineCode  (
            CDC_LINE_CODING* line_coding)__attribute__((alias("_ZN6Usart17setLineEP16_CDC_LINE_CODING")));
+extern "C" uint32_t iA0LineState (uint16_t state)__attribute__((alias("_ZN6Usart19lineStateEt")));
 #endif

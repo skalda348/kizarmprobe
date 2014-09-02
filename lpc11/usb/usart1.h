@@ -10,8 +10,9 @@ class Usart1 : public BaseLayer {
     void         Write  (void);
     uint32_t     Down   (char* data, uint32_t len);
     
-    static uint32_t  setLine (CDC_LINE_CODING* line_coding);
-    static char*     getRxb  (void) {
+    static uint32_t  setLine   (CDC_LINE_CODING* line_coding);
+    static uint32_t  lineState (uint16_t state);
+    static char*     getRxb    (void) {
       return rxb;
     };
     static void  irq    (void);
