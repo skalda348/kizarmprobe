@@ -7,17 +7,12 @@
 
 #define SOCKBUFLEN 64
 
-struct CDCIndividual {
-  const uint32_t port;  
-};
-
-extern const struct CDCIndividual iAssoc0;
 
 
 class CDClass : public BaseLayer {
 
   public:
-    CDClass (const CDCIndividual * ip);
+    CDClass (const int port);
     // ~CDClass();
     void  Init     (void);
     bool  Fini     (void);

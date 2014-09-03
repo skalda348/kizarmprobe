@@ -2,7 +2,7 @@
 #include "mirror.h"
 #include "usart1.h"
 
-static CDClass cdc    (& iAssoc0);
+static CDClass cdc    (0);
 static Mirror  top;
 static Usart1  serial (9600);
 

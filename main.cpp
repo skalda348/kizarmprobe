@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include "main.h"
+
+volatile int gblMutex = 0;
+
 /** Pokud je to uděláno jako skládačka z vrstev BaseLayer, je spíš možné
  *  přizpůsobit to jinou platformu. Fakticky se mění jen první a poslední
  *  vrstva (l1, l4). GdbPacket a GdbServer zůstávají, GdbServer je nejsložitější,
  *  zapouzdřuje v sobě jednotlivé targety. 
  */
-static CDClass   l1  (& iAssoc0);
+static CDClass   l1  (0);
 static GdbPacket l2;
 static GdbServer l3;
 /** Tenhle poslední díl skládačky může být realizován také jako BaseLayer.
@@ -16,7 +19,7 @@ static Swdp      l4;
 
 #ifdef SERIAL
 static Mirror    top;
-static CDClass   vcom (& iAssoc1);
+static CDClass   vcom   (1);
 static Usart1    serial (9600);
 #endif
 /// Tohle vyjmeme ze třídy - jen to by se mohlo měnit po přidání dalšího targetu.

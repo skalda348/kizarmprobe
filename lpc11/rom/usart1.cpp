@@ -86,6 +86,8 @@ Usart1::Usart1 (uint32_t baud) : BaseLayer(), tx(64) {
   LPC_IOCON->PIO0_19 &= ~0x07;
   LPC_IOCON->PIO0_19 |= 0x01;     /* UART TXD */
   Init (baud, 0x03);              /* 8 bits, no Parity, 1 Stop bit */
+  // Zkusime snizit prioritu USARTu.
+  NVIC_SetPriority (UART_IRQn, 3);
   /* enable IRQ */
   NVIC_EnableIRQ (UART_IRQn);
 }

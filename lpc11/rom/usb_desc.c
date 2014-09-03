@@ -199,26 +199,29 @@ const struct UsbDescriptors CdcUsbDescriptors = {
   .string = USB_StringDescriptor
 };
 
-const struct CDCIndividual iAssoc0 = {
-  .depth = 0x400,
-  .ep    = 2,
-  .if0   = CdcConfig.if0,
-  .if1   = CdcConfig.if1,
-  .SetLineCode      = iA0LineCode,
-  .SetCtrlLineState = iA0LineState
-  
-};
-/*
-const struct CDCIndividual iAssoc1 = {
-  .depth = 0x40,
-  .ep    = 4,
-  .if0   = CdcConfig.if2,
-  .if1   = CdcConfig.if3,
-  .SetLineCode      = iA1LineCode,
-  .SetCtrlLineState = iA1LineState
-  
-};
+const struct CDCAssocField ciAssoc = {
+  .iface[0] = {
+    .depth = 0x400,
+    .ep    = 2,
+    .if0   = CdcConfig.if0,
+    .if1   = CdcConfig.if1,
+    .SetLineCode      = iA0LineCode,
+    .SetCtrlLineState = iA0LineState
+    
+  } /*,
+
+  .iface[1] = {
+    .depth = 0x40,
+    .ep    = 4,
+    .if0   = CdcConfig.if2,
+    .if1   = CdcConfig.if3,
+    .SetLineCode      = iA1LineCode,
+    .SetCtrlLineState = iA1LineState
+    
+  }
 */
+};
+
 /// Lze uzivatelsky predefinovat podobne jako vektory.
 ErrorCode_t SetLineCodeDefaultHandler      (USBD_HANDLE_T hCDC, CDC_LINE_CODING* line_coding) {
   return LPC_OK;

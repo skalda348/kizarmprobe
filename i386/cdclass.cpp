@@ -5,12 +5,8 @@
 #include <unistd.h>
 
 #include "cdclass.h"
-// v software nepouzito
-const struct CDCIndividual iAssoc0 = {
-  3333
-};
 
-CDClass::CDClass (const CDCIndividual * ip) : BaseLayer() {
+CDClass::CDClass (const int x) : BaseLayer() {
   conFd  = 0;
   sockFd = 0;
   loop   = false;

@@ -8,8 +8,6 @@ extern "C" {
   #include "usbcore.h"
 };
 
-static CDClass *CDCInstance = 0;
-
 void CDClass::VCOM_EpHandler (void* data, uint32_t event) {
   CDClass* pVcom = (CDClass *) data;
   uint32_t rlen;
@@ -39,9 +37,9 @@ static inline void error (void) {
   asm volatile ("bkpt 0");
 }
 */
-CDClass::CDClass (const CDCIndividual * ip) :
-  UsbClass(), BaseLayer(), tx(ip->depth) {
-  CDCInstance = this;
+CDClass::CDClass (const int port) :
+  UsbClass(), BaseLayer(), tx(ciAssoc.iface[port].depth) {
+  const CDCIndividual * ip = & ciAssoc.iface[port];
   bulkOut = ip->ep;
   bulkIn  = ip->ep | 0x80;
   EpHandlers[bulkOut].pEpn = VCOM_EpHandler;
@@ -71,6 +69,7 @@ void CDClass::Send (void) {
 }
 /** ********************************************************************************/
 #if 0
+// DEBUG INFO
 extern "C" {
   
   uint32_t iA0LineCode (CDC_LINE_CODING* line_coding) {

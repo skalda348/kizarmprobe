@@ -59,8 +59,11 @@ struct CDCIndividual {
   
 };
 
-extern const struct CDCIndividual iAssoc0;
-extern const struct CDCIndividual iAssoc1;
+struct CDCAssocField {
+  const struct CDCIndividual iface [1];  // a jejich popis
+};
+
+extern const struct CDCAssocField ciAssoc;
 
 #ifdef __cplusplus
 }
