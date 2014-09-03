@@ -36,8 +36,8 @@ static inline void error (void) {
   asm volatile ("bkpt 0");
 }
 */
-CDClass::CDClass (const bool bl, const CDCIndividual * ip) :
-  UsbClass(), BaseLayer(), tx (bl, ip->depth) {
+CDClass::CDClass (const CDCIndividual * ip) :
+  UsbClass(), BaseLayer(), tx (ip->depth) {
   bulkOut = ip->ep;
   bulkIn  = ip->ep | 0x80;
   USBD_CDC_INIT_PARAM_T cdc_param;

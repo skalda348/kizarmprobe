@@ -2,14 +2,16 @@
 #define FIFO_H
 //#include "core_cm0.h"
 
+extern volatile int gblMutex;
+
 /// V tomto konkrétním případě není lock / unlock potřeba.
-static inline void fifo_lock (const bool block) {
-  if (!block) return;
+static inline void fifo_lock (void) {
   asm volatile ("cpsid i");
+  gblMutex++;
 }
 /// V tomto konkrétním případě není lock / unlock potřeba.
-static inline void fifo_unlock (const bool block) {
-  if (!block) return;
+static inline void fifo_unlock (void) {
+  if (--gblMutex) return;
   asm volatile ("cpsie i");
 }
 
@@ -42,13 +44,13 @@ static inline void fifo_unlock (const bool block) {
   Zde to nakonec není potřeba - do fronty se zapisuje a čte v přerušení a jediný případ, kdy se zapisuje
   v main() je stejně ošetřen uzamčením, aby se zapsal do fifo celý paket naráz.
   
-  Někde to potřeba je, někde není, tak je to prostě volitelné.
+  Nakonec bylo lepší udělat pořádný mutex.
 */
 //! [Fifo class example]
 template <class T> class Fifo {
   public:   // veřejné metody
     /// Parametr konstruktoru by měla být hloubka FIFO, ale pak by musela být dynamická alokace paměti.
-    Fifo (const bool lock, const unsigned depth) : max (depth), block (lock) {
+    Fifo (const unsigned depth) : max (depth) {
       buf = new T [depth];
       rdi = 0; wri = 0; len = 0;
     };
@@ -74,14 +76,13 @@ template <class T> class Fifo {
       if (index < max) return; index = 0; // FIFODEPTH obecně int
     };
     /// Atomická inkrementace délky dat
-    void safeInc (void) { fifo_lock(block); len++; fifo_unlock(block); };
+    void safeInc (void) { fifo_lock(); len++; fifo_unlock(); };
     /// Atomická dekrementace délky dat
-    void safeDec (void) { fifo_lock(block); len--; fifo_unlock(block); };
+    void safeDec (void) { fifo_lock(); len--; fifo_unlock(); };
   private:    // privátní data
     const int    max;
     T     *      buf;             //!< buffer na data
     volatile int rdi, wri, len;   //!< pomocné proměnné
-    const bool   block;
 };
 //! [Fifo class example]
 

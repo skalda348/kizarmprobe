@@ -74,7 +74,7 @@ uint32_t Usart1::Down (char* data, uint32_t len) {
   return n;
 }
 
-Usart1::Usart1 (uint32_t baud) : BaseLayer(), tx(true, 64) {
+Usart1::Usart1 (uint32_t baud) : BaseLayer(), tx(64) {
   if (inst) return;
   inst = this;
   /* Enable UART clock */

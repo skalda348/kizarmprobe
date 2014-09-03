@@ -14,6 +14,7 @@
  * v kódu ifdef. Je to sice dvojí práce, ale přehlednější.
  * Stačí, aby veřejné metody byly stejné.
  **/
+extern volatile int   gblMutex;
 static const unsigned LockerChunk = 0x80;
 static const unsigned LockerLimit = 0x8000;
 class Locker {
@@ -26,9 +27,11 @@ class Locker {
     /// Uzamčení
     void        lock    (void) {
       asm volatile ("cpsid i");
+      gblMutex++;
     };
     /// Odemčení
     void        unlock  (void) {
+      if (--gblMutex) return;
       asm volatile ("cpsie i");
     };
     void       Reset    (void) {
