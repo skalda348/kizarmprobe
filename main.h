@@ -12,7 +12,8 @@
 #endif
 /**
  * @mainpage Kizarm Probe.
- * Tento projekt je inspirován Blackmagic Probe pro STM32Fxx. Pro procesory NXP něco takového trochu
+ * Tento projekt je inspirován <a href="http://www.blacksphere.co.nz/main/blackmagic">Blackmagic Probe</a>
+ * pro STM32Fxx. Pro procesory NXP něco takového trochu
  * chybí, tak se to pokusíme napravit. Měl by tak vzniknout jednoduchý a levný prostředek pro ladění
  * pomocí SWD založený na čipu LPC11U24 pro řadu LPC11Xxx ale nejen pro ni. Další targety bude možné
  * podle libosti přidávat, zdroj je zcela otevřen pro pokusy.
@@ -40,7 +41,8 @@
  * Sériový port, pokud je použit používá normálně piny RXD a TXD.
  * 
  * @section sectA Jak to vlastně funguje.
- * Hojně používaným prostředkem pro ladění jednočipů je OpenOCD. Je to proto, že podporuje velkou
+ * Hojně používaným prostředkem pro ladění jednočipů je
+ * <a href="http://openocd.sourceforge.net/">OpenOCD</a>. Je to proto, že podporuje velkou
  * spoustu debug adaptérů (jako je např. ST-Link) a umožňuje ladit širokou škálu cílových, target procesorů.
  * Je to však poněkud nešikovné - musíme to pustit jako server a k němu se z jedné strany připojí laděný
  * procesor a z druhé gdb. <a href="http://www.blacksphere.co.nz/main/blackmagic">Blackmagic</a>
@@ -83,7 +85,7 @@
  * je těžké předem určit délku. A i ta výstupní fronta. Od 4kB je oblast USB driverů o níž toho víme
  * dost málo, ale nebude zabírat víc jak 2kB - to je délka USB oblasti některých procesorů. Předpokládá se,
  * že tato oblast k dispozizi není - pokud by byla, je možné přesunout drivery tam
- * (./lpc11/usbclass.h, metoda init()).
+ * (./lpc11/rom/usbclass.h, metoda init(), případně pokud nepoužijeme ROM drivery ./lpc11/usb/usbhw.h).
  * Poslední 2kB zabírá stack, měl by být dost velký, protože některé metody mají na stacku dost
  * velká pole dat.
  * 
@@ -118,7 +120,8 @@
  * -# CDClass je druhý konec řetězce (v PC je to síťový socket),
  * ve vlastním firmware je to opravdu virtuální sériový port.
  * 
- * Jádrem je jak bylo uvedeno GdbServer, bude proto popsán samostatně. Obsahuje především vlastní
+ * Jádrem je jak bylo uvedeno GdbServer, bude proto popsán samostatně. Vygeneruj si dokumentaci pomocí
+ * <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a>. Obsahuje především vlastní
  * Target, který je zde vytvářen dynamicky metodou Scan() - gdb příkaz "monitor scan".
  * 
  * Takže pokud chceme ladit firmware na PC, což je daleko příjemnější, spustíme Makefile v ./dbg a vytvořený
@@ -149,7 +152,47 @@
  * Celé to gdb používám pouze v příkazovém řádku. Těch pár potřebných příkazů se dá snadno naučit a pak
  * je alespoň vidět, co se tam děje, případně kde to zamrzlo. Integrovat to celé do IDE je sice pěkné,
  * ale musíme počítat s tím, že je to rozsáhlý software a mohou v něm být chyby. V IDE pak zjistíme
- * jen to, že to nefunguje. A pak zbývá jen nadávat autorům.
+ * jen to, že to nefunguje. A pak zbývá jen nadávat autorům. Dobré je udělat si v $HOME soubor .gdbinit,
+ * ve kterém pak může být např. (psát pořád to "tar ext /home/mrazik/.probe/COM3" je otravné):
+ * @code
+ * set prompt Kizarm\\>\040
+ * # /home/mrazik/.probe/COM3 je link na napr.
+ * # /dev/serial/by-id/usb-Mrazik_labs._Kizarm_Probe_1.1_00003-if00
+ * tar ext /home/mrazik/.probe/COM3
+ * @endcode
+ * a pak jednoduše ladíme (STM32F051 v RAM) pomocí
+ * @code
+    XYZ$ arm-none-eabi-gdb firmware.elf 
+    GNU gdb (GNU Tools for ARM Embedded Processors) ... <neni podstatne>
+    Reading symbols from /home/mrazik/Public/Arm/Prj/st-cpp/firmware.elf...done.
+    Kizarm\> mon scan
+    Core Id: 0x0BB11477
+    Target: STM32F0xx
+    Kizarm\> att 1
+    Attaching to program: /home/mrazik/Public/Arm/Prj/st-cpp/firmware.elf, Remote target
+    0xfffffffe in ?? ()
+    Kizarm\> load
+    Loading section .text, size 0xc18 lma 0x20000000
+    Loading section .data, size 0x4 lma 0x20000c18
+    Loading section ._user_heap_stack, size 0x400 lma 0x20000d10
+    Start address 0x20000948, load size 4124
+    Transfer rate: 23 KB/sec, 206 bytes/write.
+    Kizarm\> r
+    The program being debugged has been started already.
+    Start it from the beginning? (y or n) y
+
+    Starting program: /home/mrazik/Public/Arm/Prj/st-cpp/firmware.elf 
+    ^C
+    Program received signal SIGINT, Interrupt.
+    0x200002f0 in __WFI () at ../../lib/cmsis/inc/core_cmInstr.h:282
+    282       __ASM volatile ("wfi");
+    Kizarm\> bt
+    #0  0x200002f0 in __WFI () at ../../lib/cmsis/inc/core_cmInstr.h:282
+    #1  main () at main.cpp:89
+    Kizarm\> det
+    Detaching from program: /home/mrazik/Public/Arm/Prj/st-cpp/firmware.elf, Remote target
+    Kizarm\> q
+ * @endcode
  * 
  * @section sectE Zbývá dodělat.
  * U STM32F051 jsem nezkoušel měnit option byty, snad to funguje. Target STM32F407 funguje také,
@@ -157,24 +200,28 @@
  * Asi by bylo dobře dodělat i target řady LPC8xx, ale zatím to nepotřebuji.
  * 
  * Ten sériový port jsem pokusně přidal jako druhé rozhraní kompozitního zařízení USB. Je to default
- * vypnuto  (1. řádek lp.inc), protože ten virtuální sériový port se zatím
+ * vypnuto  (1. řádek lp.inc), protože ten virtuální sériový port se s ROM drivery
  * chová dost podivně. Nelze přepnout parametry linky (např. baudrate). To sice není moc potřeba,
- * ale chodit by to mělo. Takže tady je slabina. Ostatně původní black magic má ten sériový port také
+ * ale chodit by to mělo. Takže tady je slabina. Ostatně původní blackmagic má ten sériový port také
  * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
  * zařízení. Další dost velký problém je, že ROM drivery patrně nepočítají s tím, že by od jedné
  * třídy USB zařízení někdo vytvářel více instancí. Takže zprávy po endpointu 0 chodí zmateně.
- * Zřejmě by bylo lépe ROM drivery nepoužívat, použít open-source stack, který existuje, ale zkoumat
- * ho je práce na dlouhé zimní večery. Takže to prozatím odložím, virtuální sériový port pokud je
+ * Zřejmě bude lépe ROM drivery nepoužívat, použít USB stack od Keilu. Virtuální sériový port pokud je
  * potřeba lze udělat jako samostatný firmware - viz. adresář ./com. Stejně bych neuměl přiohnout
  * příslušný inf soubor pro Windows. Takhle lze použít původní NXP.
  * 
- * NXP - Keil drivery jsem vyzkoušel a konstatuji, že to bylo dost práce s poměrně hubeným výsledkem.
+ * NXP - Keil drivery jsem konečně vyzkoušel a konstatuji, že to bylo dost práce s diskutabilním výsledkem.
  * Alokace paměti pro endpointy ani zde není průhledná, takže i tady jsou kusy RAM, kde se asi něco
  * děje, ale netušíme co. Alespoň funguje ten endpoint 0. Takže krátce o ladění těchto detailů.
  * Před časem jsem se tím zabýval <a href="http://mujweb.cz/mrazik/usb/index.html">zde</a>.
  * Mezitím se hodně změnilo v Linuxovém jádře, takže celý ten systém funguje asi už úplně jinak.
  * Soubor usbem.c jsem zde ale zachoval, šlo to odladit na starším počítači. Je fakt, že bez toho
- * by to byla práce pro vraha.
+ * by to byla práce pro vraha. Výsledek se použít dá (./product/serial.bin), zkoušel jsem to jen na
+ * Linuxu (Ubuntu 12.04 LTS), na jiném počítači se starší verzí Ubuntu to občas tuhne, což mohou působit
+ * ovladače. Pod Windows jsem nezkoušel ani ten původní firmware s ROM drivery, protoře žádné Windows
+ * nemám. Proto ani nepřikládám inf pro instalaci ovladačů. I když loni jsem zkoušel skoro stejný
+ * virtuální COM na XP a nebyly s tím žádné problémy. Kdo chce, tak si ten inf na stránkách NXP najde
+ * a vyzkouší. Vlastní ovladač je systémový usbser.sys (nebo tak nějak).
  * 
  * @section sectF Zdrojáky.
  * Jsou dostupné na sourceforge jen pomocí subversion :
@@ -185,7 +232,7 @@
  * 
  * @section sectG Závěr.
  * Tenhle kus kódu dokumentuje, že lze nacpat do poměrně malého a tedy i levného kontroleru dost
- * složité zařízení. Psát to v C++ je zdá možná zbytečné, ale je to dost užitečné - získá to
+ * složité zařízení. Psát to v C++ se zdá možná zbytečné, ale je to dost užitečné - získá to
  * poněkud na přehlednosti a tedy i rozšířitelnosti. Doufám, že se bude líbit a někomu to pomůže
  * v jeho vlastní činnosti.
  * 

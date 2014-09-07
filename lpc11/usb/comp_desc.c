@@ -99,7 +99,7 @@ ALIGN4 const struct UsbConfig CdcConfig = {
     0x05,                              /* bFunctionLength */
     CDC_CS_INTERFACE,                  /* bDescriptorType: CS_INTERFACE */
     CDC_CALL_MANAGEMENT,               /* bDescriptorSubtype: Call Management Func Desc */
-    0x01,                              /* bmCapabilities: device handles call management */
+    0x00,                              /* bmCapabilities: device no handles call management */
     0x01,                              /* bDataInterface: CDC data IF ID */
   /*Abstract Control Management Functional Descriptor*/
     0x04,                              /* bFunctionLength */
@@ -189,8 +189,8 @@ ALIGN4 const struct UsbConfig CdcConfig = {
   0x05,                              /* bFunctionLength */
   CDC_CS_INTERFACE,                  /* bDescriptorType: CS_INTERFACE */
   CDC_CALL_MANAGEMENT,               /* bDescriptorSubtype: Call Management Func Desc */
-  0x01,                              /* bmCapabilities: device handles call management */
-  0x01,                              /* bDataInterface: CDC data IF ID */
+  0x00,                              /* bmCapabilities: device no handles call management */
+  0x03,                              /* bDataInterface: CDC data IF ID */
 /*Abstract Control Management Functional Descriptor*/
   0x04,                              /* bFunctionLength */
   CDC_CS_INTERFACE,                  /* bDescriptorType: CS_INTERFACE */
