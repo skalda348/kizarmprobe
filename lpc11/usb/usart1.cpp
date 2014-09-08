@@ -21,6 +21,8 @@
 
 Usart1*     Usart1::inst = 0;
 char        Usart1::rxb[8];
+uint32_t    UsartDataEnable = 0;
+
 
 void Usart1::irq (void) {
   volatile uint8_t intId;
@@ -43,6 +45,11 @@ void Usart1::irq (void) {
         pbuf[len++] = LPC_USART->RBR;
       }
       while (len) {
+        // Pokud není následující USB vrstva schopna přijímat data, neposílej je dál
+        // Je to taková berlička spouštěná DTR, ale v Linuxu funguje. Šlo by to vyhodit,
+        // ale pak se port zasekává. DTR je bit 0 lineState, flow control tedy none.
+        // picocom (a asi i jiné) si to řídí sám, CTRL-A-T lze pozastavovat výpisy.
+        if (!UsartDataEnable) return;
         n = inst->Up (pbuf + ofs, len);
         if (!n) break;          // nesmi zustat v preruseni
         len -= n;
@@ -101,7 +108,7 @@ void Usart1::Init (uint32_t baud, uint8_t lcr) {
   // LPC_USART->HDEN = 1;       /* Half duplex on pin TX */
   LPC_USART->FCR  = 0x07;       /* Enable and reset TX and RX FIFO.
                                       Rx trigger level 4 chars*/
-  LPC_USART->IER = IER_RBR | IER_THRE | IER_RLS; /* Enable UART1 interrupt */
+  LPC_USART->IER = IER_RBR | IER_THRE;// | IER_RLS; /* Enable UART1 interrupt */
 }
 
 // Callback from USB CDC
@@ -132,12 +139,12 @@ uint32_t Usart1::setLine (CDC_LINE_CODING* line_coding) {
  * */
 uint32_t Usart1::lineState (uint16_t state) {
   if (state & 1) {
-    // Povolit USART
-    LPC_USART->IER = IER_RBR | IER_THRE | IER_RLS;
+    // Povolit USART (jen data)
+    UsartDataEnable = 1;
   }
   else {
     // zakazat USART
-    LPC_USART->IER = 0;
+    UsartDataEnable = 0;
   }
   return 1;
 }
