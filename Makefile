@@ -10,10 +10,10 @@ CFLAGS  =
 VPATH = .
 OBJS  = 
 # supported platforms lpc11, i386
-#PLATFORM ?= lpc11
+PLATFORM ?= lpc11
 #PLATFORM ?= i386
 # experimental on STM32F4 Discovery
-PLATFORM ?= stm32/f4
+#PLATFORM ?= stm32/f4
 
 include ./$(PLATFORM)/makefile.inc
 
