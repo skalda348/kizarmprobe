@@ -78,7 +78,8 @@ typedef enum {
   * @class GpioClass
   * @brief Obecný GPIO pin.
   * 
-  * TODO : V Konstruktoru přidat port, ale to je zásah i do ostatních platform.
+  * Pozn. Kompatibilní konfigurace port,no (místo jen no) využívá preprocesor.
+  * Není to ideální, ale je to funkční.
 */
 class GpioClass {
   public:
@@ -87,7 +88,7 @@ class GpioClass {
     @param no   číslo pinu na portu
     @param type IN, OUT, AF, AN default OUT 
     */
-    GpioClass (const uint32_t no, const GPIOMode_TypeDef type = GPIO_FMode_OUT);
+    GpioClass (const GpioPortNum port, const uint32_t no, const GPIOMode_TypeDef type = GPIO_FMode_OUT);
     /// Nastav pin @param b na tuto hodnotu
     void set (const bool b) const;
     /// Nastav pin na log. H

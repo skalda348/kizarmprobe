@@ -6,13 +6,11 @@
  * použití se to moc nehodí.
  * */
 
-#define SWDPORT GpioPortB
-
 /// GPIO pins used for SWD - CLK
-#define SWCLK_BIT 0
+#define SWCLK_BIT GpioPortB,0
 /// GPIO pins used for SWD - DATA
-#define SWDIO_BIT 1
+#define SWDIO_BIT GpioPortB,1
 
-#define LEDPIN 2
+#define LEDPIN GpioPortD,12
 
 #endif // CONFIG_H

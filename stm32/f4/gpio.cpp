@@ -14,10 +14,10 @@ static const GpioAssocPort cPortTab[] = {
   {GPIOI, RCC_AHB1Periph_GPIOI},
 };
 
-GpioClass::GpioClass (const uint32_t no, const GPIOMode_TypeDef type) :
-  io(cPortTab[SWDPORT].portAdr), pos(1UL << no), num(no) {
+GpioClass::GpioClass (const GpioPortNum port, const uint32_t no, const GPIOMode_TypeDef type) :
+  io(cPortTab[port].portAdr), pos(1UL << no), num(no) {
   // Povol hodiny
-  RCC->AHB1ENR |= cPortTab[SWDPORT].clkMask;
+  RCC->AHB1ENR |= cPortTab[port].clkMask;
   // A nastav pin (pořadí dle ST knihovny).
   setSpeed (GPIO_Speed_2MHz);
   setOType (GPIO_OType_PP);
