@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include "config.h"
 #include "utils.h"
 #include "gdbpacket.h"
 #include "gdbserver.h"
@@ -11,7 +12,7 @@
 #include "stm32f1.h"
 
 GdbServer::GdbServer() : BaseLayer(), mon ("Basic"), lock(),
-  led (17) {
+  led (LEDPIN) {
   single_step   = false;
   last_activity = 0;
   target        = 0;

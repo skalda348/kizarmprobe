@@ -9,7 +9,7 @@ INCLUDE_PATHS += -I ../cmsis/inc
 
 MFLAGS  = -mthumb -mcpu=cortex-m0
 LDFLAGS = $(MFLAGS)
-LDFLAGS+= -L ../lib -T lpc11u24.ld
+LDFLAGS+= -L ../lib -L ../lpc11 -T lpc11u24.ld
 LDFLAGS+= -nostartfiles -nostdlib
 LDLIBS  = -lprobe
 CFLAGS  =

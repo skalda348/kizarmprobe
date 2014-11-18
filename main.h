@@ -37,7 +37,7 @@
  * 
  * @section sectHw Hardware.
  * Bylo již publikováno <a href="http://mcu.cz/comment.php?comment.news.3515">zde</a>.
- * Pinout je trochu podivný (viz. ./lpc11/swdp.h), takže SWCLK je zde AD0 a SWDIO je AD1.
+ * Pinout je trochu podivný (viz. ./lpc11/config.h), takže SWCLK je zde AD0 a SWDIO je AD1.
  * Sériový port, pokud je použit používá normálně piny RXD a TXD.
  * 
  * @section sectA Jak to vlastně funguje.
@@ -109,6 +109,7 @@
  *         najednou.
  *      -# probe.bin používá ROM drivery, nemá sériový port a tedy je to spolehlivější.
  *         Pro většinu věcí úplně postačí.
+ * -# ./stm32/f4 Obsahuje třídy a hlavičky pro port na STM32F4 Discovery.
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
@@ -126,9 +127,9 @@
  * 
  * Takže pokud chceme ladit firmware na PC, což je daleko příjemnější, spustíme Makefile v ./dbg a vytvořený
  * firmware.bin nalejeme do LPC11U24 (nebo 34 podle libosti - konečný cíl by měl mít 32kB flash a 8kB ram).
- * V kořenovém Makefile odkomentujeme include pc.inc, zakomentujeme include lp.inc a spustíme.
+ * V kořenovém Makefile odkomentujeme dáme PLATFORM ?= i386 a spustíme.
  * Výsledný firmware.elf jde pod Linuxem spustit jako gdb server na portu 3333. Tedy pokud máme připojen
- * na USB ten připravený procesor jako /dev/ttyACM0. Takže pokud máme i připojené piny (viz ./lpc11/swdp.h)
+ * na USB ten připravený procesor jako /dev/ttyACM0. Takže pokud máme i připojené piny (viz ./lpc11/config.h)
  * na laděný target, funguje to podobně jako OpenOCD. Takto lze ladit vše, co je v ./src (a ./inc).
  * Když máme odladěno, změníme zpět komentáře v Makefile a vytvoříme výsledný firmware.bin, který už
  * má v sobě gdb server. Z postupu je vidět, že C++ umožňuje dost dobře využívat jednou napsaný kód
@@ -200,7 +201,7 @@
  * Asi by bylo dobře dodělat i target řady LPC8xx, ale zatím to nepotřebuji.
  * 
  * Ten sériový port jsem pokusně přidal jako druhé rozhraní kompozitního zařízení USB. Je to default
- * vypnuto  (1. řádek lp.inc), protože ten virtuální sériový port se s ROM drivery
+ * vypnuto  (1. řádek ./lpc11/makefile.inc), protože ten virtuální sériový port se s ROM drivery
  * chová dost podivně. Nelze přepnout parametry linky (např. baudrate). To sice není moc potřeba,
  * ale chodit by to mělo. Takže tady je slabina. Ostatně původní blackmagic má ten sériový port také
  * poměrně problematický. USB je složité a nevím, jestli jsou vůbec správně deskriptory toho složeného
@@ -222,6 +223,10 @@
  * nemám. Proto ani nepřikládám inf pro instalaci ovladačů. I když loni jsem zkoušel skoro stejný
  * virtuální COM na XP a nebyly s tím žádné problémy. Kdo chce, tak si ten inf na stránkách NXP najde
  * a vyzkouší. Vlastní ovladač je systémový usbser.sys (nebo tak nějak).
+ * 
+ * Nově doplněna jako platforma na které to může běžet STM32F4 Discovery. Není to sice nic užitečného,
+ * protože F4 je dělo na komára, ale ukazuje se, jak snadné je portovat to na jinou architekturu.
+ *
  * 
  * @section sectF Zdrojáky.
  * Jsou dostupné na sourceforge jen pomocí subversion :

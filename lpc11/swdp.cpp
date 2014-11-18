@@ -1,5 +1,5 @@
 #include "swdp.h"
-#include "LPC11Uxx.h"
+//#include "LPC11Uxx.h"
 
 extern "C" void *memcpy (void *dest, const void *src, size_t n);
 

@@ -9,21 +9,23 @@ CFLAGS  =
 
 VPATH = .
 OBJS  = 
+# supported platforms lpc11, i386
+#PLATFORM ?= lpc11
+#PLATFORM ?= i386
+# experimental on STM32F4 Discovery
+PLATFORM ?= stm32/f4
 
-#include pc.inc
-include lp.inc
+include ./$(PLATFORM)/makefile.inc
 
 LDFLAGS+= $(MFLAGS)
 CFLAGS += $(MFLAGS)
 CFLAGS += $(DEFINES)
 
 VPATH += ./src
-#VPATH += $(ROOT_PATH)src
-#VPATH += $(ROOT_PATH)lib/lpc11u/src
 # C files
 OBJS+= resources.o
 
-# ASiles
+# AS files
 OBJS+= utils.o
 
 # C++ files
@@ -43,8 +45,6 @@ OBJS+= lpc11xx.o
 
 OBJS+= command.o
 OBJS+= commandset.o
-
-#OBJS  += gpio.o
 
 
 ##########################################################################
@@ -80,7 +80,7 @@ all: $(OUTFILE).elf #./dbg/$(OUTFILE).elf
 ./dbg/$(OUTFILE).elf: ./lib/libprobe.a
 	cd ./dbg && make all
 ./lib/libprobe.a:
-	cd ./lib/src && make all
+	cd ./lib/src && make CPU=$(CPU_TYPE) all
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ $<
@@ -102,8 +102,8 @@ $(OUTFILE).elf: ./lib/libprobe.a $(OBJS)
 	-@echo ""
 
 clean:
-	rm -f $(OBJS) $(LD_TEMP) $(OUTFILE).elf #$(OUTFILE).bin $(OUTFILE).hex
+	rm -f $(OBJS) $(LD_TEMP) $(OUTFILE).elf $(OUTFILE).bin $(OUTFILE).hex
 	rm -f $(OUTFILE).map *~ *.lst
-	$(foreach XPATH, $(VPATH), rm -f $(XPATH)/*~ )
+	rm -f $(foreach XPATH, $(VPATH),$(XPATH)/*~)
 	rm -f  ./inc/*~
 	cd ./dbg && make clean
