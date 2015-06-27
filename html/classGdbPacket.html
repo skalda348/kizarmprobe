@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Dokumentace třídy GdbPacket</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Třídy</span></a></li>
+      <li><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Seznam&#160;tříd</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchie&#160;tříd</span></a></li>
+      <li><a href="functions.html"><span>Seznam&#160;členů&#160;tříd</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Veřejné metody</a> &#124;
+<a href="classGdbPacket-members.html">Seznam všech členů</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace třídy GdbPacket</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Mezivrsta paketů gdb. Ořezává a vytváří prefix, zpracuje escape sekvence a vyhodnocuje (a doplňuje) kontrolní součty. Zároveň vyhodnocuje a vytváří odpovědi +/-.  
+</p>
+
+<p><code>#include &lt;<a class="el" href="gdbpacket_8h_source.html">gdbpacket.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dědičnosti pro třídu GdbPacket</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classGdbPacket.png" usemap="#GdbPacket_map" alt=""/>
+  <map id="GdbPacket_map" name="GdbPacket_map">
+<area href="classBaseLayer.html" title="[BaseLayer example] " alt="BaseLayer" shape="rect" coords="0,0,73,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Veřejné metody</h2></td></tr>
+<tr class="memitem:af9380c5803bc860436a4da7ad4baa10a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9380c5803bc860436a4da7ad4baa10a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#af9380c5803bc860436a4da7ad4baa10a">GdbPacket</a> ()</td></tr>
+<tr class="memdesc:af9380c5803bc860436a4da7ad4baa10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor. <br/></td></tr>
+<tr class="separator:af9380c5803bc860436a4da7ad4baa10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80121ab71f8013ce21732350dd09bac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80121ab71f8013ce21732350dd09bac8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#a80121ab71f8013ce21732350dd09bac8">Parse</a> (unsigned char c)</td></tr>
+<tr class="memdesc:a80121ab71f8013ce21732350dd09bac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parser příjmu. <br/></td></tr>
+<tr class="separator:a80121ab71f8013ce21732350dd09bac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76824ebd190d3cf818281d7d73ff638"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae76824ebd190d3cf818281d7d73ff638"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#ae76824ebd190d3cf818281d7d73ff638">RecEnd</a> (void)</td></tr>
+<tr class="memdesc:ae76824ebd190d3cf818281d7d73ff638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Akce na příjem Ctrl-C. <br/></td></tr>
+<tr class="separator:ae76824ebd190d3cf818281d7d73ff638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1dd9818afb1fd56e3b7c8b9f18caac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f1dd9818afb1fd56e3b7c8b9f18caac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#a5f1dd9818afb1fd56e3b7c8b9f18caac">RecDel</a> (void)</td></tr>
+<tr class="memdesc:a5f1dd9818afb1fd56e3b7c8b9f18caac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Akce na příjem Ctrl-D. <br/></td></tr>
+<tr class="separator:a5f1dd9818afb1fd56e3b7c8b9f18caac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643a08ac9352013bfafb591d961ca240"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a643a08ac9352013bfafb591d961ca240"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#a643a08ac9352013bfafb591d961ca240">RecAck</a> (bool ack)</td></tr>
+<tr class="memdesc:a643a08ac9352013bfafb591d961ca240"><td class="mdescLeft">&#160;</td><td class="mdescRight">reakce na +/- (fakticky zatím nic nedělá) <br/></td></tr>
+<tr class="separator:a643a08ac9352013bfafb591d961ca240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3368b29ddedadab5fc2f8422526c188b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3368b29ddedadab5fc2f8422526c188b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#a3368b29ddedadab5fc2f8422526c188b">SendAck</a> (bool ack)</td></tr>
+<tr class="memdesc:a3368b29ddedadab5fc2f8422526c188b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vyšle potvrzení +/-. <br/></td></tr>
+<tr class="separator:a3368b29ddedadab5fc2f8422526c188b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff286f6266942c1141576e0b7dee60d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adff286f6266942c1141576e0b7dee60d"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#adff286f6266942c1141576e0b7dee60d">Up</a> (char *data, uint32_t len)</td></tr>
+<tr class="memdesc:adff286f6266942c1141576e0b7dee60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">zapojení do řetězce nahoru <br/></td></tr>
+<tr class="separator:adff286f6266942c1141576e0b7dee60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160cbe75616623b168155234abe85c15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a160cbe75616623b168155234abe85c15"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGdbPacket.html#a160cbe75616623b168155234abe85c15">Down</a> (char *data, uint32_t len)</td></tr>
+<tr class="memdesc:a160cbe75616623b168155234abe85c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">zapojení do řetězce dolu <br/></td></tr>
+<tr class="separator:a160cbe75616623b168155234abe85c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classBaseLayer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classBaseLayer')"><img src="closed.png" alt="-"/>&#160;Veřejné metody dědí se z <a class="el" href="classBaseLayer.html">BaseLayer</a></td></tr>
+<tr class="memitem:a3859f6996ca38f3a7317a3facb8389a4 inherit pub_methods_classBaseLayer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseLayer.html#a3859f6996ca38f3a7317a3facb8389a4">BaseLayer</a> ()</td></tr>
+<tr class="separator:a3859f6996ca38f3a7317a3facb8389a4 inherit pub_methods_classBaseLayer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc3506efc65b510921c5f493acab3eb inherit pub_methods_classBaseLayer"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classBaseLayer.html">BaseLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseLayer.html#a2bc3506efc65b510921c5f493acab3eb">operator+=</a> (<a class="el" href="classBaseLayer.html">BaseLayer</a> &amp;bl)</td></tr>
+<tr class="separator:a2bc3506efc65b510921c5f493acab3eb inherit pub_methods_classBaseLayer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96160b7abdf498140a8112317064ff6f inherit pub_methods_classBaseLayer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBaseLayer.html">BaseLayer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseLayer.html#a96160b7abdf498140a8112317064ff6f">getDown</a> (void) const </td></tr>
+<tr class="separator:a96160b7abdf498140a8112317064ff6f inherit pub_methods_classBaseLayer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Další zděděné členy</h2></td></tr>
+<tr class="inherit_header pro_methods_classBaseLayer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classBaseLayer')"><img src="closed.png" alt="-"/>&#160;Chráněné metody dědí se z <a class="el" href="classBaseLayer.html">BaseLayer</a></td></tr>
+<tr class="memitem:a4775fe4f98dc36ede462549cd2f71c5d inherit pro_methods_classBaseLayer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseLayer.html#a4775fe4f98dc36ede462549cd2f71c5d">setUp</a> (<a class="el" href="classBaseLayer.html">BaseLayer</a> *p)</td></tr>
+<tr class="separator:a4775fe4f98dc36ede462549cd2f71c5d inherit pro_methods_classBaseLayer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb57b1b1cb47b342c71da274458801ce inherit pro_methods_classBaseLayer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBaseLayer.html#aeb57b1b1cb47b342c71da274458801ce">setDown</a> (<a class="el" href="classBaseLayer.html">BaseLayer</a> *p)</td></tr>
+<tr class="separator:aeb57b1b1cb47b342c71da274458801ce inherit pro_methods_classBaseLayer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Dokumentace pro tuto třídu byla generována z následujícího souboru:<ul>
+<li>inc/<a class="el" href="gdbpacket_8h_source.html">gdbpacket.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Dokumentace struktury LPC_USART_Type</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Třídy</span></a></li>
+      <li><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Seznam&#160;tříd</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchie&#160;tříd</span></a></li>
+      <li><a href="functions.html"><span>Seznam&#160;členů&#160;tříd</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Veřejné atributy</a> &#124;
+<a href="structLPC__USART__Type-members.html">Seznam všech členů</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace struktury LPC_USART_Type<div class="ingroups"><a class="el" href="group__Device__Peripheral__Registers.html">Device_Peripheral_Registers</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Product name title=UM10462 Chapter title=LPC11U1x USART Modification date=3/16/2011 Major revision=0 Minor revision=3 (USART)  
+</p>
+
+<p><code>#include &lt;<a class="el" href="LPC11Uxx_8h_source.html">LPC11Uxx.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Veřejné atributy</h2></td></tr>
+<tr class="memitem:a668800078afece575e5ce6cc8d309a24"><td class="memItemLeft" >union {</td></tr>
+<tr class="memitem:adccc73f2a244eb407834c2f4481fa58c"><td class="memItemLeft" >&#160;&#160;&#160;__IO uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#acf60c635e55ef19e56fbdb5a0d44b157">DLL</a></td></tr>
+<tr class="separator:adccc73f2a244eb407834c2f4481fa58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e7f5d5680bc66d8a339df625b0d8b2"><td class="memItemLeft" >&#160;&#160;&#160;__O uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#ac987f9512359c4e75ea7777f4f64a1db">THR</a></td></tr>
+<tr class="separator:ac3e7f5d5680bc66d8a339df625b0d8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8460803ccfb2072bc5b396f480ea946f"><td class="memItemLeft" >&#160;&#160;&#160;__I uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#a70d643f8149116ba8aed369b3c278d49">RBR</a></td></tr>
+<tr class="separator:a8460803ccfb2072bc5b396f480ea946f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668800078afece575e5ce6cc8d309a24"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a668800078afece575e5ce6cc8d309a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c48bc193a5ae9d41394f26974998c9d"><td class="memItemLeft" ><a class="anchor" id="a7c48bc193a5ae9d41394f26974998c9d"></a>
+union {</td></tr>
+<tr class="memitem:a83764e3ce8e8e1cf915367e9fcf7ea56"><td class="memItemLeft" >&#160;&#160;&#160;__IO uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#afa78e339a32429fc5c9555d78ea566d2">IER</a></td></tr>
+<tr class="separator:a83764e3ce8e8e1cf915367e9fcf7ea56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a4d785c3cbb4f629112b74f3aa9c26"><td class="memItemLeft" >&#160;&#160;&#160;__IO uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#a4bc003916c79165f0831f9cd31c4e438">DLM</a></td></tr>
+<tr class="separator:a46a4d785c3cbb4f629112b74f3aa9c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c48bc193a5ae9d41394f26974998c9d"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a7c48bc193a5ae9d41394f26974998c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8ec44c472d57b45cd7901f32f98cce"><td class="memItemLeft" ><a class="anchor" id="a2e8ec44c472d57b45cd7901f32f98cce"></a>
+union {</td></tr>
+<tr class="memitem:a29f8252307d79b1c97f089d5c25d0018"><td class="memItemLeft" >&#160;&#160;&#160;__O uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#a38dfebc51d165ea9c2057ce225b3ec8b">FCR</a></td></tr>
+<tr class="separator:a29f8252307d79b1c97f089d5c25d0018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd0b00b65f95ff3f614fb9c6c95f1d4"><td class="memItemLeft" >&#160;&#160;&#160;__I uint32_t&#160;&#160;&#160;<a class="el" href="structLPC__USART__Type.html#ae9c860864c1c4e1bf040ca80685807f4">IIR</a></td></tr>
+<tr class="separator:a6dd0b00b65f95ff3f614fb9c6c95f1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8ec44c472d57b45cd7901f32f98cce"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a2e8ec44c472d57b45cd7901f32f98cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71965fc58a40985dacc81895b0e24f1e"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a71965fc58a40985dacc81895b0e24f1e">LCR</a></td></tr>
+<tr class="separator:a71965fc58a40985dacc81895b0e24f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9491c5e8f60a2ff2b6e4b35087377360"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a9491c5e8f60a2ff2b6e4b35087377360">MCR</a></td></tr>
+<tr class="separator:a9491c5e8f60a2ff2b6e4b35087377360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3682d908182edb5aa26265c1693f08e6"><td class="memItemLeft" align="right" valign="top">__I uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a3682d908182edb5aa26265c1693f08e6">LSR</a></td></tr>
+<tr class="separator:a3682d908182edb5aa26265c1693f08e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed76218f3b43e3d250aabe384669dc70"><td class="memItemLeft" align="right" valign="top">__I uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#aed76218f3b43e3d250aabe384669dc70">MSR</a></td></tr>
+<tr class="separator:aed76218f3b43e3d250aabe384669dc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75289726f5198e49c51e2d1dfafa92b7"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a75289726f5198e49c51e2d1dfafa92b7">SCR</a></td></tr>
+<tr class="separator:a75289726f5198e49c51e2d1dfafa92b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743ccc96c732e6a7839354591ffdc4ba"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a743ccc96c732e6a7839354591ffdc4ba">ACR</a></td></tr>
+<tr class="separator:a743ccc96c732e6a7839354591ffdc4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5f93c08e65c38459a8b1be1420cdd3"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a0d5f93c08e65c38459a8b1be1420cdd3">ICR</a></td></tr>
+<tr class="separator:a0d5f93c08e65c38459a8b1be1420cdd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a653facd747d946bcf92f37c252885506"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a653facd747d946bcf92f37c252885506">FDR</a></td></tr>
+<tr class="separator:a653facd747d946bcf92f37c252885506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e2c6a0c0cdaefc3ff4cb88d507de87"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a88e2c6a0c0cdaefc3ff4cb88d507de87">OSR</a></td></tr>
+<tr class="separator:a88e2c6a0c0cdaefc3ff4cb88d507de87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab93aeb3264c258334961bc05abeb23b6"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#ab93aeb3264c258334961bc05abeb23b6">TER</a></td></tr>
+<tr class="separator:ab93aeb3264c258334961bc05abeb23b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf15225871b3788b4c33a410764b934b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf15225871b3788b4c33a410764b934b"></a>
+__I uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>RESERVED0</b> [3]</td></tr>
+<tr class="separator:aaf15225871b3788b4c33a410764b934b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30efb6d8391bac0144c046d6c7d3e980"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a30efb6d8391bac0144c046d6c7d3e980">HDEN</a></td></tr>
+<tr class="separator:a30efb6d8391bac0144c046d6c7d3e980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16e7e8347b94154311979e285bbeabcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16e7e8347b94154311979e285bbeabcf"></a>
+__I uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>RESERVED1</b></td></tr>
+<tr class="separator:a16e7e8347b94154311979e285bbeabcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bfdbb3301a8b0168a84f55693c27e8"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#aa9bfdbb3301a8b0168a84f55693c27e8">SCICTRL</a></td></tr>
+<tr class="separator:aa9bfdbb3301a8b0168a84f55693c27e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a772c1ac7d07abb8ddb537b9562fc6"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a33a772c1ac7d07abb8ddb537b9562fc6">RS485CTRL</a></td></tr>
+<tr class="separator:a33a772c1ac7d07abb8ddb537b9562fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ec7899189b2c5b6078979aba6d7c1e"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#ab6ec7899189b2c5b6078979aba6d7c1e">RS485ADRMATCH</a></td></tr>
+<tr class="separator:ab6ec7899189b2c5b6078979aba6d7c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c89c8bbebcae1c75b40d426f0ffe27c"><td class="memItemLeft" align="right" valign="top">__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLPC__USART__Type.html#a1c89c8bbebcae1c75b40d426f0ffe27c">RS485DLY</a></td></tr>
+<tr class="separator:a1c89c8bbebcae1c75b40d426f0ffe27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbac0004d673d65d0fa0bb1bd946e40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafbac0004d673d65d0fa0bb1bd946e40"></a>
+__IO uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>SYNCCTRL</b></td></tr>
+<tr class="separator:aafbac0004d673d65d0fa0bb1bd946e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentace k datovým členům</h2>
+<a class="anchor" id="a668800078afece575e5ce6cc8d309a24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... } </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt; (@ 0x40008000) USART Structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a743ccc96c732e6a7839354591ffdc4ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::ACR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008020) Auto-baud Control Register. Contains controls for the auto-baud feature. </p>
+
+</div>
+</div>
+<a class="anchor" id="acf60c635e55ef19e56fbdb5a0d44b157"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::DLL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008000) Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1) </p>
+
+</div>
+</div>
+<a class="anchor" id="a4bc003916c79165f0831f9cd31c4e438"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::DLM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008004) Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1) </p>
+
+</div>
+</div>
+<a class="anchor" id="a38dfebc51d165ea9c2057ce225b3ec8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__O uint32_t LPC_USART_Type::FCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008008) FIFO Control Register. Controls USART FIFO usage and modes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a653facd747d946bcf92f37c252885506"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::FDR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008028) Fractional Divider Register. Generates a clock input for the baud rate divider. </p>
+
+</div>
+</div>
+<a class="anchor" id="a30efb6d8391bac0144c046d6c7d3e980"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::HDEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008040) Half duplex enable register. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0d5f93c08e65c38459a8b1be1420cdd3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::ICR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008024) IrDA Control Register. Enables and configures the IrDA (remote control) mode. </p>
+
+</div>
+</div>
+<a class="anchor" id="afa78e339a32429fc5c9555d78ea566d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::IER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008004) Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential USART interrupts. (DLAB=0) </p>
+
+</div>
+</div>
+<a class="anchor" id="ae9c860864c1c4e1bf040ca80685807f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__I uint32_t LPC_USART_Type::IIR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008008) Interrupt ID Register. Identifies which interrupt(s) are pending. </p>
+
+</div>
+</div>
+<a class="anchor" id="a71965fc58a40985dacc81895b0e24f1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::LCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x4000800C) Line Control Register. Contains controls for frame formatting and break generation. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3682d908182edb5aa26265c1693f08e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__I uint32_t LPC_USART_Type::LSR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008014) Line Status Register. Contains flags for transmit and receive status, including line errors. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9491c5e8f60a2ff2b6e4b35087377360"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::MCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008010) Modem Control Register. </p>
+
+</div>
+</div>
+<a class="anchor" id="aed76218f3b43e3d250aabe384669dc70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__I uint32_t LPC_USART_Type::MSR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008018) Modem Status Register. </p>
+
+</div>
+</div>
+<a class="anchor" id="a88e2c6a0c0cdaefc3ff4cb88d507de87"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::OSR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x4000802C) Oversampling Register. Controls the degree of oversampling during each bit time. </p>
+
+</div>
+</div>
+<a class="anchor" id="a70d643f8149116ba8aed369b3c278d49"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__I uint32_t LPC_USART_Type::RBR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008000) Receiver Buffer Register. Contains the next received character to be read. (DLAB=0) </p>
+
+</div>
+</div>
+<a class="anchor" id="ab6ec7899189b2c5b6078979aba6d7c1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::RS485ADRMATCH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008050) RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode. </p>
+
+</div>
+</div>
+<a class="anchor" id="a33a772c1ac7d07abb8ddb537b9562fc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::RS485CTRL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x4000804C) RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c89c8bbebcae1c75b40d426f0ffe27c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::RS485DLY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008054) RS-485/EIA-485 direction control delay. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa9bfdbb3301a8b0168a84f55693c27e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::SCICTRL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008048) Smart Card Interface Control register. Enables and configures the Smart Card Interface feature. </p>
+
+</div>
+</div>
+<a class="anchor" id="a75289726f5198e49c51e2d1dfafa92b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::SCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x4000801C) Scratch Pad Register. Eight-bit temporary storage for software. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab93aeb3264c258334961bc05abeb23b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__IO uint32_t LPC_USART_Type::TER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008030) Transmit Enable Register. Turns off USART transmitter for use with software flow control. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac987f9512359c4e75ea7777f4f64a1db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__O uint32_t LPC_USART_Type::THR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>(@ 0x40008000) Transmit Holding Register. The next character to be transmitted is written here. (DLAB=0) </p>
+
+</div>
+</div>
+<hr/>Dokumentace pro tuto strukturu (struct) byla generována z následujícího souboru:<ul>
+<li>lpc11/<a class="el" href="LPC11Uxx_8h_source.html">LPC11Uxx.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

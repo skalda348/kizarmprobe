@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['dat',['DAT',['../structLPC__I2C__Type.html#a391bbecb15886c6df589198e57ed1949',1,'LPC_I2C_Type']]],
+  ['data_5fbuffer',['DATA_BUFFER',['../structLPC__I2C__Type.html#a16643b769cf16b31ae3b51e8b68493cb',1,'LPC_I2C_Type']]],
+  ['databufstart',['DATABUFSTART',['../structLPC__USB__Type.html#adb17d5d90cb5bdd77883a7a4b26e5740',1,'LPC_USB_Type']]],
+  ['demcr',['demcr',['../structcortexm__priv.html#aeeda110019afc0f044bf2de9318e5bf3',1,'cortexm_priv']]],
+  ['devcmdstat',['DEVCMDSTAT',['../structLPC__USB__Type.html#a5bcf190938e2ba0680c0fd4dcba25da3',1,'LPC_USB_Type']]],
+  ['device',['device',['../structUsbDescriptors.html#a858afc9bf7819b0983eb1494c7eb9685',1,'UsbDescriptors']]],
+  ['device_5fid',['DEVICE_ID',['../structLPC__SYSCON__Type.html#a37b7a69750d2dc58c20d239f2f7978e8',1,'LPC_SYSCON_Type']]],
+  ['dll',['DLL',['../structLPC__USART__Type.html#acf60c635e55ef19e56fbdb5a0d44b157',1,'LPC_USART_Type']]],
+  ['dlm',['DLM',['../structLPC__USART__Type.html#a4bc003916c79165f0831f9cd31c4e438',1,'LPC_USART_Type']]],
+  ['dp',['dp',['../classADIv5AP.html#a6f8bd7606579917ccdfa945ad11bafba',1,'ADIv5AP::dp()'],['../classADIv5APDP.html#a07a903cf1249c6f75080800dead7669a',1,'ADIv5APDP::dp()']]],
+  ['dr',['DR',['../structLPC__ADC__Type.html#ac1b5e24faa6098c8fa5b1d8fd5a4b709',1,'LPC_ADC_Type::DR()'],['../structLPC__SSPx__Type.html#a218d2f425417351e62d25714a590bd2b',1,'LPC_SSPx_Type::DR()']]],
+  ['dr0',['DR0',['../structLPC__ADC__Type.html#aa553c63fb5b9842afd9d99271a1646bb',1,'LPC_ADC_Type']]],
+  ['dr1',['DR1',['../structLPC__ADC__Type.html#afe9562b441dae6d3999e856bdc2a1c9b',1,'LPC_ADC_Type']]],
+  ['dr2',['DR2',['../structLPC__ADC__Type.html#a6a586b3920c0a51dfddb5851d16e289e',1,'LPC_ADC_Type']]],
+  ['dr3',['DR3',['../structLPC__ADC__Type.html#ae7486d54e47e9ca2c49183e07426268e',1,'LPC_ADC_Type']]],
+  ['dr4',['DR4',['../structLPC__ADC__Type.html#afd5beca7da43c18729b1cce6e334f355',1,'LPC_ADC_Type']]],
+  ['dr5',['DR5',['../structLPC__ADC__Type.html#a0dd723ec30334a2bc4cdd7c35e2e0e9e',1,'LPC_ADC_Type']]],
+  ['dr6',['DR6',['../structLPC__ADC__Type.html#ac2746fe2f48cfa81099315b610c9c069',1,'LPC_ADC_Type']]],
+  ['dr7',['DR7',['../structLPC__ADC__Type.html#a427ae11a3017c6ea1ea0145d41790056',1,'LPC_ADC_Type']]]
+];

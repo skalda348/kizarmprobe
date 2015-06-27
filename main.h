@@ -89,7 +89,7 @@
  * Poslední 2kB zabírá stack, měl by být dost velký, protože některé metody mají na stacku dost
  * velká pole dat.
  * 
- * @section sectD Struktura adresářů, firmware a ladění.
+ * @section sectDD Struktura adresářů, firmware a ladění.
  * -# kořen, kde je i Makefile, obsahuje jen komentář v main.h.
  * -# ./src Společné třídy pro firmware i ladění.
  * -# ./inc Společné hlavičky pro firmware i ladění.
@@ -113,8 +113,13 @@
  * 
  * Struktura programu vypadá na první pohled složitě, ale je dost prostá. Základem je třída BaseLayer,
  * pomocí níž jsou propojeny tyto části:
- * 
- * Swdp - GdbServer - GdbPacket - CDClass.
+ * @dot
+   digraph stack {
+     node [style=filled, shape=rectangle, fillcolor=yellow, fontcolor=blue];
+     rankdir=LR; rank=same;
+     Swdp -> GdbServer -> GdbPacket -> CDClass [dir=both]
+   }
+ * @enddot
  * -# Swdp zajišťuje fyzický přístup na SWD piny. Je to jeden konec řetězu.
  * -# GdbServer je jádrem celého problému.
  * -# GdbPacket je mezivrstva obsluhující jednotlivé pakety gdb. 

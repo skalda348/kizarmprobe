@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Zdrojový soubor lpc11/gpio.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f7c38aff78a579cf4c39dd4af77d223c.html">lpc11</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gpio.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gpio_8h.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GPIO_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GPIO_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LPC11Uxx_8h.html">LPC11Uxx.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156c">    6</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca484aa18a6156ce916049b334ba1839de">    7</a></span>&#160;  <a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca484aa18a6156ce916049b334ba1839de">GPIO_Mode_IN</a>   = 0x00, </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca60f1d530f4119efcad8e1a68c890c6a6">    8</a></span>&#160;  <a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca60f1d530f4119efcad8e1a68c890c6a6">GPIO_Mode_OUT</a>  = 0x01, </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;} <a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156c">GPIODir_TypeDef</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classGpioClass.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGpioClass.html">GpioClass</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classGpioClass.html#aca35e201fc780f6f1c5304c51b6ba6ad">   26</a></span>&#160;    <a class="code" href="classGpioClass.html#aca35e201fc780f6f1c5304c51b6ba6ad">GpioClass</a> (<span class="keyword">const</span> uint32_t no, <span class="keyword">const</span> <a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156c">GPIODir_TypeDef</a> type = <a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca60f1d530f4119efcad8e1a68c890c6a6">GPIO_Mode_OUT</a>) :</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      pos(1UL &lt;&lt; no) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="comment">// Povol hodiny</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      LPC_SYSCON-&gt;<a class="code" href="structLPC__SYSCON__Type.html#a1c7962d21fb593cce7a58b3c8a384277">SYSAHBCLKCTRL</a> |= (1&lt;&lt;6);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="comment">// A nastav pin.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      setDir  (type);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classGpioClass.html#a467838fa108f84ed7647aaecdf1a2509">   34</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classGpioClass.html#a467838fa108f84ed7647aaecdf1a2509">set</a> (<span class="keyword">const</span> <span class="keywordtype">bool</span> b)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span> (b) LPC_GPIO-&gt;SET[0] = pos;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">else</span>   LPC_GPIO-&gt;CLR[0] = pos;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classGpioClass.html#aa215cf75b9c4b944c44f26c5b58fa148">   39</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classGpioClass.html#aa215cf75b9c4b944c44f26c5b58fa148">set</a> (<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      LPC_GPIO-&gt;SET[0] = pos;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classGpioClass.html#a7d7176eb80dc630daa332977be03668c">   43</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classGpioClass.html#a7d7176eb80dc630daa332977be03668c">clr</a> (<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      LPC_GPIO-&gt;CLR[0] = pos;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classGpioClass.html#a4a3c83ae6315f9be428b00121925267a">   47</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classGpioClass.html#a4a3c83ae6315f9be428b00121925267a">change</a> (<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      LPC_GPIO-&gt;NOT[0] = pos;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classGpioClass.html#aaedd7a709049d685eceb7fc505181847">   51</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <span class="keyword">get</span> (void) <span class="keyword">const</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">if</span> (LPC_GPIO-&gt;PIN[0] &amp; pos) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">else</span>                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setDir (<a class="code" href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156c">GPIODir_TypeDef</a> p) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">if</span> (p) LPC_GPIO-&gt;DIR[0] |=  pos;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">else</span>   LPC_GPIO-&gt;DIR[0] &amp;= ~pos;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> uint32_t       pos;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // GPIO_H</span></div>
+<div class="ttc" id="classGpioClass_html_aca35e201fc780f6f1c5304c51b6ba6ad"><div class="ttname"><a href="classGpioClass.html#aca35e201fc780f6f1c5304c51b6ba6ad">GpioClass::GpioClass</a></div><div class="ttdeci">GpioClass(const uint32_t no, const GPIODir_TypeDef type=GPIO_Mode_OUT)</div><div class="ttdef"><b>Definition:</b> gpio.h:26</div></div>
+<div class="ttc" id="structLPC__SYSCON__Type_html_a1c7962d21fb593cce7a58b3c8a384277"><div class="ttname"><a href="structLPC__SYSCON__Type.html#a1c7962d21fb593cce7a58b3c8a384277">LPC_SYSCON_Type::SYSAHBCLKCTRL</a></div><div class="ttdeci">__IO uint32_t SYSAHBCLKCTRL</div><div class="ttdef"><b>Definition:</b> LPC11Uxx.h:490</div></div>
+<div class="ttc" id="gpio_8h_html_a999b060eb5538ba9c3a911f374eb156ca60f1d530f4119efcad8e1a68c890c6a6"><div class="ttname"><a href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca60f1d530f4119efcad8e1a68c890c6a6">GPIO_Mode_OUT</a></div><div class="ttdef"><b>Definition:</b> gpio.h:8</div></div>
+<div class="ttc" id="classGpioClass_html_a7d7176eb80dc630daa332977be03668c"><div class="ttname"><a href="classGpioClass.html#a7d7176eb80dc630daa332977be03668c">GpioClass::clr</a></div><div class="ttdeci">const void clr(void) const </div><div class="ttdoc">Nastav pin na log. L. </div><div class="ttdef"><b>Definition:</b> gpio.h:43</div></div>
+<div class="ttc" id="classGpioClass_html"><div class="ttname"><a href="classGpioClass.html">GpioClass</a></div><div class="ttdoc">Obecný GPIO pin. </div><div class="ttdef"><b>Definition:</b> gpio.h:20</div></div>
+<div class="ttc" id="classGpioClass_html_a467838fa108f84ed7647aaecdf1a2509"><div class="ttname"><a href="classGpioClass.html#a467838fa108f84ed7647aaecdf1a2509">GpioClass::set</a></div><div class="ttdeci">const void set(const bool b) const </div><div class="ttdoc">Nastav pin. </div><div class="ttdef"><b>Definition:</b> gpio.h:34</div></div>
+<div class="ttc" id="gpio_8h_html_a999b060eb5538ba9c3a911f374eb156c"><div class="ttname"><a href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156c">GPIODir_TypeDef</a></div><div class="ttdeci">GPIODir_TypeDef</div><div class="ttdef"><b>Definition:</b> gpio.h:6</div></div>
+<div class="ttc" id="classGpioClass_html_aa215cf75b9c4b944c44f26c5b58fa148"><div class="ttname"><a href="classGpioClass.html#aa215cf75b9c4b944c44f26c5b58fa148">GpioClass::set</a></div><div class="ttdeci">const void set(void) const </div><div class="ttdoc">Nastav pin na log. H. </div><div class="ttdef"><b>Definition:</b> gpio.h:39</div></div>
+<div class="ttc" id="gpio_8h_html_a999b060eb5538ba9c3a911f374eb156ca484aa18a6156ce916049b334ba1839de"><div class="ttname"><a href="gpio_8h.html#a999b060eb5538ba9c3a911f374eb156ca484aa18a6156ce916049b334ba1839de">GPIO_Mode_IN</a></div><div class="ttdef"><b>Definition:</b> gpio.h:7</div></div>
+<div class="ttc" id="classGpioClass_html_a4a3c83ae6315f9be428b00121925267a"><div class="ttname"><a href="classGpioClass.html#a4a3c83ae6315f9be428b00121925267a">GpioClass::change</a></div><div class="ttdeci">const void change(void) const </div><div class="ttdoc">Změň hodnotu pinu. </div><div class="ttdef"><b>Definition:</b> gpio.h:47</div></div>
+<div class="ttc" id="LPC11Uxx_8h_html"><div class="ttname"><a href="LPC11Uxx_8h.html">LPC11Uxx.h</a></div><div class="ttdoc">CMSIS Cortex-M0 Core Peripheral Access Layer Header File for default LPC11Uxx Device Series...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

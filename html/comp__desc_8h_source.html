@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Zdrojový soubor lpc11/rom/comp_desc.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f7c38aff78a579cf4c39dd4af77d223c.html">lpc11</a></li><li class="navelem"><a class="el" href="dir_fed58ce0aacce4fbd484dba6bd34b510.html">rom</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">comp_desc.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef USB_DESCRIPTORS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTORS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#endif //__cplusplus</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;mw_usbd.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;mw_usbd_rom_api.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;app_usbd_cfg.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define CDC_FUNCTION_SIZE 0x13</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define USB_INTERFACE_ASSOCIATION_DESC_SIZE 8</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE 11</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structUsbConfig.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structUsbConfig.html">UsbConfig</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structUsbConfig.html#aea6d45377a27ba838266ec5d99d5c6e9">   17</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#aea6d45377a27ba838266ec5d99d5c6e9">cfg</a>[USB_CONFIGUARTION_DESC_SIZE];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  uint8_t as0 [USB_INTERFACE_ASSOCIATION_DESC_SIZE];</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structUsbConfig.html#abc13af0e419d64263f2f24de869da945">   20</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#abc13af0e419d64263f2f24de869da945">if0</a> [USB_INTERFACE_DESC_SIZE];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  uint8_t fd0 [<a class="code" href="usb-desc_8h.html#aa86cf0d4ea55b2f0cdf358d62aa78864">CDC_FUNCTION_SIZE</a>];</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structUsbConfig.html#a0f949532e32fad4e64f8321665318d30">   22</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#a0f949532e32fad4e64f8321665318d30">ep1</a> [USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structUsbConfig.html#abd5b33236894a18d9173336d0f92db71">   24</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#abd5b33236894a18d9173336d0f92db71">if1</a> [USB_INTERFACE_DESC_SIZE];</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structUsbConfig.html#a7d92613392397bf2300a3eab46e980f3">   25</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#a7d92613392397bf2300a3eab46e980f3">ep2</a> [USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  uint8_t ep82[USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  uint8_t as1 [USB_INTERFACE_ASSOCIATION_DESC_SIZE];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  uint8_t if2 [USB_INTERFACE_DESC_SIZE];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  uint8_t fd1 [<a class="code" href="usb-desc_8h.html#aa86cf0d4ea55b2f0cdf358d62aa78864">CDC_FUNCTION_SIZE</a>];</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structUsbConfig.html#a6a30de5bef49139795bc0717e7375e27">   31</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#a6a30de5bef49139795bc0717e7375e27">ep3</a> [USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  uint8_t if3 [USB_INTERFACE_DESC_SIZE];</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  uint8_t ep4 [USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  uint8_t ep84[USB_ENDPOINT_DESC_SIZE];</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structUsbConfig.html#ab173de00d7c85de17ed755bcc7ffae05">   37</a></span>&#160;  uint8_t <a class="code" href="structUsbConfig.html#ab173de00d7c85de17ed755bcc7ffae05">term</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structUsbDescriptors.html">   40</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structUsbDescriptors.html">UsbDescriptors</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structUsbDescriptors.html#a858afc9bf7819b0983eb1494c7eb9685">   41</a></span>&#160;  <span class="keyword">const</span> uint8_t* <a class="code" href="structUsbDescriptors.html#a858afc9bf7819b0983eb1494c7eb9685">device</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structUsbDescriptors.html#a00c9d93aa5462bc712f218601c999d91">   42</a></span>&#160;  <span class="keyword">const</span> uint8_t* <a class="code" href="structUsbDescriptors.html#a00c9d93aa5462bc712f218601c999d91">config</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structUsbDescriptors.html#a9cdcee531627b266d1a7360c2010d117">   43</a></span>&#160;  <span class="keyword">const</span> uint8_t* <a class="code" href="structUsbDescriptors.html#a9cdcee531627b266d1a7360c2010d117">string</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structUsbDescriptors.html">UsbDescriptors</a> <a class="code" href="usb-desc_8h.html#a0b13399d544373f667dbca161b466336">CdcUsbDescriptors</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structUsbConfig.html">UsbConfig</a>      <a class="code" href="usb-desc_8h.html#ac8e221e6015aebb808f7678966dc9469">CdcConfig</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structCDCIndividual.html">   50</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structCDCIndividual.html">CDCIndividual</a> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">const</span> uint32_t depth;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">const</span> uint32_t ep;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">const</span> uint8_t* if0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">const</span> uint8_t* if1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  ErrorCode_t (*SetLineCode)      (USBD_HANDLE_T hCDC, CDC_LINE_CODING* line_coding);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  ErrorCode_t (*SetCtrlLineState) (USBD_HANDLE_T hCDC, uint16_t state);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structCDCAssocField.html">   62</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structCDCAssocField.html">CDCAssocField</a> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structCDCIndividual.html">CDCIndividual</a> iface [2];  <span class="comment">// a jejich popis</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structCDCAssocField.html">CDCAssocField</a> ciAssoc;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif //__cplusplus</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // USB_DESCRIPTORS_H</span></div>
+<div class="ttc" id="structUsbDescriptors_html_a9cdcee531627b266d1a7360c2010d117"><div class="ttname"><a href="structUsbDescriptors.html#a9cdcee531627b266d1a7360c2010d117">UsbDescriptors::string</a></div><div class="ttdeci">const uint8_t * string</div><div class="ttdoc">String deskriptor. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:43</div></div>
+<div class="ttc" id="usb-desc_8h_html_aa86cf0d4ea55b2f0cdf358d62aa78864"><div class="ttname"><a href="usb-desc_8h.html#aa86cf0d4ea55b2f0cdf358d62aa78864">CDC_FUNCTION_SIZE</a></div><div class="ttdeci">#define CDC_FUNCTION_SIZE</div><div class="ttdoc">Délka CDC. </div><div class="ttdef"><b>Definition:</b> usb-desc.h:14</div></div>
+<div class="ttc" id="structUsbDescriptors_html"><div class="ttname"><a href="structUsbDescriptors.html">UsbDescriptors</a></div><div class="ttdoc">Deskriptory USB systému. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:40</div></div>
+<div class="ttc" id="structUsbConfig_html_ab173de00d7c85de17ed755bcc7ffae05"><div class="ttname"><a href="structUsbConfig.html#ab173de00d7c85de17ed755bcc7ffae05">UsbConfig::term</a></div><div class="ttdeci">uint8_t term</div><div class="ttdoc">Ukončení </div><div class="ttdef"><b>Definition:</b> comp_desc.h:37</div></div>
+<div class="ttc" id="structCDCAssocField_html"><div class="ttname"><a href="structCDCAssocField.html">CDCAssocField</a></div><div class="ttdef"><b>Definition:</b> comp_desc.h:62</div></div>
+<div class="ttc" id="usb-desc_8h_html_ac8e221e6015aebb808f7678966dc9469"><div class="ttname"><a href="usb-desc_8h.html#ac8e221e6015aebb808f7678966dc9469">CdcConfig</a></div><div class="ttdeci">const struct UsbConfig CdcConfig</div><div class="ttdoc">Jsou definovány v usb-desc.c. </div><div class="ttdef"><b>Definition:</b> comp_desc.c:53</div></div>
+<div class="ttc" id="structUsbDescriptors_html_a00c9d93aa5462bc712f218601c999d91"><div class="ttname"><a href="structUsbDescriptors.html#a00c9d93aa5462bc712f218601c999d91">UsbDescriptors::config</a></div><div class="ttdeci">const uint8_t * config</div><div class="ttdoc">Config deskriptor. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:42</div></div>
+<div class="ttc" id="structUsbConfig_html_abd5b33236894a18d9173336d0f92db71"><div class="ttname"><a href="structUsbConfig.html#abd5b33236894a18d9173336d0f92db71">UsbConfig::if1</a></div><div class="ttdeci">uint8_t if1[USB_INTERFACE_DESC_SIZE]</div><div class="ttdoc">Interface 1. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:24</div></div>
+<div class="ttc" id="structCDCIndividual_html"><div class="ttname"><a href="structCDCIndividual.html">CDCIndividual</a></div><div class="ttdef"><b>Definition:</b> comp_desc.h:50</div></div>
+<div class="ttc" id="structUsbConfig_html_a0f949532e32fad4e64f8321665318d30"><div class="ttname"><a href="structUsbConfig.html#a0f949532e32fad4e64f8321665318d30">UsbConfig::ep1</a></div><div class="ttdeci">uint8_t ep1[USB_ENDPOINT_DESC_SIZE]</div><div class="ttdoc">Endpoint 1. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:22</div></div>
+<div class="ttc" id="structUsbConfig_html_a6a30de5bef49139795bc0717e7375e27"><div class="ttname"><a href="structUsbConfig.html#a6a30de5bef49139795bc0717e7375e27">UsbConfig::ep3</a></div><div class="ttdeci">uint8_t ep3[USB_ENDPOINT_DESC_SIZE]</div><div class="ttdoc">Endpoint 3. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:31</div></div>
+<div class="ttc" id="structUsbConfig_html_a7d92613392397bf2300a3eab46e980f3"><div class="ttname"><a href="structUsbConfig.html#a7d92613392397bf2300a3eab46e980f3">UsbConfig::ep2</a></div><div class="ttdeci">uint8_t ep2[USB_ENDPOINT_DESC_SIZE]</div><div class="ttdoc">Endpoint 2. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:25</div></div>
+<div class="ttc" id="structUsbDescriptors_html_a858afc9bf7819b0983eb1494c7eb9685"><div class="ttname"><a href="structUsbDescriptors.html#a858afc9bf7819b0983eb1494c7eb9685">UsbDescriptors::device</a></div><div class="ttdeci">const uint8_t * device</div><div class="ttdoc">Device deskriptor. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:41</div></div>
+<div class="ttc" id="structUsbConfig_html_abc13af0e419d64263f2f24de869da945"><div class="ttname"><a href="structUsbConfig.html#abc13af0e419d64263f2f24de869da945">UsbConfig::if0</a></div><div class="ttdeci">uint8_t if0[USB_INTERFACE_DESC_SIZE]</div><div class="ttdoc">Interface 0. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:20</div></div>
+<div class="ttc" id="usb-desc_8h_html_a0b13399d544373f667dbca161b466336"><div class="ttname"><a href="usb-desc_8h.html#a0b13399d544373f667dbca161b466336">CdcUsbDescriptors</a></div><div class="ttdeci">const struct UsbDescriptors CdcUsbDescriptors</div><div class="ttdoc">Jsou definovány v usb-desc.c. </div><div class="ttdef"><b>Definition:</b> comp_desc.c:314</div></div>
+<div class="ttc" id="structUsbConfig_html_aea6d45377a27ba838266ec5d99d5c6e9"><div class="ttname"><a href="structUsbConfig.html#aea6d45377a27ba838266ec5d99d5c6e9">UsbConfig::cfg</a></div><div class="ttdeci">uint8_t cfg[USB_CONFIGUARTION_DESC_SIZE]</div><div class="ttdoc">konfigurace </div><div class="ttdef"><b>Definition:</b> comp_desc.h:17</div></div>
+<div class="ttc" id="structUsbConfig_html"><div class="ttname"><a href="structUsbConfig.html">UsbConfig</a></div><div class="ttdoc">Vnitřní struktury USB driveru. </div><div class="ttdef"><b>Definition:</b> comp_desc.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

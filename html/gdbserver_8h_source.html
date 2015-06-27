@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Zdrojový soubor inc/gdbserver.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gdbserver.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gdbserver_8h.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GDBSERVER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GDBSERVER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="baselayer_8h.html">baselayer.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;monitor.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="locker_8h.html">locker.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gpio_8h.html">gpio.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classTarget.html">Target</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classMonitor.html">Monitor</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classGdbServer.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGdbServer.html">GdbServer</a> : <span class="keyword">public</span> <a class="code" href="classBaseLayer.html">BaseLayer</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classGdbServer.html#aa8b59e18619a368d382bede34bd34981">GdbServer</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a266924a56f0fee4026168740c43252ca">Fini</a>            (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#afbf9d5b73429fdf4a6b72b8a640faeae">Scan</a>            (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#aea0def61ae2e85c45ac1917a78006f22">Polling</a>         (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    uint32_t <a class="code" href="classGdbServer.html#af19dc3d3f2f452b07972f5a2ee5eda34">Up</a>          (<span class="keywordtype">char</span> *data, uint32_t len);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a5ea9108aff395295e09f9d0397c84961">gdb_putpacket_f</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> *fmt, ...);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a28758d48b45c734b71cfc15935b6d826">gdb_out</a>         (<span class="keyword">const</span> <span class="keywordtype">char</span> *buf);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//int  gdb_outf        (const char *fmt, ...);</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a5e269d06e288b84a3e5732b0d0847728">handle_q_packet</a> (<span class="keywordtype">char</span> *packet, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a03c8ecb23e5db76a352c12d2f9ec7822">handle_v_packet</a> (<span class="keywordtype">char</span> *packet, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a9a6f8120486cef0dc8e48c3a3d8e7cee">handle_z_packet</a> (<span class="keywordtype">char</span> *packet, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a023f6115f48ae8a349ac42eee65b2aee">handle_q_string_reply</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> *str, <span class="keyword">const</span> <span class="keywordtype">char</span> *param);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a59411da3a6fd085d3b7c5ede673c9c3b">gdb_putpacket</a>   (<span class="keyword">const</span> <span class="keywordtype">char</span> *packet, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#af8ea82faac45e3e46589f1430f3e200b">gdb_putpacketz</a>  (<span class="keyword">const</span> <span class="keywordtype">char</span> *packet);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGdbServer.html#a2df83a0f27ab317edcba39f11c5147e4">target_check</a>    (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGdbServer.html#a0542855f39d2ef13c2ab8ffcb49d2114">probe</a>           (<a class="code" href="classTarget.html">Target</a>* n);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a728ddb113ca3717d4278474ecc49ddd6">OldTargetDestroy</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGdbServer.html#a2fdad914f051d8f249605d0422c736b3">SetActive</a>       (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classGdbServer.html#a1f4c90b886288ec60efc21a5297d74d6">   70</a></span>&#160;    <a class="code" href="classTarget.html">Target</a>  * <a class="code" href="classGdbServer.html#a1f4c90b886288ec60efc21a5297d74d6">target</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classGdbServer.html#a3977ef2ecd3cbe2e25242c8be2ea70b1">   72</a></span>&#160;    <a class="code" href="classMonitor.html">Monitor</a>   <a class="code" href="classGdbServer.html#a3977ef2ecd3cbe2e25242c8be2ea70b1">mon</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span>  size;                  </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span>  signal;                </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> single_step;           </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> active;       </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">char</span> last_activity;         </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="classLocker.html">Locker</a>    lock;             </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classGpioClass.html">GpioClass</a> led;              </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif // GDBSERVER_H</span></div>
+<div class="ttc" id="classGdbServer_html_aa8b59e18619a368d382bede34bd34981"><div class="ttname"><a href="classGdbServer.html#aa8b59e18619a368d382bede34bd34981">GdbServer::GdbServer</a></div><div class="ttdeci">GdbServer()</div><div class="ttdoc">Konstruktor. </div></div>
+<div class="ttc" id="classLocker_html"><div class="ttname"><a href="classLocker.html">Locker</a></div><div class="ttdef"><b>Definition:</b> locker.h:20</div></div>
+<div class="ttc" id="classGdbServer_html_af8ea82faac45e3e46589f1430f3e200b"><div class="ttname"><a href="classGdbServer.html#af8ea82faac45e3e46589f1430f3e200b">GdbServer::gdb_putpacketz</a></div><div class="ttdeci">void gdb_putpacketz(const char *packet)</div><div class="ttdoc">další forma odpovědi </div></div>
+<div class="ttc" id="locker_8h_html"><div class="ttname"><a href="locker_8h.html">locker.h</a></div><div class="ttdoc">Zamykání a odemykání vlákna. </div></div>
+<div class="ttc" id="classGdbServer_html_af19dc3d3f2f452b07972f5a2ee5eda34"><div class="ttname"><a href="classGdbServer.html#af19dc3d3f2f452b07972f5a2ee5eda34">GdbServer::Up</a></div><div class="ttdeci">uint32_t Up(char *data, uint32_t len)</div><div class="ttdoc">Vlastní parser paketů je zde. </div></div>
+<div class="ttc" id="classTarget_html"><div class="ttname"><a href="classTarget.html">Target</a></div><div class="ttdef"><b>Definition:</b> target.h:7</div></div>
+<div class="ttc" id="gpio_8h_html"><div class="ttname"><a href="gpio_8h.html">gpio.h</a></div><div class="ttdoc">Obecný GPIO pin. </div></div>
+<div class="ttc" id="classGdbServer_html_a2df83a0f27ab317edcba39f11c5147e4"><div class="ttname"><a href="classGdbServer.html#a2df83a0f27ab317edcba39f11c5147e4">GdbServer::target_check</a></div><div class="ttdeci">bool target_check(void)</div><div class="ttdoc">zjištění stavu targetu </div></div>
+<div class="ttc" id="classGdbServer_html_a03c8ecb23e5db76a352c12d2f9ec7822"><div class="ttname"><a href="classGdbServer.html#a03c8ecb23e5db76a352c12d2f9ec7822">GdbServer::handle_v_packet</a></div><div class="ttdeci">void handle_v_packet(char *packet, int len)</div><div class="ttdoc">obsluha speciálních paketů </div></div>
+<div class="ttc" id="classGdbServer_html_aea0def61ae2e85c45ac1917a78006f22"><div class="ttname"><a href="classGdbServer.html#aea0def61ae2e85c45ac1917a78006f22">GdbServer::Polling</a></div><div class="ttdeci">void Polling(void)</div><div class="ttdoc">Zde se zjišťuje, zda target běží. </div></div>
+<div class="ttc" id="classGdbServer_html_a9a6f8120486cef0dc8e48c3a3d8e7cee"><div class="ttname"><a href="classGdbServer.html#a9a6f8120486cef0dc8e48c3a3d8e7cee">GdbServer::handle_z_packet</a></div><div class="ttdeci">void handle_z_packet(char *packet, int len)</div><div class="ttdoc">obsluha speciálních paketů </div></div>
+<div class="ttc" id="classGdbServer_html_a5e269d06e288b84a3e5732b0d0847728"><div class="ttname"><a href="classGdbServer.html#a5e269d06e288b84a3e5732b0d0847728">GdbServer::handle_q_packet</a></div><div class="ttdeci">void handle_q_packet(char *packet, int len)</div><div class="ttdoc">obsluha speciálních paketů </div></div>
+<div class="ttc" id="classGpioClass_html"><div class="ttname"><a href="classGpioClass.html">GpioClass</a></div><div class="ttdoc">Obecný GPIO pin. </div><div class="ttdef"><b>Definition:</b> gpio.h:20</div></div>
+<div class="ttc" id="classGdbServer_html_a728ddb113ca3717d4278474ecc49ddd6"><div class="ttname"><a href="classGdbServer.html#a728ddb113ca3717d4278474ecc49ddd6">GdbServer::OldTargetDestroy</a></div><div class="ttdeci">void OldTargetDestroy(void)</div><div class="ttdoc">pomocná funkce </div></div>
+<div class="ttc" id="baselayer_8h_html"><div class="ttname"><a href="baselayer_8h.html">baselayer.h</a></div><div class="ttdoc">Bázová třída pro stack trochu obecnějšího komunikačního protokolu. </div></div>
+<div class="ttc" id="classGdbServer_html_a0542855f39d2ef13c2ab8ffcb49d2114"><div class="ttname"><a href="classGdbServer.html#a0542855f39d2ef13c2ab8ffcb49d2114">GdbServer::probe</a></div><div class="ttdeci">bool probe(Target *n)</div><div class="ttdoc">Probe for. </div></div>
+<div class="ttc" id="classGdbServer_html_a1f4c90b886288ec60efc21a5297d74d6"><div class="ttname"><a href="classGdbServer.html#a1f4c90b886288ec60efc21a5297d74d6">GdbServer::target</a></div><div class="ttdeci">Target * target</div><div class="ttdoc">Target je zapouzdřen sem. Vytváří se dynamicky v metodě Scan(). </div><div class="ttdef"><b>Definition:</b> gdbserver.h:70</div></div>
+<div class="ttc" id="classMonitor_html"><div class="ttname"><a href="classMonitor.html">Monitor</a></div><div class="ttdef"><b>Definition:</b> monitor.h:8</div></div>
+<div class="ttc" id="classGdbServer_html_a5ea9108aff395295e09f9d0397c84961"><div class="ttname"><a href="classGdbServer.html#a5ea9108aff395295e09f9d0397c84961">GdbServer::gdb_putpacket_f</a></div><div class="ttdeci">void gdb_putpacket_f(const char *fmt,...)</div><div class="ttdoc">Odpověď zpět do gdb (formátovaná) </div></div>
+<div class="ttc" id="classBaseLayer_html"><div class="ttname"><a href="classBaseLayer.html">BaseLayer</a></div><div class="ttdoc">[BaseLayer example] </div><div class="ttdef"><b>Definition:</b> baselayer.h:31</div></div>
+<div class="ttc" id="classGdbServer_html_afbf9d5b73429fdf4a6b72b8a640faeae"><div class="ttname"><a href="classGdbServer.html#afbf9d5b73429fdf4a6b72b8a640faeae">GdbServer::Scan</a></div><div class="ttdeci">void Scan(void)</div><div class="ttdoc">Scan - po příkazu &quot;monitor scan&quot;. </div><div class="ttdef"><b>Definition:</b> main.cpp:26</div></div>
+<div class="ttc" id="classGdbServer_html_a023f6115f48ae8a349ac42eee65b2aee"><div class="ttname"><a href="classGdbServer.html#a023f6115f48ae8a349ac42eee65b2aee">GdbServer::handle_q_string_reply</a></div><div class="ttdeci">void handle_q_string_reply(const char *str, const char *param)</div><div class="ttdoc">odpověď na q_packet </div></div>
+<div class="ttc" id="classGdbServer_html_a59411da3a6fd085d3b7c5ede673c9c3b"><div class="ttname"><a href="classGdbServer.html#a59411da3a6fd085d3b7c5ede673c9c3b">GdbServer::gdb_putpacket</a></div><div class="ttdeci">void gdb_putpacket(const char *packet, int size)</div><div class="ttdoc">další forma odpovědi </div></div>
+<div class="ttc" id="classGdbServer_html_a2fdad914f051d8f249605d0422c736b3"><div class="ttname"><a href="classGdbServer.html#a2fdad914f051d8f249605d0422c736b3">GdbServer::SetActive</a></div><div class="ttdeci">void SetActive(void)</div><div class="ttdoc">pomocná funkce </div></div>
+<div class="ttc" id="classGdbServer_html_a3977ef2ecd3cbe2e25242c8be2ea70b1"><div class="ttname"><a href="classGdbServer.html#a3977ef2ecd3cbe2e25242c8be2ea70b1">GdbServer::mon</a></div><div class="ttdeci">Monitor mon</div><div class="ttdoc">Monitor - zpracování uživatelských příkazů gdb &quot;monitor ...&quot;. </div><div class="ttdef"><b>Definition:</b> gdbserver.h:72</div></div>
+<div class="ttc" id="classGdbServer_html"><div class="ttname"><a href="classGdbServer.html">GdbServer</a></div><div class="ttdoc">Vlastní obsluha gdb paketů. Nejpodstatnější část celého programu. Vše se děje v přerušení od USB...</div><div class="ttdef"><b>Definition:</b> gdbserver.h:28</div></div>
+<div class="ttc" id="classGdbServer_html_a266924a56f0fee4026168740c43252ca"><div class="ttname"><a href="classGdbServer.html#a266924a56f0fee4026168740c43252ca">GdbServer::Fini</a></div><div class="ttdeci">void Fini(void)</div><div class="ttdoc">pro kompatibilitu s PC pro ladění </div></div>
+<div class="ttc" id="classGdbServer_html_a28758d48b45c734b71cfc15935b6d826"><div class="ttname"><a href="classGdbServer.html#a28758d48b45c734b71cfc15935b6d826">GdbServer::gdb_out</a></div><div class="ttdeci">void gdb_out(const char *buf)</div><div class="ttdoc">Odpověď zpět do gdb (neformátovaná) </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

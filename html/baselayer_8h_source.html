@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Zdrojový soubor inc/baselayer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">baselayer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="baselayer_8h.html">Zobrazit dokumentaci tohoto souboru.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BASELAYER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BASELAYER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Vnitřní makra gcc, g++</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#if __ARM_EABI__ &amp;&amp; __ARM_ARCH_6M__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define ARCH_CM0 1</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif //__ARM_EABI__ ...</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if ARCH_CM0</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define debug(...)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else  // ARCH_CM0</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #ifdef DEBUG</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define debug printf</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #else  // DEBUG</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define debug(...)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif // DEBUG</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // ARCH_CM0</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span><a class="code" href="classBaseLayer.html">BaseLayer</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classBaseLayer.html#a3859f6996ca38f3a7317a3facb8389a4">   35</a></span>&#160;    <a class="code" href="classBaseLayer.html#a3859f6996ca38f3a7317a3facb8389a4">BaseLayer</a> () {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      pUp   = NULL;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      pDown = NULL;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classBaseLayer.html#acf3bbfb7f9591be1d8d793ed12d61822">   44</a></span>&#160;    <span class="keyword">virtual</span> uint32_t    <a class="code" href="classBaseLayer.html#acf3bbfb7f9591be1d8d793ed12d61822">Up</a>   (<span class="keywordtype">char</span>* data, uint32_t len) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keywordflow">if</span> (pUp) <span class="keywordflow">return</span> pUp-&gt;<a class="code" href="classBaseLayer.html#acf3bbfb7f9591be1d8d793ed12d61822">Up</a> (data, len);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classBaseLayer.html#a0e1629a2e03c5678bde74dd510692021">   53</a></span>&#160;    <span class="keyword">virtual</span> uint32_t    <a class="code" href="classBaseLayer.html#a0e1629a2e03c5678bde74dd510692021">Down</a> (<span class="keywordtype">char</span>* data, uint32_t len) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">if</span> (pDown) <span class="keywordflow">return</span> pDown-&gt;<a class="code" href="classBaseLayer.html#a0e1629a2e03c5678bde74dd510692021">Down</a> (data, len); </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordflow">return</span> len;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    };</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classBaseLayer.html#a2bc3506efc65b510921c5f493acab3eb">   61</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classBaseLayer.html">BaseLayer</a>&amp;  <a class="code" href="classBaseLayer.html#a2bc3506efc65b510921c5f493acab3eb">operator += </a>(<a class="code" href="classBaseLayer.html">BaseLayer</a>&amp; bl) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      bl.<a class="code" href="classBaseLayer.html#a4775fe4f98dc36ede462549cd2f71c5d">setUp</a> (<span class="keyword">this</span>);  <span class="comment">// ta spodní bude volat při Up tuto třídu</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <a class="code" href="classBaseLayer.html#aeb57b1b1cb47b342c71da274458801ce">setDown</a>  (&amp;bl );  <span class="comment">// a tato třída bude volat při Down tu spodní</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    };</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classBaseLayer.html#a96160b7abdf498140a8112317064ff6f">   69</a></span>&#160;    <a class="code" href="classBaseLayer.html">BaseLayer</a>* <a class="code" href="classBaseLayer.html#a96160b7abdf498140a8112317064ff6f">getDown</a> (<span class="keywordtype">void</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pDown; };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classBaseLayer.html#a4775fe4f98dc36ede462549cd2f71c5d">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBaseLayer.html#a4775fe4f98dc36ede462549cd2f71c5d">setUp</a>   (<a class="code" href="classBaseLayer.html">BaseLayer</a>* p) { pUp   = p; };</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classBaseLayer.html#aeb57b1b1cb47b342c71da274458801ce">   78</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBaseLayer.html#aeb57b1b1cb47b342c71da274458801ce">setDown</a> (<a class="code" href="classBaseLayer.html">BaseLayer</a>* p) { pDown = p; };</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Ono to je vlastně oboustranně vázaný spojový seznam.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classBaseLayer.html">BaseLayer</a>*  pUp;        </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classBaseLayer.html">BaseLayer</a>*  pDown;      </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif // BASELAYER_H</span></div>
+<div class="ttc" id="classBaseLayer_html_a2bc3506efc65b510921c5f493acab3eb"><div class="ttname"><a href="classBaseLayer.html#a2bc3506efc65b510921c5f493acab3eb">BaseLayer::operator+=</a></div><div class="ttdeci">virtual BaseLayer &amp; operator+=(BaseLayer &amp;bl)</div><div class="ttdef"><b>Definition:</b> baselayer.h:61</div></div>
+<div class="ttc" id="classBaseLayer_html_a3859f6996ca38f3a7317a3facb8389a4"><div class="ttname"><a href="classBaseLayer.html#a3859f6996ca38f3a7317a3facb8389a4">BaseLayer::BaseLayer</a></div><div class="ttdeci">BaseLayer()</div><div class="ttdef"><b>Definition:</b> baselayer.h:35</div></div>
+<div class="ttc" id="classBaseLayer_html_a0e1629a2e03c5678bde74dd510692021"><div class="ttname"><a href="classBaseLayer.html#a0e1629a2e03c5678bde74dd510692021">BaseLayer::Down</a></div><div class="ttdeci">virtual uint32_t Down(char *data, uint32_t len)</div><div class="ttdef"><b>Definition:</b> baselayer.h:53</div></div>
+<div class="ttc" id="classBaseLayer_html_a4775fe4f98dc36ede462549cd2f71c5d"><div class="ttname"><a href="classBaseLayer.html#a4775fe4f98dc36ede462549cd2f71c5d">BaseLayer::setUp</a></div><div class="ttdeci">void setUp(BaseLayer *p)</div><div class="ttdef"><b>Definition:</b> baselayer.h:74</div></div>
+<div class="ttc" id="classBaseLayer_html_acf3bbfb7f9591be1d8d793ed12d61822"><div class="ttname"><a href="classBaseLayer.html#acf3bbfb7f9591be1d8d793ed12d61822">BaseLayer::Up</a></div><div class="ttdeci">virtual uint32_t Up(char *data, uint32_t len)</div><div class="ttdef"><b>Definition:</b> baselayer.h:44</div></div>
+<div class="ttc" id="classBaseLayer_html"><div class="ttname"><a href="classBaseLayer.html">BaseLayer</a></div><div class="ttdoc">[BaseLayer example] </div><div class="ttdef"><b>Definition:</b> baselayer.h:31</div></div>
+<div class="ttc" id="classBaseLayer_html_a96160b7abdf498140a8112317064ff6f"><div class="ttname"><a href="classBaseLayer.html#a96160b7abdf498140a8112317064ff6f">BaseLayer::getDown</a></div><div class="ttdeci">BaseLayer * getDown(void) const </div><div class="ttdef"><b>Definition:</b> baselayer.h:69</div></div>
+<div class="ttc" id="classBaseLayer_html_aeb57b1b1cb47b342c71da274458801ce"><div class="ttname"><a href="classBaseLayer.html#aeb57b1b1cb47b342c71da274458801ce">BaseLayer::setDown</a></div><div class="ttdeci">void setDown(BaseLayer *p)</div><div class="ttdef"><b>Definition:</b> baselayer.h:78</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

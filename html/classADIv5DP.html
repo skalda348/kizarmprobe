@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Dokumentace třídy ADIv5DP</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Třídy</span></a></li>
+      <li><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Seznam&#160;tříd</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchie&#160;tříd</span></a></li>
+      <li><a href="functions.html"><span>Seznam&#160;členů&#160;tříd</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Veřejné metody</a> &#124;
+<a href="#pub-attribs">Veřejné atributy</a> &#124;
+<a href="classADIv5DP-members.html">Seznam všech členů</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace třídy ADIv5DP</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Data Point Tohle je celé poněkud divně strukturované. Moc nechápu, jak by to mělo být správně, celkově to dělá dojem zbytečné složitosti. Možná je to pozůstatek z JTAG přístupu. Prostě pokud to šlo, převzal jsem to z Black Magic a nesnažil se být chytřejší.  
+</p>
+
+<p><code>#include &lt;<a class="el" href="adiv5apdp_8h_source.html">adiv5apdp.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Veřejné metody</h2></td></tr>
+<tr class="memitem:a0d47be02122e8a22b54410253ffea8c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d47be02122e8a22b54410253ffea8c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a0d47be02122e8a22b54410253ffea8c3">ADIv5DP</a> ()</td></tr>
+<tr class="memdesc:a0d47be02122e8a22b54410253ffea8c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor. <br/></td></tr>
+<tr class="separator:a0d47be02122e8a22b54410253ffea8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01012ec6a333787eee0800729bde153"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad01012ec6a333787eee0800729bde153"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#ad01012ec6a333787eee0800729bde153">dp_init</a> (void)</td></tr>
+<tr class="memdesc:ad01012ec6a333787eee0800729bde153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Základní inicializace. <br/></td></tr>
+<tr class="separator:ad01012ec6a333787eee0800729bde153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1daa97eb716cb40da0e8e21a1219aee1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a1daa97eb716cb40da0e8e21a1219aee1">dp_write</a> (uint8_t addr, uint32_t value)</td></tr>
+<tr class="memdesc:a1daa97eb716cb40da0e8e21a1219aee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zápis do Data Pointu.  <a href="#a1daa97eb716cb40da0e8e21a1219aee1">...</a><br/></td></tr>
+<tr class="separator:a1daa97eb716cb40da0e8e21a1219aee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2323312f4dbbbf55214f5b4ae1df9618"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2323312f4dbbbf55214f5b4ae1df9618"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a2323312f4dbbbf55214f5b4ae1df9618">dp_read</a> (uint8_t addr)</td></tr>
+<tr class="memdesc:a2323312f4dbbbf55214f5b4ae1df9618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stejně tak čtení <br/></td></tr>
+<tr class="separator:a2323312f4dbbbf55214f5b4ae1df9618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b09782d16c6801f8483c69cca8eb639"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b09782d16c6801f8483c69cca8eb639"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a7b09782d16c6801f8483c69cca8eb639">error</a> (void)</td></tr>
+<tr class="memdesc:a7b09782d16c6801f8483c69cca8eb639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zjištění chybového stavu. <br/></td></tr>
+<tr class="separator:a7b09782d16c6801f8483c69cca8eb639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac075c4035fcbee40c68d39b99d931111"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#ac075c4035fcbee40c68d39b99d931111">low_access</a> (uint8_t <a class="el" href="swdp_8h.html#a3de12b20f0dbd49f8b5bde2dc4dcb8b1">APnDP</a>, uint8_t <a class="el" href="swdp_8h.html#a39093089dc7a818607f7694c66945028">RnW</a>, uint8_t addr, uint32_t value)</td></tr>
+<tr class="memdesc:ac075c4035fcbee40c68d39b99d931111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obal na nízkoúrovňový přístup pro <a class="el" href="classSwdp.html" title="Fyzický přístup na SWD piny. ">Swdp</a>.  <a href="#ac075c4035fcbee40c68d39b99d931111">...</a><br/></td></tr>
+<tr class="separator:ac075c4035fcbee40c68d39b99d931111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabfeb817ed615a56b87797134cbcb45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaabfeb817ed615a56b87797134cbcb45"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#aaabfeb817ed615a56b87797134cbcb45">dp_write_ap</a> (uint8_t addr, uint32_t value)</td></tr>
+<tr class="memdesc:aaabfeb817ed615a56b87797134cbcb45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Čerti vědí <br/></td></tr>
+<tr class="separator:aaabfeb817ed615a56b87797134cbcb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac8512fbf524fb23b3d73b13618f990"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ac8512fbf524fb23b3d73b13618f990"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a4ac8512fbf524fb23b3d73b13618f990">dp_read_ap</a> (uint8_t addr)</td></tr>
+<tr class="memdesc:a4ac8512fbf524fb23b3d73b13618f990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Čerti vědí <br/></td></tr>
+<tr class="separator:a4ac8512fbf524fb23b3d73b13618f990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Veřejné atributy</h2></td></tr>
+<tr class="memitem:aa3a273443e39614ea0616eb49398715b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3a273443e39614ea0616eb49398715b"></a>
+<a class="el" href="classGdbServer.html">GdbServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#aa3a273443e39614ea0616eb49398715b">gdb</a></td></tr>
+<tr class="memdesc:aa3a273443e39614ea0616eb49398715b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classGdbServer.html" title="Vlastní obsluha gdb paketů. Nejpodstatnější část celého programu. Vše se děje v přerušení od USB...">GdbServer</a> potřebujeme pro přístup k některým funkcím. <br/></td></tr>
+<tr class="separator:aa3a273443e39614ea0616eb49398715b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c82d73c9ebc70d6487007c6df8794f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30c82d73c9ebc70d6487007c6df8794f"></a>
+<a class="el" href="classADIv5AP.html">ADIv5AP</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a30c82d73c9ebc70d6487007c6df8794f">ap</a></td></tr>
+<tr class="memdesc:a30c82d73c9ebc70d6487007c6df8794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zároveň je potřeba i Access Point. <br/></td></tr>
+<tr class="separator:a30c82d73c9ebc70d6487007c6df8794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f74af9997a4564a029d8de2b1123b7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f74af9997a4564a029d8de2b1123b7e"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#a6f74af9997a4564a029d8de2b1123b7e">idcode</a></td></tr>
+<tr class="memdesc:a6f74af9997a4564a029d8de2b1123b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core ID. <br/></td></tr>
+<tr class="separator:a6f74af9997a4564a029d8de2b1123b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad1f4ca77dd8e1c73688a15681230904"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad1f4ca77dd8e1c73688a15681230904"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADIv5DP.html#aad1f4ca77dd8e1c73688a15681230904">allow_timeout</a></td></tr>
+<tr class="memdesc:aad1f4ca77dd8e1c73688a15681230904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zřejmě k ničemu. <br/></td></tr>
+<tr class="separator:aad1f4ca77dd8e1c73688a15681230904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437ad1648bb20e0a40c06a90a20c24c1"><td class="memItemLeft" ><a class="anchor" id="a437ad1648bb20e0a40c06a90a20c24c1"></a>
+union {</td></tr>
+<tr class="memitem:a53e5391b82dc53e4e43fdb9527027b83"><td class="memItemLeft" ><a class="anchor" id="a41c641fca8170fb8768c84b448e269fb"></a>
+&#160;&#160;&#160;void *&#160;&#160;&#160;<b>unused</b></td></tr>
+<tr class="separator:a53e5391b82dc53e4e43fdb9527027b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5042cfb6b46cf1623dbcdea0101bb03c"><td class="memItemLeft" ><a class="anchor" id="a7a662e09ec09f9ffa56720442cf6d6fa"></a>
+&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<b>fault</b></td></tr>
+<tr class="separator:a5042cfb6b46cf1623dbcdea0101bb03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437ad1648bb20e0a40c06a90a20c24c1"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:a437ad1648bb20e0a40c06a90a20c24c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asi by slo i uint32_t fault, puvodne takto, mozna kvuli typove kontrole. <br/></td></tr>
+<tr class="separator:a437ad1648bb20e0a40c06a90a20c24c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentace k metodám</h2>
+<a class="anchor" id="a1daa97eb716cb40da0e8e21a1219aee1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ADIv5DP::dp_write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>adresa </td></tr>
+    <tr><td class="paramname">value</td><td>hodnota </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac075c4035fcbee40c68d39b99d931111"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ADIv5DP::low_access </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>APnDP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>RnW</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">APnDP</td><td>Access nebo Data Point </td></tr>
+    <tr><td class="paramname">RnW</td><td>Read nebo Write </td></tr>
+    <tr><td class="paramname">addr</td><td>adresa </td></tr>
+    <tr><td class="paramname">value</td><td>hodnota </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Návratová hodnota</dt><dd>uint32_t načtená hodnota, poku RnW je Read </dd></dl>
+
+</div>
+</div>
+<hr/>Dokumentace pro tuto třídu byla generována z následujícího souboru:<ul>
+<li>inc/<a class="el" href="adiv5apdp_8h_source.html">adiv5apdp.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>KizarmProbe.: Dokumentace souboru lpc11/swdp.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">KizarmProbe.
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generováno programem Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Hledat');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hlavní&#160;stránka</span></a></li>
+      <li><a href="modules.html"><span>Moduly</span></a></li>
+      <li><a href="annotated.html"><span>Třídy</span></a></li>
+      <li class="current"><a href="files.html"><span>Soubory</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Hledat" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Seznam&#160;souborů</span></a></li>
+      <li><a href="globals.html"><span>Symboly&#160;v&#160;souborech</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Vše</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Třídy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Soubory</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkce</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Proměnné</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Výčty</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Hodnoty výčtu</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definice maker</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Skupiny</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Stránky</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f7c38aff78a579cf4c39dd4af77d223c.html">lpc11</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Třídy</a> &#124;
+<a href="#define-members">Definice maker</a> &#124;
+<a href="#typedef-members">Definice typů</a> &#124;
+<a href="#enum-members">Výčty</a> &#124;
+<a href="#func-members">Funkce</a> &#124;
+<a href="#var-members">Proměnné</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentace souboru swdp.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fyzický přístup na SWD port.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="baselayer_8h_source.html">baselayer.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br/>
+<code>#include &quot;config.h&quot;</code><br/>
+</div>
+<p><a href="swdp_8h_source.html">Zobrazit zdrojový text tohoto souboru.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Třídy</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structswdPacket.html">swdPacket</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SWD Paket pro základní komunikaci.  <a href="structswdPacket.html#details">...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSwdp.html">Swdp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fyzický přístup na SWD piny.  <a href="classSwdp.html#details">...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definice maker</h2></td></tr>
+<tr class="memitem:a98e60ccad56af304a923d1425eccbba0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98e60ccad56af304a923d1425eccbba0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a98e60ccad56af304a923d1425eccbba0">SWD_ACK</a>&#160;&#160;&#160;0b001</td></tr>
+<tr class="memdesc:a98e60ccad56af304a923d1425eccbba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">SWD status responses. SWD_ACK is good. <br/></td></tr>
+<tr class="separator:a98e60ccad56af304a923d1425eccbba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe8c704726e80c528e08cbcf95af57d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfe8c704726e80c528e08cbcf95af57d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SWD_WAIT</b>&#160;&#160;&#160;0b010</td></tr>
+<tr class="separator:acfe8c704726e80c528e08cbcf95af57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b8b4e348da79b51e151c591224def0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9b8b4e348da79b51e151c591224def0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SWD_FAULT</b>&#160;&#160;&#160;0b100</td></tr>
+<tr class="separator:ae9b8b4e348da79b51e151c591224def0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3c8b44e8c78a8d59941502c6e85c260"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3c8b44e8c78a8d59941502c6e85c260"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SWD_PARITY</b>&#160;&#160;&#160;0b1000</td></tr>
+<tr class="separator:aa3c8b44e8c78a8d59941502c6e85c260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definice typů</h2></td></tr>
+<tr class="memitem:a2c770abdbc8d60c7a47b67c80e137a3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c770abdbc8d60c7a47b67c80e137a3a"></a>
+typedef struct <a class="el" href="structswdPacket.html">swdPacket</a>&#160;</td><td class="memItemRight" valign="bottom"><b>swdPacket_t</b></td></tr>
+<tr class="separator:a2c770abdbc8d60c7a47b67c80e137a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Výčty</h2></td></tr>
+<tr class="memitem:a510863046740ef1ce3a0c4faa02e7163"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a510863046740ef1ce3a0c4faa02e7163">swdCommands</a> { <a class="el" href="swdp_8h.html#a510863046740ef1ce3a0c4faa02e7163a55bf2c5583c83f46a9840ec0bff5aee2">cmdInit</a>, 
+<a class="el" href="swdp_8h.html#a510863046740ef1ce3a0c4faa02e7163aee071af33650dbaa2105f510daa4405b">cmdLowAccess</a>
+ }</td></tr>
+<tr class="memdesc:a510863046740ef1ce3a0c4faa02e7163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Příkazy v <a class="el" href="structswdPacket.html" title="SWD Paket pro základní komunikaci. ">swdPacket</a>.  <a href="swdp_8h.html#a510863046740ef1ce3a0c4faa02e7163">...</a><br/></td></tr>
+<tr class="separator:a510863046740ef1ce3a0c4faa02e7163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkce</h2></td></tr>
+<tr class="memitem:adb61ca17dab21b097027582aa11c9435"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb61ca17dab21b097027582aa11c9435"></a>
+struct <a class="el" href="structswdPacket.html">swdPacket</a>&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((packed))</td></tr>
+<tr class="separator:adb61ca17dab21b097027582aa11c9435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Proměnné</h2></td></tr>
+<tr class="memitem:a3de12b20f0dbd49f8b5bde2dc4dcb8b1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a3de12b20f0dbd49f8b5bde2dc4dcb8b1">APnDP</a></td></tr>
+<tr class="memdesc:a3de12b20f0dbd49f8b5bde2dc4dcb8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Init / IO  <a href="#a3de12b20f0dbd49f8b5bde2dc4dcb8b1">...</a><br/></td></tr>
+<tr class="separator:a3de12b20f0dbd49f8b5bde2dc4dcb8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39093089dc7a818607f7694c66945028"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39093089dc7a818607f7694c66945028"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a39093089dc7a818607f7694c66945028">RnW</a></td></tr>
+<tr class="memdesc:a39093089dc7a818607f7694c66945028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read / Write. <br/></td></tr>
+<tr class="separator:a39093089dc7a818607f7694c66945028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57da20e7b7050410be5e4ec5200b6485"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57da20e7b7050410be5e4ec5200b6485"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a57da20e7b7050410be5e4ec5200b6485">adr</a></td></tr>
+<tr class="memdesc:a57da20e7b7050410be5e4ec5200b6485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresa. <br/></td></tr>
+<tr class="separator:a57da20e7b7050410be5e4ec5200b6485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ad06b300d95ba1d023dcb1e825335f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97ad06b300d95ba1d023dcb1e825335f"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="swdp_8h.html#a97ad06b300d95ba1d023dcb1e825335f">val</a></td></tr>
+<tr class="memdesc:a97ad06b300d95ba1d023dcb1e825335f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DATA. <br/></td></tr>
+<tr class="separator:a97ad06b300d95ba1d023dcb1e825335f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1dfc1ccf00a08192611433ee7f17b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c1dfc1ccf00a08192611433ee7f17b4"></a>
+<a class="el" href="classSwdp.html">Swdp</a>&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b></td></tr>
+<tr class="separator:a8c1dfc1ccf00a08192611433ee7f17b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentace výčtových typů</h2>
+<a class="anchor" id="a510863046740ef1ce3a0c4faa02e7163"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="swdp_8h.html#a510863046740ef1ce3a0c4faa02e7163">swdCommands</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Hodnoty výčtu</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a510863046740ef1ce3a0c4faa02e7163a55bf2c5583c83f46a9840ec0bff5aee2"></a>cmdInit</em>&#160;</td><td class="fielddoc">
+<p>init </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a510863046740ef1ce3a0c4faa02e7163aee071af33650dbaa2105f510daa4405b"></a>cmdLowAccess</em>&#160;</td><td class="fielddoc">
+<p>čtení / zápis na základní úrovni SWD. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentace proměnných</h2>
+<a class="anchor" id="a3de12b20f0dbd49f8b5bde2dc4dcb8b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t APnDP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Acess nebo Data Point </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generováno so 27. čer 2015 11.09:07 pro projekt KizarmProbe. programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
