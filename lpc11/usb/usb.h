@@ -20,7 +20,9 @@
 #define __USB_H__
 
 #include <stdint.h>
+#ifndef __packed
 #define __packed __attribute__((packed))
+#endif //__packed
 //#include <string.h>
 
 typedef union {
