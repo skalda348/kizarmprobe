@@ -28,6 +28,7 @@ void CDClass::Recv (uint32_t len) {
   uint32_t  n, ofs = 0;
   while (len) {
     n = Up ((char*) rxBuf + ofs, len);
+    if (!n) break;
     len -= n;
     ofs += n;
   }

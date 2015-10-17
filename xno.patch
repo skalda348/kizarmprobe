@@ -1,0 +1,48 @@
+Only in ./lpc11/: gpio.h
+Only in ./lpc11/: locker.h
+Only in ./lpc11/: LPC11Uxx.h
+Only in ./lpc11/: mirror.h
+Only in ./lpc11/: rom
+diff -auxr ./lpc11/startup.c ./lpc-x/startup.c
+--- ./lpc11/startup.c	2014-09-07 16:01:00.172327044 +0200
++++ ./lpc-x/startup.c	2014-09-07 14:46:53.892660407 +0200
+@@ -190,7 +190,7 @@
+ 
+   SystemInit();
+   // Načti skutečnou hodnotu proměnné SystemCoreClock
+-  SystemCoreClockUpdate ();
++  // SystemCoreClockUpdate ();
+   static_init();
+ 
+   main();
+Only in ./lpc11/: .svn
+Only in ./lpc11/: swdp.cpp
+Only in ./lpc11/: swdp.h
+diff -auxr ./lpc11/system.c ./lpc-x/system.c
+--- ./lpc11/system.c	2014-09-07 16:01:00.176327087 +0200
++++ ./lpc-x/system.c	2014-09-07 14:47:52.290133822 +0200
+@@ -146,11 +146,11 @@
+ #define SYSOSCCTRL_Val        0x00000000              // Reset: 0x000
+ #define WDTOSCCTRL_Val        0x00000000              // Reset: 0x000
+ #define SYSPLLCTRL_Val        0x00000023              // Reset: 0x000
+-#define SYSPLLCLKSEL_Val      0x00000001              // Reset: 0x000
++#define SYSPLLCLKSEL_Val      0x00000000              // Reset: 0x000
+ #define MAINCLKSEL_Val        0x00000003              // Reset: 0x000
+ #define SYSAHBCLKDIV_Val      0x00000001              // Reset: 0x001
+ #define USBPLLCTRL_Val        0x00000023              // Reset: 0x000
+-#define USBPLLCLKSEL_Val      0x00000001              // Reset: 0x000
++#define USBPLLCLKSEL_Val      0x00000000              // Reset: 0x000
+ #define USBCLKSEL_Val         0x00000000              // Reset: 0x000
+ #define USBCLKDIV_Val         0x00000001              // Reset: 0x001
+ 
+@@ -384,7 +384,7 @@
+  *         Initialize the System.
+  */
+ void SystemInit (void) {
+-  volatile uint32_t i;
++//  volatile uint32_t i;
+ 
+ #if (CLOCK_SETUP)                                 /* Clock Setup              */
+ 
+Only in ./lpc11/: system_LPC11Uxx.h
+Only in ./lpc11/: usb
