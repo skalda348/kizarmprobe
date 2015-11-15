@@ -5,7 +5,7 @@
 #include <netinet/in.h>
 #include "baselayer.h"
 
-#define SOCKBUFLEN 64
+#define SOCKBUFLEN 1024
 
 
 
@@ -23,7 +23,7 @@ class CDClass : public BaseLayer {
     int       sockFd, conFd;
     pthread_t rec;
     struct    sockaddr_in cliaddr;
-    char      buf [SOCKBUFLEN];
+    char      buf [SOCKBUFLEN+2];
 };
 
 #endif // SOCKET_H

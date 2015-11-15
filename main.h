@@ -232,6 +232,11 @@
  * Nově doplněna jako platforma na které to může běžet STM32F4 Discovery. Není to sice nic užitečného,
  * protože F4 je dělo na komára, ale ukazuje se, jak snadné je portovat to na jinou architekturu.
  *
+ * 11.2015 - Doplněno o inf pro Windows (plná verze se 2 CDC), test na Windows 7 - moc to nefunguje.
+ * Protože nebylo jasné, zda jsou na vině ovladače CDC nebo gdb pod Windows funguje jinak, přidán jednoduchý
+ * bridge pro Linux, který pouze přeposílá pakety mezi /dev/ttyACM0 a TCP soketem na portu 3333, přičemž
+ * vypisuje přeposílaná data. Tím jsem zjistil, že na vině není gdb, to funguje na Win stejně.
+ * Prostě ten obecný ovladač CDC ve Windows je divný, čímž pokusy s tímto "operačním systémem" končím.
  * 
  * @section sectF Zdrojáky.
  * Jsou dostupné na sourceforge jen pomocí subversion :
