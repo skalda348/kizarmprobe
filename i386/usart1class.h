@@ -15,6 +15,7 @@
 class Usart1Class : public BaseLayer {
   public:
     Usart1Class   (uint32_t baud, const char* name);
+    uint32_t  Up  (char* data, uint32_t len);
     uint32_t  Down(char* data, uint32_t len);
    ~Usart1Class   ();
   protected:

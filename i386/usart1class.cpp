@@ -22,7 +22,7 @@ Usart1Class::Usart1Class (uint32_t baud, const char* name) : BaseLayer() {
   LineFlags.c_cflag = CS8 | CREAD | CLOCAL; // 8-bit, povol prijem
   LineFlags.c_lflag = 0;                // Raw input bez echa
   LineFlags.c_cc [VMIN]  = 1;           // minimalni pocet znaku pro cteni
-  LineFlags.c_cc [VTIME] = 0;           // timer nepouzit
+  LineFlags.c_cc [VTIME] = 1;           // read timeout 0.1 s
   
   cfsetospeed (&LineFlags, baud);
   cfsetispeed (&LineFlags, baud);
@@ -42,23 +42,25 @@ Usart1Class::~Usart1Class() {
   ::close (fd);
   printf ("Port %s closed\r\n", id);
 }
+uint32_t Usart1Class::Up (char * data, uint32_t len) {
+  data [len] = '\0';
+  printf ("%s.Up   %3d:\"%s\"\r\n", id, len, data);
+  return BaseLayer::Up (data, len);
+}
 
 uint32_t Usart1Class::Down (char* data, uint32_t len) {
   if (!running) return 0;
   data [len] = '\0';
-  printf ("\n%s.Down %3d:\"%s\"\r\n", id, len, data);
+  printf ("%s.Down %3d:\"%s\"\r\n", id, len, data);
   return (uint32_t) ::write (fd, data, len);
 }
 
 void Usart1Class::ReadLoop (void) {
-  int n; char c;
+  int n;
   while (running) {
-    // Nutno číst po jednom, jinak to po prvním čtení zdechne.
-    n = ::read (fd, rxbuf, 1);
+    // Nutno číst po jednom nebo použít timer, jinak to po prvním čtení zdechne.
+    n = ::read (fd, rxbuf, 256);
     if (!n) continue;
-    c = rxbuf[0];
-    putchar (c);
-    // debug ("%s: read %d \"%s\"\r\n", id, n, rxbuf);
-    BaseLayer::Up (rxbuf, n);
+    Up (rxbuf, n);
   }
 }
