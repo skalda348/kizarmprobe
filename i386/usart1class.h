@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <pthread.h>
 #include <stdint.h>
+#include <termios.h>
 #include "baselayer.h"
 
 #define BUFLEN 1024

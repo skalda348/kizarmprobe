@@ -5,7 +5,7 @@
 
 static Mirror      top;
 static CDClass     cdc    (0);
-static Usart1Class serial (57600, "/dev/ttyACM0");
+static Usart1Class serial (B9600, "/dev/ttyACM0");
 
 static void signothing (int sig) {
   printf ("Ctrl-C received\n");

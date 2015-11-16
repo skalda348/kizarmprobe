@@ -1,5 +1,3 @@
-#include <termios.h>
-
 #include "usart1class.h"
 
 
